@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_171453) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_195327) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,8 +21,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_171453) do
     t.text "others_tasks"
     t.float "deposit"
     t.integer "status"
+    t.bigint "requester_id"
+    t.bigint "collaborator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["collaborator_id"], name: "index_offers_on_collaborator_id"
+    t.index ["requester_id"], name: "index_offers_on_requester_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.float "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "offer_id", null: false
+    t.index ["offer_id"], name: "index_reviews_on_offer_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,4 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_171453) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "offers", "users", column: "collaborator_id"
+  add_foreign_key "offers", "users", column: "requester_id"
+  add_foreign_key "reviews", "offers"
+  add_foreign_key "reviews", "users"
 end
