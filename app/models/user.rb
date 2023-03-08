@@ -11,6 +11,6 @@ class User < ApplicationRecord
   validates :first_name, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
   validates :last_name, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
   validates :nickname, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
-  validates :phone_number, presence: true, length: { minimum: 10 }, numericality: { only_integer: true }
+  validates :phone_number, presence: true, length: { minimum: 10 }
   validates :location, presence: true
 end
