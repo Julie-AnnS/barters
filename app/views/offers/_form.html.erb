@@ -3,7 +3,7 @@
 <%= simple_form_for(@offers) do |f| %>
 
   <div class="offers_form">
-    <%= f.input :requestor%>
+    <%= f.input :requester%>
     <%= f.input :collaborator %>
     <%= f.input :my_tasks %>
     <%= f.input :others_tasks %>
@@ -19,3 +19,5 @@
     <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
+
+<%= render "views/offers/index" %>
