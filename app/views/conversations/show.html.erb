@@ -1,6 +1,14 @@
 <h1>Conversation</h1>
 <% if @conversation.messages.empty? %>
   <%= "No messages" %>
+  <%= simple_form_for [@conversation, @message], html: {class: "d-flex"} do |f| %>
+      <%= f.input :content,
+                  label: false,
+                  placeholder: "Message #{User.find(@conversation.participant_two_id).first_name}",
+                  wrapper_html: {class: "flex-grow-1"}
+                %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
 <% else %>
 <div class="chatroom">
   <div class="messages">
@@ -18,7 +26,7 @@
   <%= simple_form_for [@conversation, @message], html: {class: "d-flex"} do |f| %>
       <%= f.input :content,
                   label: false,
-                  placeholder: "Message #{User.find(@conversation.participant_one_id).first_name}",
+                  placeholder: "Message #{User.find(@conversation.participant_two_id).first_name}",
                   wrapper_html: {class: "flex-grow-1"}
                 %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
