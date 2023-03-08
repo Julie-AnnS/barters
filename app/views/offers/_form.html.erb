@@ -1,0 +1,14 @@
+<%= simple_form_for(@offers) do |f| %>
+
+  <div class="card1">
+    <%= f.input :requestor%>
+    <%= f.input :collaborator %>
+    <%= f.input :my_tasks %>
+    <%= f.input :others_tasks %>
+    <%= f.input :start date %>
+    <%= f.input :end date%>
+    <%= f.input :deposit %>
+    <%= f.input :status %>
+    <%= f.button :submit, class: 'btn1' %>
+  </div>
+<% end %>
