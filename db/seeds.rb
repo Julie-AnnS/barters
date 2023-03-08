@@ -67,7 +67,7 @@ msg2 = Message.create!(
   content: "hi",
   conversation: convo1,
   user: user2
-
+)
 #require "open-uri"
 #require "faker"
 
