@@ -1,0 +1,10 @@
+<h1>Conversation</h1>
+<% if @conversation.messages.empty? %>
+  <%= "No messages" %>
+<% else %>
+<ul>
+  <% @conversation.messages.each do |message| %>
+    <li><%= message.content %></li>
+  <% end %>
+</ul>
+<% end %>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #if @user and current_user have a convo
+    @existing_conversation = Conversation.get_conversation(current_user, @user).first
       # find said convo
     # else
       #@conversation = Conversation.create

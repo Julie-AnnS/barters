@@ -1,2 +1,10 @@
 <h1>This is the show </h1>
 <h2>Here is where I can see the details of the artist <h2>
+
+<% unless current_user == @user %>
+  <% if @existing_conversation.nil? %>
+    <%= button_to "Contact me", conversations_path, params: { artist_id: @user.id } %>
+  <% else %>
+    <%= link_to "Contact me", conversation_path(@existing_conversation) %>
+  <% end %>
+<% end %>
