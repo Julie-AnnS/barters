@@ -14,5 +14,4 @@
   <% end %>
 <% end %>
 
-<%= button_to "Make an offer", offers_new_path, params: { offer_id: @user.id } %>
- <%= link_to "Make an offer", offers_new_path(@new) %>
+<%= link_to "Make an offer", offers_new_path(@user) %>
