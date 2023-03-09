@@ -4,26 +4,26 @@ import { createConsumer } from "@rails/actioncable"
 // Connects to data-controller="chatroom-subscription"
 export default class extends Controller {
   static targets = [ 'messages' ]
-  static values = { chatroomId: Number }
+  static values = { conversationId: Number }
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
-      { channel: 'ChatroomChannel', id: this.chatroomIdValue },
+      { channel: 'ConversationChannel', id: this.conversationIdValue },
       { received: message => this.#insertMessageAndScrollDown(message) }
     )
   }
 
   #insertMessageAndScrollDown(message) {
+    console.log("what")
     this.messagesTarget.insertAdjacentHTML('beforeend', message)
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    window.scrollTo(0, document.body.scrollHeight, {top: 0, behavior: 'smooth'})
   }
 
-  reset(event) {
+  resetForm(event) {
     event.target.reset()
   }
 
   disconnect() {
-    console.log('Left the channel');
     this.channel.unsubscribe()
   }
 }
