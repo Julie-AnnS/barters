@@ -7,13 +7,13 @@
   <div class="container" id="artists" >
     <div class="row">
        <% @users.each do |user| %>
-      <li> First Name: <%=user.first_name %> </li>
-      <li>Last Name: <%=user.last_name %> </li>
-      <li>Nickname: <%=user.nickname %> </li>
-      <li>Phone number: <%=user.phone_number %> </li>
-      <li>Location: <%=user.location %> </li>
-      <li>Language: <%=user.language %> </li>
-      <li>Email: <%=user.email %> </li>
+        <li> First Name: <%=link_to user.first_name, artist_path(user)%> </li>
+        <li>Last Name: <%=user.last_name %> </li>
+        <li>Nickname: <%=user.nickname %> </li>
+        <li>Phone number: <%=user.phone_number %> </li>
+        <li>Location: <%=user.location %> </li>
+        <li>Language: <%=user.language %> </li>
+        <li>Email: <%=user.email %> </li>
       <% end %>
     </div>
   </div>
