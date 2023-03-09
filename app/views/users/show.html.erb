@@ -1,3 +1,5 @@
+<h1>apps views users "'show.html.erb'" </h1>
+
 <h1>This is the show </h1>
 <h2>Here is where I can see the details of the artist <h2>
 <h4> <%= @user.first_name %> </h4>
@@ -11,3 +13,6 @@
     <%= link_to "Contact me", conversation_path(@existing_conversation) %>
   <% end %>
 <% end %>
+
+<%= button_to "Make an offer", offers_new_path, params: { offer_id: @user.id } %>
+ <%= link_to "Make an offer", offers_new_path(@new) %>

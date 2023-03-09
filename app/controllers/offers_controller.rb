@@ -6,11 +6,12 @@ class OffersController < ApplicationController
   end
 
   def new
-    @collaborator = User.find(params[:user_id])
+    @collaborator = User.find(params[:id])
     @offer = Offer.new
   end
 
   def show
+    @offer = Offer.find(params[:id])
   end
 
   def create
