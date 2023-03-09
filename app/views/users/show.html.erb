@@ -1,8 +1,42 @@
-<h1>This is the show </h1>
-<h2>Here is where I can see the details of the artist <h2>
-<h4> <%= @user.first_name %> </h4>
-<h4> <%= @user.last_name %> </h4>
-<h4> <%= @user.nickname %> </h4>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link "rel=stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <img src="" id="logo">
+       search bar
+       icons
+       avatar
+    </div>
+      <div class="container">
+        <div class="card" id="index_show_card">
+        <% @users.each do |user| %>
+            <img src="" class="user_artwork">
+        </div>
+        <div class="tube" id="index_show_tube">
+          avatar
+          name
+          rating
+        <div class="button" id="see_profile_button"> <!-- This is the "See profile" button -->
+        <h1>Annie's artwork</h1>  <!-- Maybe we dont need this -->
+        <div  class="box" id="artwork_description">
+          <h2>Embroidered kitchen towel</h2>
+          <p>All my tea towels are made from organic cotton. The embroidery patterns vary and there are two available towels sizes: 20x20x60 or 30x30x80.
+        </div>
+      </div>
+      <div class="container">
+        <h1>Annie's other artwork:</h1>
+          <div class="d-flex justify-content-between">
+          <% @users.each do |user| %>
+          <img src="" class="user_artwork">  <!-- These are all the artwork cards at the bottom -->
+      </div>
+
+
+
+
+
 
 <% unless current_user == @user %>
   <% if @existing_conversation.nil? %>
