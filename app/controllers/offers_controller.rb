@@ -11,7 +11,6 @@ class OffersController < ApplicationController
   end
 
   def show
-    @offer = Offer.find(params[:id])
   end
 
   def create
@@ -20,7 +19,7 @@ class OffersController < ApplicationController
     @offer.requester = current_user
     @offer.collaborator = @collaborator
     if @offer.save
-      redirect_to offers_path(@offer)
+      redirect_to offers_create_path(@offer)
     else
       render :new, status: :unprocessable_entity
     end

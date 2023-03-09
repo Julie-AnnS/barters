@@ -1,3 +1,26 @@
 <h1>app views offers "'index.html.erb'"" </h1>
 <h2>Please fill out the offer form</h2>
 <h2>this is the index of offers</h2>
+
+
+<p style="color: blue"><%= notice %></p>
+
+<h1>Offers</h1>
+
+<div id="offers">
+  <% @offers.each do |offer| %>
+    <li><%= "Offer with : #{offer.collaborator.first_name}"%></li>
+     <li><%= "from #{offer.start_date}"%></li>
+     <li><%= "to #{offer.end_date}"%></li>
+     <li><%= "My tasks: #{offer.my_tasks}"%></li>
+     <li><%= "#{offer.collaborator.first_name}'s tasks: #{offer.others_tasks}"%></li>
+    <li><%= "Deposit: $#{offer.deposit}"%></li>
+    <p>
+      <%#= button_to "OFFER DETAILS", show_booking_path(booking), class: 'btn1' %>
+      <% if offer.collaborator != current_user %>
+        <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch %>
+        <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch %>
+      <% end %>
+    </p>
+  <% end %>
+</div>
