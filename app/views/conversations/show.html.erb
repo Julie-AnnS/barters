@@ -1,7 +1,10 @@
 <h1>Conversation</h1>
 <% if @conversation.messages.empty? %>
   <%= "No messages" %>
-  <%= simple_form_for [@conversation, @message], html: {class: "d-flex"} do |f| %>
+  <%= simple_form_for [@conversation, @message],
+    html: {
+      data: { action: 'turbo:submit-end->chatroom-subscription#reset' },
+      class: "d-flex" } do |f| %>
       <%= f.input :content,
                   label: false,
                   placeholder: "Message #{User.find(@conversation.participant_two_id).first_name}",
@@ -11,19 +14,16 @@
   <% end %>
 <% else %>
 <div class="chatroom">
-  <div class="messages">
-    <% @conversation.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.nickname %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
+  <div class="messages" data-chatroom-subscription-target="messages">
+    <% @chatroom.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
     <% end %>
   </div>
 </div>
-  <%= simple_form_for [@conversation, @message], html: {class: "d-flex"} do |f| %>
+  <%= simple_form_for [@conversation, @message],
+    html: {
+      data: { action: 'turbo:submit-end->chatroom-subscription#reset' },
+      class: "d-flex" } do |f| %>
       <%= f.input :content,
                   label: false,
                   placeholder: "Message #{User.find(@conversation.participant_two_id).first_name}",
