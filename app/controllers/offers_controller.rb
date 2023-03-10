@@ -2,7 +2,7 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[show edit update destroy accept decline]
 
   def index
-    @offers = Offer.where(user: current_user)
+    @offers = Offer.where(requester: current_user)
   end
 
   def new
@@ -58,7 +58,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:start_date, :end_date, :my_tasks, :others_tasks, :deposit, :status, :requester_id, :collaborator_id)
+    params.require(:offer).permit(:start_date, :end_date, :my_tasks, :others_tasks, :deposit)
   end
 
   def set_offer
