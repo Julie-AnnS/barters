@@ -1,17 +1,52 @@
-<h2>Here is where I can see the details of the artist <h2>
-<h4>Artist name: <%= @user.first_name %> <%= @user.last_name %></h4>
-<h4><%= @user.nickname %> </h4>
-<h4>Phone number: <%= @user.phone_number %> </h4>
-<h4>Email: <%= @user.email %> </h4>
-<h4>Location: <%= @user.location %> </h4>
-<h4>Spoken languages: <%= @user.language %> </h4>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link "rel=stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- <div class="navbar"> -->
+    <!-- <img src="" id="logo"> -->
+    <!-- search bar -->
+    <!--  icons -->
+    <!-- avatar --> 
+    </div>
+      <div class="container">
+        <div class="card" id="artist-info">
+          <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+          <h4><%= @user.nickname %> </h4>
+          <h4>Phone number: <%= @user.phone_number %> </h4>
+          <h4>Email: <%= @user.email %> </h4>
+          <h4>Location: <%= @user.location %> </h4>
+          <h4>Spoken languages: <%= @user.language %> </h4>
+        </div>
+        <div class="tube" id="index_show_tube">
+           <!-- avatar --> 
+           <!-- name  --> 
+           <!-- rating  --> 
+        </div> 
+        <img src="" class="user_artwork">
+        <h1>Annie's artwork</h1>
+        <div class="box" id="artwork_description">
+          <h2>Embroidered kitchen towel</h2>
+          <p>All my tea towels are made from organic cotton. The embroidery patterns vary and there are two available towels sizes: 20x20x60 or 30x30x80.
+        </div>
+      </div>
+      <div class="container">
+        <h1>Annie's other artwork:</h1>
+          <div class="d-flex justify-content-between">
+            <!-- <% @photos.each do |photo| %> --> 
+            <img src="" class="user_artwork">  <!-- These are all the artwork cards at the bottom -->
+          </div>
+      </div>
 
-<% unless current_user == @user %>
-  <% if @existing_conversation.nil? %>
-    <%= button_to "Contact me", conversations_path, params: { artist_id: @user.id } %>
-  <% else %>
-    <%= link_to "Contact me", conversation_path(@existing_conversation) %>
-  <% end %>
-<% end %>
-
-<%= link_to "Make an offer", offers_new_path(@user) %>
+    <% unless current_user == @user %>
+      <% if @existing_conversation.nil? %>
+        <%= button_to "Contact me", conversations_path, params: { artist_id: @user.id } %>
+      <% else %>
+        <%= link_to "Contact me", conversation_path(@existing_conversation) %>
+      <% end %>
+    <% end %>
+    <%= link_to "Make an offer", offers_new_path(@user) %>
+  </body>
+<html>
+  
