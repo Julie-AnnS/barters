@@ -1,23 +1,13 @@
 <h2>Please fill out the offer form</h2>
 
-<%= simple_form_for(@offers) do |f| %>
+<%= simple_form_for([@collaborator, @offer]) do |f| %>
 
   <div class="offers_form">
-    <%= f.input :requester%>
-    <%= f.input :collaborator %>
     <%= f.input :my_tasks %>
     <%= f.input :others_tasks %>
     <%= f.input :start_date %>
-    <%= f.input :end_date%>
+    <%= f.input :end_date %>
     <%= f.input :deposit %>
-    <%= f.input :status %>
-    <%= f.button :submit, class: 'btn1' %>
-  </div>
-<% end %>
-
- <div class="form-actions">
     <%= f.button :submit, "Confirm offer" %>
   </div>
 <% end %>
-
-<%= render "views/offers/index" %>

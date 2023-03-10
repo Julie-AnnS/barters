@@ -1,18 +1,15 @@
-<h1>Sent offers</h1>
-<p style="color: blue"><%= notice %></p>
+<h1>Offers for me</h1>
 
 <div id="offers">
   <% @offers.each do |offer| %>
-    <li>Working with: <%= offer.collaborator.first_name %></li>
+    <li>Offer from: <%= offer.collaborator.first_name %></li>
     <li>from: <%= offer.start_date %></li>
     <li>to: <%= offer.end_date %></li>
-    <li>My tasks: <%= offer.my_tasks %></li>
-    <li><%= offer.collaborator.first_name %>'s tasks: <%= offer.others_tasks %></li>
+    <li>My tasks: <%= offer.others_tasks %></li>
+    <li><%= offer.requester.first_name %>'s tasks: <%= offer.my_tasks %></li>
     <li>Deposit: $<%= offer.deposit %></li>
-    <li>Status: <%= offer.status %></li>
-    <br>
     <p>
-      <% if offer.requester != current_user %>
+      <% if offer.pending? %>
         <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch %>
         <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch %>
       <% end %>

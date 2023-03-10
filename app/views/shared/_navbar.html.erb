@@ -8,20 +8,25 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%= render "shared/search_bar" %>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", "/", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "/users/index", "/artists", class: "nav-link" %>
+            <%= link_to "artist list", "/artists", class: "nav-link" %>
           </li>
           <%# <li class="nav-item">
             <%= link_to "/users/show", "/artists/", class: "nav-link" %>
           <%# </li> %>
           <li class="nav-item">
-            <%= link_to "/offers/index", "/offers/", class: "nav-link" %>
+            <%= link_to "offers sent", "/offers/", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "offers received", "/my_offers/", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.nickname %></a>

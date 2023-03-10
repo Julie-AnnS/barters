@@ -4,29 +4,32 @@
     <link "rel=stylesheet" href="style.css">
   </head>
   <body>
-    <div class="navbar">
-      <img src="" id="logo">
-       search bar
-       icons
-       avatar
-    </div>
-      <div class="container" id="index_results">
-        <h1>14 people found near you</h1>
-        <div> <!-- This is the div that contains the cards divs -->
-           <div class="d-flex justify-content-between"> <!-- This is the div for each card -->
-            <% @users.each do |user| %>
-              <img src="" class="index_card_images"> <!-- These are the index cards -->
-                <p><%=link_to user.first_name, artist_path(user)%></p>
-                <p><%=user.last_name %></p>
-                <p>Skill</p>
-                <p>Rating</p>
-                <p><%=user.location %></p>
+    <!-- <div class="navbar"> -->
+     <!-- <img src="" id="logo"> -->
+      <!-- search bar -->
+      <!-- icons -->
+      <!-- avatar -->
+      <!--  </div> -->
+    <div class="container" id="artists">
+      <h1>14 people found near you</h1>
+      <div> <!-- This is the div that contains the cards divs -->
+         <div class="d-flex justify-content-between"> <!-- This is the div for each card -->
+          <% @users.each do |user| %>
+            <img src="" class="index_card_images"> <!-- These are the index cards -->
+              <li>"First Name:" <%= link_to user.first_name, artist_path(user) %></li>
+              <li>"Last Name:" <%= user.last_name %></li>
+              <li>"Nickname:" <%= user.nickname %></li>
+              <li>"Phone number:" <%= user.phone_number %></li>
+              <li>"Location:" <%= user.location %></li>
+              <li>"Language:" <%= user.language %></li>
+              <li>"Email:" <%= user.email %></li>
+            <br>
           </div>
         </div>
       </div>
-      <div>
-        map
-      </div>
+    <div>
+     <!-- map -->
+    </div>
     </body>
   </html>
 <!-- end of file -->
