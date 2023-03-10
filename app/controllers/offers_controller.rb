@@ -19,7 +19,7 @@ class OffersController < ApplicationController
     @offer.requester = current_user
     @offer.collaborator = @collaborator
     if @offer.save
-      redirect_to offers_create_path(@offer)
+      redirect_to offers_path
     else
       render :new, status: :unprocessable_entity
     end

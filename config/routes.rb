@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post 'conversations/:conversation_id/messages', to: "messages#create", as: :conversation_messages
   get 'offers', to: 'offers#index'
   get 'artists/:id/offers/new', to: "offers#new", as: :offers_new
-  post '/artists/:id/offers', to: "offers#create"
+  post '/artists/:id/offers', to: "offers#create", as: :user_offers
   get 'offers/:id', to: 'offers#show', as: :offer
   get 'offers/:offer_id/review', to: "reviews#new", as: :reviews
 
