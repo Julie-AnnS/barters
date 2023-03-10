@@ -5,6 +5,10 @@ class OffersController < ApplicationController
     @offers = Offer.where(requester: current_user)
   end
 
+  def my_offers
+    @offers = Offer.where(collaborator: current_user)
+  end
+
   def new
     @collaborator = User.find(params[:id])
     @offer = Offer.new
@@ -40,18 +44,18 @@ class OffersController < ApplicationController
 
   def accept
     if @offer.accepted!
-      redirect_to offers_path, notice: 'Offer accepted'
+      redirect_to my_offers_path, notice: 'Offer accepted'
     else
-      redirect_to offers_path, notice: 'Offer could not be accepted - please try again'
+      redirect_to my_offers_path, notice: 'Offer could not be accepted - please try again'
     end
   end
 
   def decline
     if @offer.declined!
-      redirect_to offers_path, notice: 'Offer rejected'
+      redirect_to my_offers_path, notice: 'Offer rejected'
       @offer.destroy
     else
-      redirect_to offers_path, notice: 'Offer could not be rejected - please try again'
+      redirect_to my_offers_path, notice: 'Offer could not be rejected - please try again'
     end
   end
 
