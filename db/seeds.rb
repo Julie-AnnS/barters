@@ -7,9 +7,9 @@ User.destroy_all
 user1 = User.create!(
   email: "a@a.a",
   password: "123456",
-  first_name: "Julie-Ann",
-  last_name: "Selman",
-  nickname: "julieann",
+  first_name: "Annie",
+  last_name: "Smith",
+  nickname: "Annie Smith Apple",
   phone_number: "1234567891",
   location: "Montreal",
   language: "English"
@@ -18,23 +18,23 @@ user1 = User.create!(
 user2 = User.create!(
   email: "b@b.b",
   password: "123456",
-  first_name: "Nilsu",
-  last_name: "Duran",
-  nickname: "nilsu",
+  first_name: "Vincent",
+  last_name: "Van Gogh",
+  nickname: "the one ear wonder",
   phone_number: "1234567892",
-  location: "Istanbul",
-  language: "Turkish"
+  location: "France",
+  language: "Dutch"
 )
 
 user3 = User.create!(
   email: "c@c.c",
   password: "123456",
-  first_name: "Quentin",
-  last_name: "Doulcet",
-  nickname: "quentin",
+  first_name: "Bob",
+  last_name: "Ross",
+  nickname: "bob.ross",
   phone_number: "1234567893",
-  location: "Paris",
-  language: "French"
+  location: "Montreal",
+  language: "English"
 )
 
 offer = Offer.create!(
