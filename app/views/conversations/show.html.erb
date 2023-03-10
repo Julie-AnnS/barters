@@ -1,34 +1,39 @@
-<h1>Conversation</h1>
-<% if @conversation.messages.empty? %>
-  <%= "No messages" %>
-  <%= simple_form_for [@conversation, @message], html: {class: "d-flex"} do |f| %>
-      <%= f.input :content,
-                  label: false,
-                  placeholder: "Message #{User.find(@conversation.participant_two_id).first_name}",
-                  wrapper_html: {class: "flex-grow-1"}
-                %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
-<% else %>
-<div class="chatroom">
-  <div class="messages">
+<h1>Conversation with
+    <% if @conversation.participant_one_id == current_user.id %>
+      <%= User.find(@conversation.participant_two_id).first_name %>
+    <% else %>
+      <%= User.find(@conversation.participant_one_id).first_name %>
+    <% end %></h1>
+<div class="conversation"
+  data-controller="conversation-subscription"
+  data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
+  <div class="messages" data-conversation-subscription-target="messages">
+  <% if @conversation.messages.empty? %>
+      <p>No messages</p>
+  <% else %>
     <% @conversation.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.nickname %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
+      <%= render "messages/message", message: message %>
     <% end %>
+  <% end %>
   </div>
-</div>
-  <%= simple_form_for [@conversation, @message], html: {class: "d-flex"} do |f| %>
+  <%= simple_form_for [@conversation, @message],
+    html: {
+      data: { action: 'turbo:submit-end->conversation-subscription#resetForm' },
+      class: "d-flex" } do |f| %>
       <%= f.input :content,
                   label: false,
-                  placeholder: "Message #{User.find(@conversation.participant_two_id).first_name}",
+                  placeholder: "Shoot them a message!",
                   wrapper_html: {class: "flex-grow-1"}
                 %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
+</div>
+
+<% if @conversation.participant_one_id == current_user.id %>
+  <% @user = User.find(@conversation.participant_two_id)%>
+<% else %>
+  <% @user = User.find(@conversation.participant_one_id) %>
 <% end %>
+<div>
+  <%= link_to "Go back to their profile", artist_path(@user) %>
+</div>
