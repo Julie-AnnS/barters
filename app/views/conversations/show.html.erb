@@ -27,5 +27,13 @@
                 %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
+</div>
 
+<% if @conversation.participant_one_id == current_user.id %>
+  <% @user = User.find(@conversation.participant_two_id)%>
+<% else %>
+  <% @user = User.find(@conversation.participant_one_id) %>
+<% end %>
+<div>
+  <%= link_to "Go back to their profile", artist_path(@user) %>
 </div>
