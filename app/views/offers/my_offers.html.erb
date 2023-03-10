@@ -2,7 +2,7 @@
 
 <div id="offers">
   <% @offers.each do |offer| %>
-    <li>Offer from: <%= offer.collaborator.first_name %></li>
+    <li>Offer from: <%= offer.requester.first_name %></li>
     <li>from: <%= offer.start_date %></li>
     <li>to: <%= offer.end_date %></li>
     <li>My tasks: <%= offer.others_tasks %></li>

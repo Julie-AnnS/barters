@@ -41,7 +41,7 @@ offer = Offer.create!(
   start_date: DateTime.new(2023, 3, 8, 4, 5, 6),
   end_date: DateTime.new(2023, 3, 10, 4, 5, 6),
   my_tasks: "I will paint",
-  others_tasks: "She will play music",
+  others_tasks: "You will play music",
   deposit: 250,
   status: "pending",
   requester_id: user1.id,
