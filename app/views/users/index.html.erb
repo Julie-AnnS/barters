@@ -1,20 +1,14 @@
-<h1>apps views users "'index.html.erb'" </h1>
-<h1>bla bla bla</h1>
-<h2> This is where all the artists who match the search by craft and location </h2>
-
-
-
-
+<h1> This is where all the artists who match the search by craft and location </h1>
   <div class="container" id="artists" >
     <div class="row">
        <% @users.each do |user| %>
-        <li> First Name: <%=link_to user.first_name, artist_path(user)%> </li>
-        <li>Last Name: <%=user.last_name %> </li>
-        <li>Nickname: <%=user.nickname %> </li>
-        <li>Phone number: <%=user.phone_number %> </li>
-        <li>Location: <%=user.location %> </li>
-        <li>Language: <%=user.language %> </li>
-        <li>Email: <%=user.email %> </li>
+          <%= "First Name:" link_to user.first_name, artist_path(user) %>
+          <%= "Last Name:" user.last_name %>
+          <%= "Nickname:" user.nickname %>
+          <%= "Phone number:" user.phone_number %>
+          <%= "Location:" user.location %>
+          <%= "Language:" user.language %>
+          <%= "Email:" user.email %>
       <% end %>
     </div>
   </div>
