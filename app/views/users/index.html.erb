@@ -12,7 +12,7 @@
       <!--  </div> -->
     <div class="container" id="artists">
       <div class="row">
-        <h1><%= @users.length-1 %> barters found near you</h1>
+        <h1><%= pluralize @users.length-1, "barter" %> found near you</h1>
           <div class="col-6"> <!-- This is the div that contains the cards divs -->
               <div class=""> <!-- This is the div for each card -->
                 <% @users.each do |user| %>
