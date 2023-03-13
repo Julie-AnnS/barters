@@ -1,44 +1,45 @@
 <div class="" id="<%= dom_id offer %>">
-  <h4>
-    <strong>Offer with: </strong><%= offer.collaborator.first_name %>
-  </h4>
+  <h1> Offer details: </h1>
+    <p>
+      Offer with: <%= offer.collaborator.first_name %>
+    </p>
 
-  <h4>
-    <strong>From: </strong>
-    <%= offer.start_date %>
-  </h4>
+    <p>
+      From:
+      <%= offer.start_date %>
+    </p>
 
-  <h4>
-    <strong>To: </strong><%= offer.end_date %>
-  </h4>
+    <p>
+      To: </strong><%= offer.end_date %>
+    <p>
 
-  <h4>
-    <strong>My tasks:</strong>
-    <%= offer.my_tasks %>
-  </h4>
+    <p>
+     My task:
+      <%= offer.my_tasks %>
+    <p>
 
-  <h4>
-    <strong><%= offer.collaborator.first_name %>'s tasks:</strong>
-    <%= offer.others_tasks %>
-  </h4>
+    <p>
+      <%= offer.collaborator.first_name %>'s tasks:
+      <%= offer.others_tasks %>
+    </p>
 
-  <h4>
-    <strong>Deposit:</strong>
-    <%= offer.deposit %>
-  </h4>
+    <p>
+      Deposit:
+      <%= offer.deposit %>
+    </p>
 
-  <h4>
-    <strong>Status:</strong>
-    <%= offer.status %>
-  </h4>
+    <p>
+      Status:
+      <%= offer.status %>
+    </p>
 
-  <h4>
-    <% if offer.requester != current_user && offer.pending? %>
-      <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch %>
-      <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch %>
-    <% end %>
-  </h4>
+    <p>
+      <% if offer.requester != current_user && offer.pending? %>
+        <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch %>
+        <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch %>
+      <% end %>
+    </p>
 
-  <%= link_to "Go back", offers_path %>
+    <%= link_to "Go back", offers_path %>
 </div>
 <br>
