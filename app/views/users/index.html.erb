@@ -1,16 +1,38 @@
-<h1> This is where all the artists who match the search by craft and location </h1>
-  <div class="container" id="artists">
-    <div class="row">
-       <% @users.each do |user| %>
-          <li>"First Name:" <%= link_to user.first_name, artist_path(user) %></li>
-          <li>"Last Name:" <%= user.last_name %></li>
-          <li>"Nickname:" <%= user.nickname %></li>
-          <li>"Phone number:" <%= user.phone_number %></li>
-          <li>"Location:" <%= user.location %></li>
-          <li>"Language:" <%= user.language %></li>
-          <li>"Email:" <%= user.email %></li>
-          <br>
-      <% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <link "rel=stylesheet" href="style.css"> -->
+  </head>
+  <body>
+    <!-- <div class="navbar"> -->
+     <!-- <img src="" id="logo"> -->
+      <!-- search bar -->
+      <!-- icons -->
+      <!-- avatar -->
+      <!--  </div> -->
+    <div class="container" id="artists">
+      <h1><%= @users.length-1 %> bARTers found near you</h1>
+      <div> <!-- This is the div that contains the cards divs -->
+         <div class=""> <!-- This is the div for each card -->
+          <% @users.each do |user| %>
+            <% unless user == current_user  %>
+              <img src="" class="index_card_images"> <!-- These are the index cards -->
+                <li>First Name: <%= link_to user.first_name, artist_path(user) %></li>
+                <li>Last Name: <%= user.last_name %></li>
+                <li>Nickname: <%= user.nickname %></li>
+                <li>Phone number: <%= user.phone_number %></li>
+                <li>Location: <%= user.location %></li>
+                <li>Language: <%= user.language %></li>
+                <li>Email: <%= user.email %></li>
+              <br>
+             <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <div>
+     <!-- map -->
     </div>
-  </div>
-</div>
+    </body>
+  </html>
+<!-- end of file -->
