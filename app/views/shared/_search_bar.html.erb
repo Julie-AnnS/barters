@@ -1,11 +1,11 @@
 <div class="searchbar-container">
   <div class="searchbar-iph-container">
     <div class="searchbar-icone-ph">
-      <img src="pinceau-dartiste.png" class="img-1" alt="">
+      <%= image_tag "pinceau-dartiste.png", class: "img-1"%>
       <input type="text" placeholder="Skills...">
     </div>
     <div class="searchbar-icone-ph">
-      <img src="localisateur.png" class="img-2" alt="">
+      <%= image_tag "localisateur.png", class: "img-2" %>
       <input list="location" placeholder="Location...">
       <datalist id="location">
           <option value="Montreal">
@@ -13,5 +13,8 @@
           <option value="Toronto">
       </datalist>
     </div>
+  </div>
+  <div class="searchbar-arrow">
+    <%= image_tag "fleche-droite.png", class: "arrow"%>
   </div>
 </div>
