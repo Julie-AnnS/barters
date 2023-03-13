@@ -1,38 +1,35 @@
-
-        <h1 class="title-index"><%= @users.length-1 %> barters found near you</h1>
-           <!-- This is the div that contains the cards divs -->
-
+<h1><%= pluralize @users.length-1, "barter" %> found near you</h1>
 <div class="main-index-container" id="artists">
   <div class="grid-index-container">
     <% @users.each do |user| %>
-    <% unless user == current_user %>
-      <div class="card-user">
-        <div class="card-img-container">
-            <%= image_tag"takumi.png", class:"img-card"%>
-        </div>
-          <div class="card-info-container">
-            <div class="card-info-name-skill">
-                <div class="name"> <%= link_to user.first_name, artist_path(user)%> <%= user.last_name %></div>
-                <div class="skill">Painting</div>
-            </div>
-            <div class="card-info-reviews-location">
-                <div class="review-container">
-                  <div class="review">5/5</div>
-                  <div class="review-location-icon">
-                    <i class="fa-solid fa-star"></i>
+      <% unless user == current_user %>
+        <div class="card-user">
+          <div class="card-img-container">
+              <%= image_tag"takumi.png", class:"img-card"%>
+          </div>
+            <div class="card-info-container">
+              <div class="card-info-name-skill">
+                  <div class="name"> <%= link_to user.first_name, artist_path(user)%> <%= user.last_name %></div>
+                  <div class="skill">Painting</div>
+              </div>
+              <div class="card-info-reviews-location">
+                  <div class="review-container">
+                    <div class="review">5/5</div>
+                    <div class="review-location-icon">
+                      <i class="fa-solid fa-star"></i>
+                    </div>
                   </div>
-                </div>
-                <div class="location-container">
-                  <div class="location"><%= user.location %></div>
-                  <div class="review-location-icon">
-                    <i class="fa-solid fa-location-dot"></i>
+                  <div class="location-container">
+                    <div class="location"><%= user.location %></div>
+                    <div class="review-location-icon">
+                      <i class="fa-solid fa-location-dot"></i>
+                    </div>
                   </div>
-                </div>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
-        <% end %>
+      <% end %>
   </div>
 
 

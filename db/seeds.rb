@@ -12,7 +12,11 @@ user1 = User.create!(
   nickname: "Annie Smith Apple",
   phone_number: "1234567891",
   location: "Montreal",
-  language: "English"
+  language: "English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "painting, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
 
 user2 = User.create!(
@@ -24,6 +28,10 @@ user2 = User.create!(
   phone_number: "1234567892",
   location: "Berlin",
   language: "Dutch"
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
 
 user3 = User.create!(
@@ -34,7 +42,11 @@ user3 = User.create!(
   nickname: "bob.ross",
   phone_number: "1234567893",
   location: "Dubaï",
-  language: "English"
+  language: "English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
 
 user4 = User.create!(
@@ -45,7 +57,11 @@ user4 = User.create!(
   nickname: "the",
   phone_number: "1234567892",
   location: "Nice",
-  language: "Dutch"
+  language: "Dutch",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
 
 user5 = User.create!(
@@ -56,7 +72,11 @@ user5 = User.create!(
   nickname: "bob",
   phone_number: "1234567893",
   location: "Toronto",
-  language: "English"
+  language: "English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
 
 user6 = User.create!(
@@ -67,7 +87,11 @@ user6 = User.create!(
   nickname: "the one",
   phone_number: "1234567892",
   location: "France",
-  language: "Dutch"
+  language: "Dutch",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
 
 user7 = User.create!(
@@ -78,7 +102,11 @@ user7 = User.create!(
   nickname: "wonder",
   phone_number: "1234567892",
   location: "Brest",
-  language: "Dutch"
+  language: "Dutch",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
 
 user8 = User.create!(
@@ -89,7 +117,26 @@ user8 = User.create!(
   nickname: "bob.rossez",
   phone_number: "1234567893",
   location: "Montreal",
-  language: "English"
+  language: "English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "painting, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
+)
+
+user4 = User.create!(
+  email: "d@d.d",
+  password: "123456",
+  first_name: "Edward",
+  last_name: "Munch",
+  nickname: "scream",
+  phone_number: "1234567893",
+  location: "Montreal",
+  language: "English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "writer",
+  currently_offering: "writer",
+  currently_looking: "musician"
 )
 
 user9 = User.create!(
@@ -100,7 +147,11 @@ user9 = User.create!(
   nickname: "Lol",
   phone_number: "1234567892",
   location: "France",
-  language: "Dutch"
+  language: "Dutch",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
 
 user10 = User.create!(
@@ -111,8 +162,13 @@ user10 = User.create!(
   nickname: "Lole",
   phone_number: "1234567892",
   location: "France",
-  language: "Dutch"
+  language: "Dutch",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
+
 offer = Offer.create!(
   start_date: DateTime.new(2023, 3, 8, 4, 5, 6),
   end_date: DateTime.new(2023, 3, 10, 4, 5, 6),
