@@ -1,20 +1,22 @@
-<h1>Conversation with
-    <% if @conversation.participant_one_id == current_user.id %>
-      <%= User.find(@conversation.participant_two_id).first_name %>
-    <% else %>
-      <%= User.find(@conversation.participant_one_id).first_name %>
-    <% end %></h1>
-<div class="conversation"
-  data-controller="conversation-subscription"
-  data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
-  <div class="messages" data-conversation-subscription-target="messages">
-  <% if @conversation.messages.empty? %>
-      <p>This is the beginning of your conversation!</p>
-  <% else %>
-    <% @conversation.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
-  <% end %>
+  <h1>Conversation with
+      <% if @conversation.participant_one_id == current_user.id %>
+        <%= User.find(@conversation.participant_two_id).first_name %>
+      <% else %>
+        <%= User.find(@conversation.participant_one_id).first_name %>
+      <% end %></h1>
+<div class="container-message">
+<div class="message-conversation-container">
+  <div class="conversation"
+    data-controller="conversation-subscription"
+    data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
+      <div class="messages" data-conversation-subscription-target="messages">
+      <% if @conversation.messages.empty? %>
+          <p>This is the beginning of your conversation!</p>
+      <% else %>
+        <% @conversation.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
+        <% end %>
+      <% end %>
   </div>
   <%= simple_form_for [@conversation, @message],
     html: {
@@ -29,11 +31,13 @@
   <% end %>
 </div>
 
-<% if @conversation.participant_one_id == current_user.id %>
-  <% @user = User.find(@conversation.participant_two_id)%>
-<% else %>
-  <% @user = User.find(@conversation.participant_one_id) %>
-<% end %>
-<div>
-  <%= link_to "Go back to their profile", artist_path(@user) %>
+  <% if @conversation.participant_one_id == current_user.id %>
+    <% @user = User.find(@conversation.participant_two_id)%>
+  <% else %>
+    <% @user = User.find(@conversation.participant_one_id) %>
+  <% end %>
+  <div>
+    <%= link_to "Go back to their profile", artist_path(@user) %>
+  </div>
+</div>
 </div>
