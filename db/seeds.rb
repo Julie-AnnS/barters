@@ -12,7 +12,11 @@ user1 = User.create!(
   nickname: "Annie Smith Apple",
   phone_number: "1234567891",
   location: "Montreal",
-  language: "English"
+  language: "English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "painting, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
 
 user2 = User.create!(
@@ -23,7 +27,11 @@ user2 = User.create!(
   nickname: "the one ear wonder",
   phone_number: "1234567892",
   location: "France",
-  language: "Dutch"
+  language: "Dutch",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "painting, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
 
 user3 = User.create!(
@@ -34,7 +42,11 @@ user3 = User.create!(
   nickname: "bob.ross",
   phone_number: "1234567893",
   location: "Montreal",
-  language: "English"
+  language: "English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "painting, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
 )
 
 offer = Offer.create!(
