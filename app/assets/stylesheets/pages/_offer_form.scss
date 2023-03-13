@@ -1,0 +1,71 @@
+.offer-form-box {
+  background-color: #FFF8DB;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 50px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  padding: 50px;
+  margin-bottom: 50px;
+}
+
+
+.offer-form-box h1 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.offer-form-box .form-text {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+
+// .offers_form input, .offers_form textarea, .offers_form select {
+//   border: 1px solid red
+// }
+
+
+.offer_my_tasks {
+  display: flex
+}
+
+.offer_others_tasks {
+  display: flex
+}
+
+.offer_start_date {
+  display: flex
+}
+
+.offer_end_date {
+  display: flex
+}
+
+.offer_deposit {
+  display: flex
+}
+
+.form-control {
+  width: 500px;
+  background-color: #E6F2F7;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+ .form-select {
+  background-color: #E6F2F7;
+  border-radius: 10px;
+  // box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+ }
+
+ .offer-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+ }
+
+ .btn-accept, .btn-decline {
+  margin-top: 20px;
+  width: 100px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+ }

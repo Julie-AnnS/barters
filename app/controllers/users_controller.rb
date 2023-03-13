@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.excluding(current_user)
+    if params[:query_services].present? || params[:query_location].present?
+      @users = User.search_artists("#{params[:query_services]} #{params[:query_location]}")
+    end
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
