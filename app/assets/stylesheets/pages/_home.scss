@@ -1,1 +1,81 @@
 // Specific CSS for your home-page
+body{
+  background-image: asset-url("background-home.svg");
+  // background-size: contain;
+  // background-repeat: no-repeat;
+  // background-position: top;
+}
+
+h1{
+  text-align: center;
+}
+
+.cards-container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-container{
+  width: 300px;
+  height: 370px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.img-container{
+  width: 150px;
+  height: 150px;
+}
+
+img{
+  width: 150px;
+  height: 150px;
+}
+
+h2{
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+}
+
+p{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 7px;
+}
+
+.form-1{
+  width: 200px;
+  height: 170px;
+  background-color: red;
+  border-radius: 54% 46% 56% 44% / 48% 23% 77% 52% ;
+  background: rgb(255,248,219);
+  background: linear-gradient(184deg, rgba(255,248,219,1) 0%, rgba(255,255,255,0) 78%);
+  display: flex;
+  justify-content: center;
+}
+
+.form-2{
+  width: 200px;
+  height: 170px;
+  background-color: red;
+  border-radius: 54% 46% 56% 44% / 48% 23% 77% 52% ;
+  background: rgb(103,188,217);
+  background: linear-gradient(184deg, rgba(103,188,217,1) 0%, rgba(255,255,255,0) 78%);
+  display: flex;
+  justify-content: center;
+}
+
+.form-3{
+  width: 200px;
+  height: 170px;
+  background-color: red;
+  border-radius: 54% 46% 56% 44% / 48% 23% 77% 52% ;
+  background: rgb(255,190,4);
+    background: linear-gradient(184deg, rgba(255,190,4,1) 0%, rgba(255,255,255,0) 78%);
+  display: flex;
+  justify-content: center;
+}
