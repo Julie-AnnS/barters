@@ -1,4 +1,4 @@
-<h2>Please fill out the offer form</h2>
+<h1> Make an offer to <%=@collaborator.first_name%> </h1>
 
 <%= simple_form_for([@collaborator, @offer]) do |f| %>
 
@@ -8,6 +8,8 @@
     <%= f.input :start_date %>
     <%= f.input :end_date %>
     <%= f.input :deposit %>
-    <%= f.button :submit, "Confirm offer" %>
+
+<%= link_to "Confirm", root_path , class: "btn btn-accept rounded-pill" %>
+<%= link_to "Cancel", root_path , class: "btn btn-decline rounded-pill" %>
   </div>
 <% end %>
