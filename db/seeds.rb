@@ -26,8 +26,8 @@ user2 = User.create!(
   last_name: "Van Gogh",
   nickname: "the one ear wonder",
   phone_number: "1234567892",
-  location: "France",
-  language: "Dutch",
+  location: "Berlin",
+  language: "Dutch"
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   services: "hiking, sculpting",
   currently_offering: "painting",
@@ -40,6 +40,81 @@ user3 = User.create!(
   first_name: "Bob",
   last_name: "Ross",
   nickname: "bob.ross",
+  phone_number: "1234567893",
+  location: "Dubaï",
+  language: "English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
+)
+
+user4 = User.create!(
+  email: "u@u.u",
+  password: "123456",
+  first_name: "Theo",
+  last_name: "Truc",
+  nickname: "the",
+  phone_number: "1234567892",
+  location: "Nice",
+  language: "Dutch",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
+)
+
+user5 = User.create!(
+  email: "i@i.i",
+  password: "123456",
+  first_name: "Leo",
+  last_name: "Rosse",
+  nickname: "bob",
+  phone_number: "1234567893",
+  location: "Toronto",
+  language: "English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
+)
+
+user6 = User.create!(
+  email: "o@o.o",
+  password: "123456",
+  first_name: "Vincente",
+  last_name: "Van",
+  nickname: "the one",
+  phone_number: "1234567892",
+  location: "France",
+  language: "Dutch",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
+)
+
+user7 = User.create!(
+  email: "p@p.p",
+  password: "123456",
+  first_name: "Vincentimes",
+  last_name: "Gogh",
+  nickname: "wonder",
+  phone_number: "1234567892",
+  location: "Brest",
+  language: "Dutch",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
+)
+
+user8 = User.create!(
+  email: "m@m.m",
+  password: "123456",
+  first_name: "Bobe",
+  last_name: "Rossez",
+  nickname: "bob.rossez",
   phone_number: "1234567893",
   location: "Montreal",
   language: "English",
@@ -61,6 +136,36 @@ user4 = User.create!(
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   services: "writer",
   currently_offering: "writer",
+  currently_looking: "musician"
+)
+
+user9 = User.create!(
+  email: "l@l.l",
+  password: "123456",
+  first_name: "Lea",
+  last_name: "Lite",
+  nickname: "Lol",
+  phone_number: "1234567892",
+  location: "France",
+  language: "Dutch",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
+  currently_looking: "musician"
+)
+
+user10 = User.create!(
+  email: "n@n.n",
+  password: "123456",
+  first_name: "Leaa",
+  last_name: "Litee",
+  nickname: "Lole",
+  phone_number: "1234567892",
+  location: "France",
+  language: "Dutch",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "hiking, sculpting",
+  currently_offering: "painting",
   currently_looking: "musician"
 )
 
