@@ -1,16 +1,44 @@
-<div id="<%= dom_id offer %>">
-  <p>
-    <strong>Offer with</strong><%= offer.collaborator.first_name %>
-  </p>
+<div class="" id="<%= dom_id offer %>">
+  <h4>
+    <strong>Offer with: </strong><%= offer.collaborator.first_name %>
+  </h4>
 
-  <p>
+  <h4>
     <strong>From:</strong>
     <%= offer.start_date %>
-  </p>
+  </h4>
 
-  <p>
-    <strong>To:</strong>
-    <%= offer.end_date %>
-  </p>
+  <h4>
+    <strong>To:</strong><%= offer.end_date %>
+  </h4>
 
- </div>
+  <h4>
+    <strong>My tasks:</strong>
+    <%= offer.my_tasks %>
+  </h4>
+
+  <h4>
+    <strong><%= offer.collaborator.first_name %>'s tasks:</strong>
+    <%= offer.others_tasks %>
+  </h4>
+
+  <h4>
+    <strong>Deposit:</strong>
+    <%= offer.deposit %>
+  </h4>
+
+  <h4>
+    <strong>Status:</strong>
+    <%= offer.status %>
+  </h4>
+
+  <h4>
+    <% if offer.requester != current_user && offer.pending? %>
+      <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch %>
+      <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch %>
+    <% end %>
+  </h4>
+
+  <%= link_to "Go back", offers_path %>
+
+</div>
