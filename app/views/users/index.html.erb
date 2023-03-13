@@ -12,26 +12,25 @@
       <!--  </div> -->
     <div class="container" id="artists">
       <div class="row">
-        <h1><%= @users.length-1 %> bARTers found near you</h1>
-        <div class="col-xs-6"> <!-- This is the div that contains the cards divs -->
-          <div class=""> <!-- This is the div for each card -->
-            <% @users.each do |user| %>
-              <% unless user == current_user  %>
-                <img src="" class="index_card_images"> <!-- These are the index cards -->
-                  <li>First Name: <%= link_to user.first_name, artist_path(user) %></li>
-                  <li>Last Name: <%= user.last_name %></li>
-                  <li>Nickname: <%= user.nickname %></li>
-                  <li>Phone number: <%= user.phone_number %></li>
-                  <li>Location: <%= user.location %></li>
-                  <li>Language: <%= user.language %></li>
-                  <li>Email: <%= user.email %></li>
-                  <br>
-                <% end %>
-              <% end %>
-          </div>
+        <h1><%= @users.length-1 %> barters found near you</h1>
+          <div class="col-6"> <!-- This is the div that contains the cards divs -->
+              <div class=""> <!-- This is the div for each card -->
+                <% @users.each do |user| %>
+                  <% unless user == current_user  %>
+                    <img src="" class="index_card_images"> <!-- These are the index cards -->
+                      <li>First Name: <%= link_to user.first_name, artist_path(user) %></li>
+                      <li>Last Name: <%= user.last_name %></li>
+                      <li>Nickname: <%= user.nickname %></li>
+                      <li>Phone number: <%= user.phone_number %></li>
+                      <li>Location: <%= user.location %></li>
+                      <li>Language: <%= user.language %></li>
+                      <li>Email: <%= user.email %></li>
+                      <br>
+                    <% end %>
+                  <% end %>
+              </div>
         </div>
-        <div class="col-xs-6">
-          <h1 class="text-center">bARTers around the world!</h1>
+        <div class="col-6 d-flex align-items-center">
             <div style="width: 100%; height: 600px;"
               data-controller="map"
               data-map-markers-value="<%= @markers.to_json %>"
