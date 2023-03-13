@@ -27,7 +27,7 @@ user2 = User.create!(
   nickname: "the one ear wonder",
   phone_number: "1234567892",
   location: "Berlin",
-  language: "Dutch"
+  language: "Dutch",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   services: "hiking, sculpting",
   currently_offering: "painting",
