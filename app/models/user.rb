@@ -13,6 +13,14 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
   validates :phone_number, presence: true, length: { minimum: 10 }
   validates :location, presence: true
+
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+  include PgSearch::Model
+  pg_search_scope :search_artists,
+  against: [ :services, :location ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end

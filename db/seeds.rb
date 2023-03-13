@@ -29,7 +29,7 @@ user2 = User.create!(
   location: "France",
   language: "Dutch",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "painting, sculpting",
+  services: "hiking, sculpting",
   currently_offering: "painting",
   currently_looking: "musician"
 )
@@ -46,6 +46,21 @@ user3 = User.create!(
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   services: "painting, sculpting",
   currently_offering: "painting",
+  currently_looking: "musician"
+)
+
+user4 = User.create!(
+  email: "d@d.d",
+  password: "123456",
+  first_name: "Edward",
+  last_name: "Munch",
+  nickname: "scream",
+  phone_number: "1234567893",
+  location: "Montreal",
+  language: "English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "writer",
+  currently_offering: "writer",
   currently_looking: "musician"
 )
 

@@ -1,20 +1,27 @@
-<div class="searchbar-container">
-  <div class="searchbar-iph-container">
-    <div class="searchbar-icone-ph">
-      <%= image_tag "pinceau-dartiste.png", class: "img-1"%>
-      <input type="text" placeholder="Skills...">
+<%= form_with url: artists_path, method: :get, class: "d-flex" do %>
+  <div class="searchbar-container">
+    <div class="searchbar-iph-container">
+      <div class="searchbar-icone-ph">
+        <%= image_tag "pinceau-dartiste.png", class: "img-1"%>
+        <%= text_field_tag :query_services,
+            params[:query_services],
+            class: "form-control",
+            placeholder: "Services"
+        %>
+      </div>
+      <div class="searchbar-icone-ph">
+        <%= image_tag "localisateur.png", class: "img-2" %>
+        <%= text_field_tag :query_location,
+            params[:query_location],
+            class: "form-control",
+            placeholder: "Location"
+        %>
+      </div>
     </div>
-    <div class="searchbar-icone-ph">
-      <%= image_tag "localisateur.png", class: "img-2" %>
-      <input list="location" placeholder="Location...">
-      <datalist id="location">
-          <option value="Montreal">
-          <option value="Laval">
-          <option value="Toronto">
-      </datalist>
+    <div class="searchbar-arrow">
+      <button type="submit">
+        <%= image_tag "fleche-droite.png", class: "arrow"%>
+      </button>
     </div>
   </div>
-  <div class="searchbar-arrow">
-    <%= image_tag "fleche-droite.png", class: "arrow"%>
-  </div>
-</div>
+<% end %>
