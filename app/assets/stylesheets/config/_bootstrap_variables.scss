@@ -25,6 +25,14 @@ $border-radius-sm: 2px;
 
 // Override other variables below!
 $custom-colors: (
-  "accept": $accept,
-  "decline": $decline,
+  accept: $dark-orange,
+  decline: $light-orange,
+  cancel: $light-orange,
+  confirm: $dark-orange,
+  exchanges: $dark-orange,
+  profile: $dark-orange,
+  contact: $dark-orange,
+  offer: $dark-orange,
+  bubble1: $dark-blue,
+  bubble2: $light-blue,
 );
