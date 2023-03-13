@@ -1,15 +1,22 @@
-<h1> Make an offer to <%=@collaborator.first_name%> </h1>
+<div class="offer-form-box">
+  <h1> Make an offer to <strong> <%=@collaborator.first_name%> </strong> </h1>
 
-<%= simple_form_for([@collaborator, @offer]) do |f| %>
+    <%= simple_form_for([@collaborator, @offer]) do |f| %>
 
-  <div class="offers_form">
-    <%= f.input :my_tasks %>
-    <%= f.input :others_tasks %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.input :deposit %>
+    <div class="offers_form">
+      <%= f.input :my_tasks, label: "My task:", placeholder: "Describe your task..."%>
+      <%= f.input :others_tasks, label: "#{@collaborator.first_name}'s task:", placeholder: "Describe #{@collaborator.first_name}'s task..." %>
 
-<%= link_to "Confirm", root_path , class: "btn btn-accept rounded-pill" %>
-<%= link_to "Cancel", root_path , class: "btn btn-decline rounded-pill" %>
-  </div>
-<% end %>
+      <%= f.input :start_date, label: "Start date:" %>
+      <%= f.input :end_date, label: "End date:" %>
+      <%# <p> Add a deposit? </p> %>
+      <%= f.input :deposit, label: "Add a deposit:", placeholder: "$0.00" %>
+      <div class="form-text">Keep empty if you don't need a deposit.</div>
+
+      <div class="offer-buttons">
+        <%= link_to "Cancel", root_path , class: "btn btn-decline rounded-pill" %>
+        <%= link_to "Confirm", root_path , class: "btn btn-accept rounded-pill" %>
+      </div>
+    </div>
+  <% end %>
+</div>
