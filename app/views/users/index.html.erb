@@ -1,28 +1,44 @@
 
-        <h1><%= @users.length-1 %> barters found near you</h1>
+        <h1 class="title-index"><%= @users.length-1 %> barters found near you</h1>
            <!-- This is the div that contains the cards divs -->
-    <div class="test-1" id="artists">
-             <div class="test-3"> <!-- This is the div for each card -->
-                <% @users.each do |user| %>
-                  <% unless user == current_user  %>
-                    <img src="" class="index_card_images"> <!-- These are the index cards -->
-                      <li>First Name: <%= link_to user.first_name, artist_path(user) %></li>
-                      <li>Last Name: <%= user.last_name %></li>
-                      <li>Nickname: <%= user.nickname %></li>
-                      <li>Phone number: <%= user.phone_number %></li>
-                      <li>Location: <%= user.location %></li>
-                      <li>Language: <%= user.language %></li>
-                      <li>Email: <%= user.email %></li>
-                      <br>
-                    <% end %>
-                  <% end %>
-              </div>
 
-        <div class="test-2">
-            <div style="width: 100%; height: 670px;"
-              data-controller="map"
-              data-map-markers-value="<%= @markers.to_json %>"
-              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-            </div>
+<div class="main-index-container" id="artists">
+  <div class="grid-index-container">
+    <% @users.each do |user| %>
+    <% unless user == current_user %>
+      <div class="card-user">
+        <div class="card-img-container">
+            <%= image_tag"takumi.png", class:"img-card"%>
         </div>
-    </div>
+          <div class="card-info-container">
+            <div class="card-info-name-skill">
+                <div class="name"> <%= link_to user.first_name, artist_path(user)%> <%= user.last_name %></div>
+                <div class="skill">Painting</div>
+            </div>
+            <div class="card-info-reviews-location">
+                <div class="review-container">
+                  <div class="review">5/5</div>
+                  <div class="review-location-icon">
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                </div>
+                <div class="location-container">
+                  <div class="location"><%= user.location %></div>
+                  <div class="review-location-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+  </div>
+
+
+<div class="map-container">
+    <div style="width: 100%; height: 670px; border-radius: 30px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
