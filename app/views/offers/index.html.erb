@@ -1,21 +1,45 @@
-<h1>Sent offers</h1>
+<h1>My exchanges</h1>
 <p style="color: blue"><%= notice %></p>
 
-<div id="offers">
-  <% @offers.each do |offer| %>
-    <li>Working with: <%= offer.collaborator.first_name %></li>
-    <li>from: <%= offer.start_date %></li>
-    <li>to: <%= offer.end_date %></li>
-    <li>My tasks: <%= offer.my_tasks %></li>
-    <li><%= offer.collaborator.first_name %>'s tasks: <%= offer.others_tasks %></li>
-    <li>Deposit: $<%= offer.deposit %></li>
-    <li>Status: <%= offer.status %></li>
-    <br>
-    <p>
-      <% if offer.requester != current_user %>
-        <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch %>
-        <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch %>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="sent-offers-tab" data-bs-toggle="tab" data-bs-target="#sent-tab-pane" type="button" role="tab" aria-controls="sent-tab-pane" aria-selected="true">Sent offers</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="received-offers-tab" data-bs-toggle="tab" data-bs-target="#received-tab-pane" type="button" role="tab" aria-controls="received-tab-pane" aria-selected="false">Received offers</button>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane show active" id="sent-tab-pane" role="tabpanel" aria-labelledby="sent-tab" tabindex="0">
+    <div id="offers">
+      <% @offers.each do |offer| %>
+        <li>Working with: <%= link_to offer.collaborator.first_name, offer_path(offer) %></li>
+        <li>from: <%= offer.start_date %></li>
+        <li>to: <%= offer.end_date %></li>
+        <li>My tasks: <%= offer.my_tasks %></li>
+        <li><%= offer.collaborator.first_name %>'s tasks: <%= offer.others_tasks %></li>
+        <li>Deposit: $<%= offer.deposit %></li>
+        <li>Status: <%= offer.status %></li>
       <% end %>
-    </p>
-  <% end %>
-</div>
+    </div>
+  </div>
+  <div class="tab-pane show active" id="received-tab-pane" role="tabpanel" aria-labelledby="received-tab" tabindex="0">
+    <div id="offers">
+        <% @offers.each do |offer| %>
+          <% if offer.requester != current_user %>
+            <li>Working with: <%= link_to offer.collaborator.first_name, offer_path(offer) %></li>
+            <li>from: <%= offer.start_date %></li>
+            <li>to: <%= offer.end_date %></li>
+            <li>My tasks: <%= offer.my_tasks %></li>
+            <li><%= offer.collaborator.first_name %>'s tasks: <%= offer.others_tasks %></li>
+            <li>Deposit: $<%= offer.deposit %></li>
+            <li>Status: <%= offer.status %></li>
+            <% if offer.pending? %>
+              <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch %>
+              <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch %>
+            <% end %>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
