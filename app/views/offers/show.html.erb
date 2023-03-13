@@ -1,6 +1,4 @@
-<h1>Sent offers</h1>
-
-<%= render "offers", offer: @offer %>
+<%= render "offers", offer: @offer, collaborator: @offer.collaborator %>
 
 <%# <%= button_to "Accept", accept_offer_path(offer), method: :patch %>
 <%#= button_to "Reject", reject_offer_path(offer), method: :patch %>
