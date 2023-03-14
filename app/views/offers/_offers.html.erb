@@ -1,13 +1,25 @@
-<div class="" id="<%= dom_id offer %>">
+<div class="h1-offer-details">
   <h1> Offer details: </h1>
+</div>
 
-    <div class="my-task">
-       <p> My task: <%= offer.my_tasks %> </p>
-    </div>
+<div class="offer-details" id="<%= dom_id offer %>">
 
-    <div class="username-task">
-      <p> <%= offer.collaborator.first_name %>'s task: <%= offer.others_tasks %></p>
+  <div class="my-task-text">
+    <p> My task: </p>
+  </div>
+      <div class="my-task">
+        <%= offer.my_tasks %>
+      </div>
+
+
+
+    <div class="other-task-text">
+      <p> <%= offer.collaborator.first_name %>'s task: </p>
     </div>
+      <div class="username-task">
+        <%= offer.others_tasks %>
+      </div>
+
 
     <div class="exchange-time">
 
@@ -16,23 +28,27 @@
         <%= offer.status %>
       <%# </p> %>
       <div class="time-start">
-      <p> Start date </p>
-      <%= offer.start_date %>
+        <p> Start date </p>
+      </div>
+      <div class="actual-start">
+        <%= offer.start_date %>
       </div>
 
       <div class="time-end">
-      <p> End Date </p>
-      <%= offer.end_date %>
+        <p> End Date </p>
+      </div>
+      <div class="actual-end">
+        <%= offer.end_date %>
       </div>
 
       <div class="both-deposits">
         <p> My deposit: </p>
           <div class="blue-box">
-          <%= offer.deposit %> </div>
+          <%= offer.deposit || "$0.00" %> </div>
 
         <p> <%= offer.collaborator.first_name %>'s deposit:</p>
           <div class="blue-box">
-          <%= offer.deposit %> </div>
+          <%= offer.deposit || "$0.00" %> </div>
       </div>
 
     </div>

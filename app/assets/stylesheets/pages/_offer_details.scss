@@ -1,16 +1,24 @@
+.h1-offer-details {
+  margin-bottom: 40px;
+}
+
+.offer-details {
+  max-width: 80%;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
 .my-task {
   background-color: #93CDE1;
   border-radius: 10px;
   min-height: 100px;
 }
 
-
 .username-task {
   background-color: #E6F2F7;
   border-radius: 10px;
   min-height: 100px;
 }
-
 
 .exchange-time {
   background-color: #FFF8DB;
@@ -20,12 +28,15 @@
 
 .blue-box {
   background-color: #E6F2F7;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  max-height: 25px;
+  width: fit-content;
 }
 
 .my-task, .username-task, .exchange-time {
-  max-width: 800px;
-  margin: 0 auto;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin-bottom: 20px;
 }
 
 .exchanges-button {
@@ -40,4 +51,12 @@
 
 .time-start, .time-end {
   display: inline-flex;
+}
+
+.actual-start, .actual-end {
+  display: inline-flex;
+}
+
+.other-task-text {
+
 }
