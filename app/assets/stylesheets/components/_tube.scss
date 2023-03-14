@@ -1,13 +1,19 @@
-.tube {
+.tube > div {
   background: #FFE2B3;
-  width: 1538px;
-  height: 80px;
+  display: flex;
+  // flex-wrap: nowrap;
+  width: 100%;
+  // height: 80px;
   border-radius: 50px;
-  border: 5px solid black;
+  // border: 5px solid black;
   padding-left: 30px;
-  padding-top: 5px;
+  padding-top: 20px;
   // padding-bottom: 15px;
-  padding-right: 30px;
+  // padding-right: 30px;
+  // display: flex;
+  // justify-content: center;
+  align-items: baseline;
+  // gap: 0px;
 
 }
 
@@ -16,27 +22,30 @@
 width: 70px;
 height: 70px;
 border-radius: 50%;
-background: black;
+background: #FFE2B3;
 position:-webkit-sticky;
+// vertical-align: middle;
 // padding-bottom: 15px;
 
 }
 
-img{
+img.middle{
   border-radius: 50%;
   width: 100%;
   height: 100%;
+  // vertical-align: middle;
+  position:-webkit-sticky;
 }
 
 .tube-username {
-  width: 50px;
-  height: 25px;
-  // // border-radius: 50%;
+  // width: 50px;
+  // height: 25px;
+  border-radius: 50%;
   // // background: black;
-  // position:-webkit-sticky;
+  position:-webkit-sticky;
   // // padding-left: 50px;
-
-}
+  flex-grow: 1;
+  }
 
 .tube-rating{
   // width: 70px;
@@ -51,19 +60,50 @@ img{
 .tube-rating_stars {
   // width: 70px;
   // height: 70px;
-  // border-radius: 50%;
+  border-radius: 50%;
   // background: black;
-  // position:-webkit-sticky;
+  position:-webkit-sticky;
   // // padding-bottom: 15px;
+  vertical-align: middle;
+  color: yellow;
+
 
 }
 
-.tube-comment {
-  // width: 70px;
-  // height: 70px;
-  // border-radius: 50%;
-  // background: black;
-  // position:-webkit-sticky;
-  // // padding-bottom: 15px;
-
+.checked {
+  color: green;
 }
+blockquote {
+  font-style:italic;
+  // line-height:32px;
+  font-size:90%;
+  color: black;
+  background: #FFE2B3;
+  // margin:10px;
+  padding: 0px 0px 0px 0px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  // width: 100%;
+  // width: fit-content;
+  inline-size: 95%;
+  overflow-wrap: break-word;
+  position:-webkit-sticky;
+  }
+  blockquote:before,
+  blockquote:after {
+  // position: -webkit-sticky;
+  vertical-align: middle;
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 0;
+  color: #FBC02D;
+  left: -20px;
+  }
+  blockquote:before {
+  content: '\201C';
+  }
+  blockquote:after {
+  content: '\201D';
+  }

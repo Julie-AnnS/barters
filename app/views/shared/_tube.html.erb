@@ -1,30 +1,36 @@
 
 <div class="tube" >
   <div class="row">
-    <div class="col-1">
+    <div class="col-3 col-md-1">
       <div class="tube-avatar" >
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2ChocolateChipCookies.jpg/800px-2ChocolateChipCookies.jpg" alt="user's avatar">
+        <img class="middle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2ChocolateChipCookies.jpg/800px-2ChocolateChipCookies.jpg" alt="user's avatar" width="32" height="32">
       <%# need to change img src to image tag %>
       </div>
     </div>
-      <div class="col-3">
+      <div class="col-6 col-md-3">
         <div class="tube-username" >
-          <p> username </p>
+          <h4> <%= current_user.nickname %> </h4>
+          <%# need to put the name of the collaborator who made the review %>
         </div>
       </div>
-        <div class="col-1">
+        <%# <div class="col-1">
           <div class="tube-rating" >
           <p> rating/5 </p>
           </div>
-        </div>
-          <div class="col-1">
+        </div> %>
+          <div class="col-3 col-md-2">
             <div class="tube-rating_stars" >
-              <p> stars </p>
+              <%# <p>Star Rating</p> %>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
           </div>
             </div>
-            <div class="col-5">
-              <div class="tube-comment" >
-                <p> commments </p>
+            <div class="col-12 col-md-6">
+              <div class="blockquote" >
+                <blockquote> 1111111111dfnjdfbjd fjdfndjfndjkn fdjnfdjgnfjgnfdjgnfdjgnfdjgnfjdgnfjdgndfjgnfjdgnfdjgnfjdgnjdfgn fjdnfdjgn dfjgnfjdgnfjdngfjdn1111111 11111111111111111111111111111111111 11111111111 11111111111111111111 11111111111111 111111111qwertyuiopasdf ghjklzxcvbnm </blockquote>
           </div>
             </div>
       </div>
