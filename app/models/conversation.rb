@@ -13,3 +13,5 @@ class Conversation < ApplicationRecord
     tsearch: { prefix: true }
   }
 end
+
+
