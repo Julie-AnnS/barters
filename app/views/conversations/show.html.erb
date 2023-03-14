@@ -24,28 +24,33 @@
       </div>
       <div class="conversation"
         data-controller="conversation-subscription"
-        data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
+        data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
+        data-conversation-subscription-current-user-id-value="<%= current_user.id %>">
         <div class="messages" data-conversation-subscription-target="messages">
         <% if @conversation.messages.empty? %>
             <p>This is the beginning of your conversation!</p>
         <% else %>
           <% @conversation.messages.each do |message| %>
-            <%= render "messages/message", message: message %>
+              <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+                <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+              <%= render "messages/message", message: message %>
+                </div>
+             </div>
           <% end %>
         <% end %>
         </div>
-        <%= simple_form_for [@conversation, @message],
-          html: {
-            data: { action: 'turbo:submit-end->conversation-subscription#resetForm' },
-            class: "d-flex" } do |f| %>
-            <%= f.input :content,
-                        label: false,
-                        placeholder: "Shoot them a message!",
-                        wrapper_html: {class: "flex-grow-1"}
-                      %>
-          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-        <% end %>
+          <%= simple_form_for [@conversation, @message],
+            html: {
+              data: { action: 'turbo:submit-end->conversation-subscription#resetForm' },
+              class: "d-flex" } do |f| %>
+              <%= f.input :content,
+                          label: false,
+                          placeholder: "Shoot them a message!",
+                          wrapper_html: {class: "flex-grow-1"}
+                        %>
+            <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
 </div>
