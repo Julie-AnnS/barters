@@ -33,10 +33,9 @@
         data-controller="conversation-subscription"
         data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
         data-conversation-subscription-current-user-id-value="<%= current_user.id %>">
-        <div class="messages" data-conversation-subscription-target="messages">
-          <div class="messages-inner">
+        <div class="messages">
+          <div class="messages-inner"  data-conversation-subscription-target="messages">
             <% if @conversation.messages.empty? %>
-                <p>This is the beginning of your conversation!</p>
             <% else %>
               <% @conversation.messages.each do |message| %>
                   <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
@@ -51,11 +50,12 @@
           <%= simple_form_for [@conversation, @message],
             html: {
               data: { action: 'turbo:submit-end->conversation-subscription#resetForm' },
-              class: "d-flex" } do |f| %>
+              class: "d-flex gap-5" } do |f| %>
               <%= f.input :content,
                           label: false,
                           placeholder: "Shoot them a message!",
-                          wrapper_html: {class: "flex-grow-1"}
+                          wrapper_html: {class: "flex-grow-1"},
+                          input_html: { class: "w-100" }
                         %>
             <%= f.submit "Send", class: "btn btn-primary mb-3" %>
           <% end %>
