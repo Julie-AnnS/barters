@@ -1,0 +1,43 @@
+.my-task {
+  background-color: #93CDE1;
+  border-radius: 10px;
+  min-height: 100px;
+}
+
+
+.username-task {
+  background-color: #E6F2F7;
+  border-radius: 10px;
+  min-height: 100px;
+}
+
+
+.exchange-time {
+  background-color: #FFF8DB;
+  border-radius: 10px;
+  height: 80px;
+}
+
+.blue-box {
+  background-color: #E6F2F7;
+}
+
+.my-task, .username-task, .exchange-time {
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.exchanges-button {
+  display: flex;
+  justify-content: center;
+}
+
+.both-deposits {
+  display: inline-flex;
+  gap: 100px;
+}
+
+.time-start, .time-end {
+  display: inline-flex;
+}

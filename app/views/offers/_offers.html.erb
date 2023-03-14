@@ -1,37 +1,41 @@
 <div class="" id="<%= dom_id offer %>">
   <h1> Offer details: </h1>
-    <p>
-      Offer with: <%= offer.collaborator.first_name %>
-    </p>
 
-    <p>
-      From:
+    <div class="my-task">
+       <p> My task: <%= offer.my_tasks %> </p>
+    </div>
+
+    <div class="username-task">
+      <p> <%= offer.collaborator.first_name %>'s task: <%= offer.others_tasks %></p>
+    </div>
+
+    <div class="exchange-time">
+
+      <%# <p>
+        Status:
+        <%= offer.status %>
+      <%# </p> %>
+      <div class="time-start">
+      <p> Start date </p>
       <%= offer.start_date %>
-    </p>
+      </div>
 
-    <p>
-      To: </strong><%= offer.end_date %>
-    <p>
+      <div class="time-end">
+      <p> End Date </p>
+      <%= offer.end_date %>
+      </div>
 
-    <p>
-     My task:
-      <%= offer.my_tasks %>
-    <p>
+      <div class="both-deposits">
+        <p> My deposit: </p>
+          <div class="blue-box">
+          <%= offer.deposit %> </div>
 
-    <p>
-      <%= offer.collaborator.first_name %>'s tasks:
-      <%= offer.others_tasks %>
-    </p>
+        <p> <%= offer.collaborator.first_name %>'s deposit:</p>
+          <div class="blue-box">
+          <%= offer.deposit %> </div>
+      </div>
 
-    <p>
-      Deposit:
-      <%= offer.deposit %>
-    </p>
-
-    <p>
-      Status:
-      <%= offer.status %>
-    </p>
+    </div>
 
     <p>
       <% if offer.requester != current_user && offer.pending? %>
@@ -40,6 +44,8 @@
       <% end %>
     </p>
 
-    <%= link_to "Go back", offers_path %>
+    <div class="exchanges-button">
+      <%= link_to "Go back", offers_path, class: "btn btn-exchanges rounded-pill" %>
+    </div>
 </div>
 <br>
