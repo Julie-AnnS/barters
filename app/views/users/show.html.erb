@@ -1,41 +1,63 @@
-        <div class="test-1" >
-          <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-          <h4><%= @user.nickname %> </h4>
-          <h4>Phone number: <%= @user.phone_number %></h4>
-          <h4>Email: <%= @user.email %></h4>
-          <h4>Location: <%= @user.location %></h4>
-          <h4>Spoken languages: <%= @user.language %></h4>
-          <h4>Bio: <%= @user.bio %></h4>
-          <h4>Services: <%= @user.services %></h4>
-          <h4>Currently looking for: <%= @user.currently_looking %></h4>
-          <h4>Currently offering: <%= @user.currently_offering %></h4>
-        </div>
+<div class="test-1" >
+  <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+  <h4><%= @user.nickname %> </h4>
+  <h4>Phone number: <%= @user.phone_number %></h4>
+  <h4>Email: <%= @user.email %></h4>
+  <h4>Location: <%= @user.location %></h4>
+  <h4>Spoken languages: <%= @user.language %></h4>
+  <h4>Bio: <%= @user.bio %></h4>
+  <h4>Services: <%= @user.services %></h4>
+  <h4>Currently looking for: <%= @user.currently_looking %></h4>
+  <h4>Currently offering: <%= @user.currently_offering %></h4>
+</div>
 
-        <div class="tube" id="index_show_tube">
-           <!-- avatar -->
-           <!-- name  -->
-           <!-- rating  -->
-        </div>
-        <img src="" class="user_artwork">
-        <h1><%= @user.first_name %>'s artwork</h1>
-        <div class="box" id="artwork_description">
-          <h2>I can paint on any surface</h2>
-          <p>I paint portraits of animals and humans. I can use watercolour, acrylic and oil paints</p>
-        </div>
+<div class="tube" id="index_show_tube">
+    <!-- avatar -->
+    <!-- name  -->
+    <!-- rating  -->
+</div>
+<img src="" class="user_artwork">
+<h1><%= @user.first_name %>'s artwork</h1>
+<div class="box" id="artwork_description">
+  <h2>I can paint on any surface</h2>
+  <p>I paint portraits of animals and humans. I can use watercolour, acrylic and oil paints</p>
+</div>
 
-      <div class="container">
-        <h1><%= @user.first_name %>'s other artwork:</h1>
-          <div class="d-flex justify-content-between">
-            <!-- @photos.each do |photo| -->
-            <img src="" class="user_artwork">  <!-- These are all the artwork cards at the bottom -->
-          </div>
-      </div>
+<div class="container">
+  <h1><%= @user.first_name %>'s other artwork:</h1>
+    <div class="d-flex justify-content-between">
+      <!-- @photos.each do |photo| -->
+      <img src="" class="user_artwork">  <!-- These are all the artwork cards at the bottom -->
+    </div>
+</div>
 
-    <% unless current_user == @user %>
-      <% if @existing_conversation.nil? %>
-        <%= button_to "Contact me", conversations_path, params: { artist_id: @user.id } %>
-      <% else %>
-        <%= link_to "Contact me", conversation_path(@existing_conversation) %>
-      <% end %>
+<% unless current_user == @user %>
+  <% if @existing_conversation.nil? %>
+    <%= button_to "Contact me", conversations_path, params: { artist_id: @user.id } %>
+  <% else %>
+    <%= link_to "Contact me", conversation_path(@existing_conversation) %>
+  <% end %>
+<% end %>
+<%= link_to "Make an offer", offers_new_path(@user) %>
+
+<div>
+  <% if @user.reviews.blank? && !@offer.nil? %>
+    <p>Be the first to leave a review for <%= @user.first_name %></p>
+  <% else %>
+    <% @user.reviews.each do |review| %>
+      <p><%= review.content %></p>
+      <p><%= review.rating %></p>
     <% end %>
-    <%= link_to "Make an offer", offers_new_path(@user) %>
+  <% end %>
+
+  <% unless @offer.nil? %>
+    <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+      <div data-insert-in-list-target="items">
+        <!-- [...] -->
+      </div>
+        <%= render "reviews/form", user: @user, review: @review %>
+    </div>
+<% end %>
+</div>
+
+<%= link_to "Back to all artists", artists_path %>
