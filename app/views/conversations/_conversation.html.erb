@@ -1,29 +1,20 @@
-<div> <!-- search bar + contact cards - style this -->
+<div data-controller="search-contacts"> <!-- search bar + contact cards - style this -->
   <div> <!-- search bar - style this -->
-    <%= form_with url: conversation_path(@conversation.id), method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Search contact..."
-      %>
-      <button type="submit">
-            <%= image_tag "fleche-droite.png", class: "arrow"%>
-      </button>
-    <% end %>
-  </div>
-<br>
-  <div> <!-- contact card - style this -->
-    <% @conversations.each do |conversation| %>
-     <% if params[:query].present? %>
-      <% Conversation.search_convos(params[:query]) %>
-    <% end %>
-      <p>
-        <% if conversation.participant_one_id == current_user.id %>
-          <%= link_to User.find(conversation.participant_two_id).first_name, conversation_path(conversation) %>
-        <% else %>
-          <%= link_to User.find(conversation.participant_one_id).first_name, conversation_path(conversation) %>
+    <div>
+      <%= form_with url: conversations_path, method: :get, html: {class:
+          "mb-4", data: {search_contacts_target: "form"}} do |f| %>
+          <%= f.text_field :query,
+              class: "form-control",
+              placeholder: "Search contacts...",
+              value: params[:query],
+              data: {
+                search_contacts_target: "input",
+                action: "keyup->search-contacts#update"
+              } %>
+
         <% end %>
-      </p>
-    <% end %>
+    </div>
   </div>
+
+ <%= render "list", conversation: @conversation %>
 </div>

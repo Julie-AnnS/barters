@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'artists/:id', to: 'users#show', as: :artist
   get 'conversations/:id', to: 'conversations#show', as: :conversation
   post 'conversations', to: 'conversations#create'
+  get 'conversations', to: 'conversations#index', as: :conversation_list
   post 'conversations/:conversation_id/messages', to: "messages#create", as: :conversation_messages
   get 'offers', to: 'offers#index'
   get 'artists/:id/offers/new', to: "offers#new", as: :offers_new
