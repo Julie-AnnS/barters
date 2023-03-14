@@ -1,9 +1,3 @@
-      <h1>Conversation with
-          <% if @conversation.participant_one_id == current_user.id %>
-            <%= User.find(@conversation.participant_two_id).first_name %>
-          <% else %>
-            <%= User.find(@conversation.participant_one_id).first_name %>
-          <% end %></h1>
 <div class="container-list-message">
   <div class="left-contacts-list">
     <%= render "conversation", conversation: @conversation %>
@@ -16,10 +10,24 @@
       <% else %>
         <% @user = User.find(@conversation.participant_one_id) %>
       <% end %>
-      <div class="link-to-go-back-profil">
-        <p>
-          <%= link_to "Go to profile", artist_path(@user) %>
-        </p>
+      <div class="box-back-to-profil">
+        <div class="img-contact-message-container">
+        <%= image_tag"avatar.svg", class:"img-contact-message" %>
+        </div>
+          <div class="box-name-link-back">
+            <div class="name-artist">
+            <% if @conversation.participant_one_id == current_user.id %>
+              <%= User.find(@conversation.participant_two_id).first_name %>
+            <% else %>
+              <%= User.find(@conversation.participant_one_id).first_name %>
+            <% end %>
+            </div>
+            <div class="back-to-profil-box">
+              <p class="back-to-profil-link">
+                <%= link_to "Go to profile", artist_path(@user) %>
+              </p>
+          </div>
+        </div>
       </div>
       <div class="conversation"
         data-controller="conversation-subscription"
