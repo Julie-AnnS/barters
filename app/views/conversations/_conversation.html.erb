@@ -1,0 +1,29 @@
+<div> <!-- search bar + contact cards - style this -->
+  <div> <!-- search bar - style this -->
+    <%= form_with url: conversation_path(@conversation.id), method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Search contact..."
+      %>
+      <button type="submit">
+            <%= image_tag "fleche-droite.png", class: "arrow"%>
+      </button>
+    <% end %>
+  </div>
+<br>
+  <div> <!-- contact card - style this -->
+    <% @conversations.each do |conversation| %>
+     <% if params[:query].present? %>
+      <% Conversation.search_convos(params[:query]) %>
+    <% end %>
+      <p>
+        <% if conversation.participant_one_id == current_user.id %>
+          <%= link_to User.find(conversation.participant_two_id).first_name, conversation_path(conversation) %>
+        <% else %>
+          <%= link_to User.find(conversation.participant_one_id).first_name, conversation_path(conversation) %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+</div>

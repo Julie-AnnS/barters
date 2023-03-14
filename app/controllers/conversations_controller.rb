@@ -1,10 +1,7 @@
 class ConversationsController < ApplicationController
-  def index
-    @conversations = Conversation.where(participant_one_id = current_user) ||
-                      Conversation.where(participant_two_id = current_user)
-  end
 
   def show
+    @conversations = current_user.conversations
     @conversation = Conversation.find(params[:id])
     @message = Message.new
   end

@@ -4,4 +4,10 @@ class Conversation < ApplicationRecord
     where(participant_one_id: participant_one.id, participant_two_id: participant_two.id)
       .or(where(participant_one_id: participant_two.id, participant_two_id: participant_one.id))
   }
+  include PgSearch::Model
+  pg_search_scope :search_convos,
+  against: [ :first_name, :nickname ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end
