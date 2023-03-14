@@ -1,39 +1,51 @@
-<h1>Conversation with
-    <% if @conversation.participant_one_id == current_user.id %>
-      <%= User.find(@conversation.participant_two_id).first_name %>
-    <% else %>
-      <%= User.find(@conversation.participant_one_id).first_name %>
-    <% end %></h1>
-<div class="conversation"
-  data-controller="conversation-subscription"
-  data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
-  <div class="messages" data-conversation-subscription-target="messages">
-  <% if @conversation.messages.empty? %>
-      <p>This is the beginning of your conversation!</p>
-  <% else %>
-    <% @conversation.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
-  <% end %>
-  </div>
-  <%= simple_form_for [@conversation, @message],
-    html: {
-      data: { action: 'turbo:submit-end->conversation-subscription#resetForm' },
-      class: "d-flex" } do |f| %>
-      <%= f.input :content,
-                  label: false,
-                  placeholder: "Shoot them a message!",
-                  wrapper_html: {class: "flex-grow-1"}
-                %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <%= render "conversation", conversation: @conversation %>
+    </div>
 
-<% if @conversation.participant_one_id == current_user.id %>
-  <% @user = User.find(@conversation.participant_two_id)%>
-<% else %>
-  <% @user = User.find(@conversation.participant_one_id) %>
-<% end %>
-<div>
-  <%= link_to "Go back to their profile", artist_path(@user) %>
+    <div class="col-6">
+      <h1>Conversation with
+          <% if @conversation.participant_one_id == current_user.id %>
+            <%= User.find(@conversation.participant_two_id).first_name %>
+          <% else %>
+            <%= User.find(@conversation.participant_one_id).first_name %>
+          <% end %></h1>
+
+      <% if @conversation.participant_one_id == current_user.id %>
+        <% @user = User.find(@conversation.participant_two_id)%>
+      <% else %>
+        <% @user = User.find(@conversation.participant_one_id) %>
+      <% end %>
+      <div>
+        <p>
+          <%= link_to "Go to profile", artist_path(@user) %>
+        </p>
+      </div>
+      <div class="conversation"
+        data-controller="conversation-subscription"
+        data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
+        <div class="messages" data-conversation-subscription-target="messages">
+        <% if @conversation.messages.empty? %>
+            <p>This is the beginning of your conversation!</p>
+        <% else %>
+          <% @conversation.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        <% end %>
+        </div>
+        <%= simple_form_for [@conversation, @message],
+          html: {
+            data: { action: 'turbo:submit-end->conversation-subscription#resetForm' },
+            class: "d-flex" } do |f| %>
+            <%= f.input :content,
+                        label: false,
+                        placeholder: "Shoot them a message!",
+                        wrapper_html: {class: "flex-grow-1"}
+                      %>
+          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

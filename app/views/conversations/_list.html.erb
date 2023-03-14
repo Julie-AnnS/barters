@@ -1,0 +1,11 @@
+  <div data-search-contacts-target="list"> <!-- contact card - style this -->
+    <% @conversations.each do |conversation| %>
+      <p>
+        <% if conversation.participant_one_id == current_user.id %>
+          <%= link_to conversation.participant_two.first_name, conversation_path(conversation) %>
+        <% else %>
+          <%= link_to conversation.participant_one.first_name, conversation_path(conversation) %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
