@@ -4,7 +4,7 @@
       <%= form_with url: conversations_path, method: :get, html: {class:
           "mb-4", data: {search_contacts_target: "form"}} do |f| %>
           <%= f.text_field :query,
-              class: "form-control",
+              class: "w-75",
               placeholder: "Search contacts...",
               value: params[:query],
               data: {

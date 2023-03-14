@@ -1,23 +1,22 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <%= render "conversation", conversation: @conversation %>
-    </div>
-
-    <div class="col-6">
       <h1>Conversation with
           <% if @conversation.participant_one_id == current_user.id %>
             <%= User.find(@conversation.participant_two_id).first_name %>
           <% else %>
             <%= User.find(@conversation.participant_one_id).first_name %>
           <% end %></h1>
+<div class="container-list-message">
+  <div class="left-contacts-list">
+    <%= render "conversation", conversation: @conversation %>
+  </div>
+
+    <div class="box-message-right-container">
 
       <% if @conversation.participant_one_id == current_user.id %>
         <% @user = User.find(@conversation.participant_two_id)%>
       <% else %>
         <% @user = User.find(@conversation.participant_one_id) %>
       <% end %>
-      <div>
+      <div class="link-to-go-back-profil">
         <p>
           <%= link_to "Go to profile", artist_path(@user) %>
         </p>
@@ -27,17 +26,19 @@
         data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
         data-conversation-subscription-current-user-id-value="<%= current_user.id %>">
         <div class="messages" data-conversation-subscription-target="messages">
-        <% if @conversation.messages.empty? %>
-            <p>This is the beginning of your conversation!</p>
-        <% else %>
-          <% @conversation.messages.each do |message| %>
-              <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-                <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-              <%= render "messages/message", message: message %>
+          <div class="messages-inner">
+            <% if @conversation.messages.empty? %>
+                <p>This is the beginning of your conversation!</p>
+            <% else %>
+              <% @conversation.messages.each do |message| %>
+                  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+                    <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+                  <%= render "messages/message", message: message %>
+                    </div>
                 </div>
-             </div>
-          <% end %>
-        <% end %>
+              <% end %>
+            <% end %>
+          </div>
         </div>
           <%= simple_form_for [@conversation, @message],
             html: {

@@ -4,9 +4,12 @@ body{
   // background-size: contain;
   // background-repeat: no-repeat;
   // background-position: top;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-h1{
+.main-baseline{
   text-align: center;
   margin-top: 70px;
 }
@@ -24,9 +27,9 @@ h1{
   justify-content: center;
 }
 
-.img-container{
-  width: 150px;
-  height: 150px;
+.img-container-avatar{
+  width: 60px;
+  height: 60px;
 }
 
 
@@ -40,7 +43,7 @@ h1{
   height: 100%;
 }
 
-h2{
+.baseline{
   margin-top: 70px;
   margin-bottom: 40px;
   text-align: center;
