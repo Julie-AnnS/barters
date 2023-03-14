@@ -1,39 +1,65 @@
-<h1>Conversation with
-    <% if @conversation.participant_one_id == current_user.id %>
-      <%= User.find(@conversation.participant_two_id).first_name %>
-    <% else %>
-      <%= User.find(@conversation.participant_one_id).first_name %>
-    <% end %></h1>
-<div class="conversation"
-  data-controller="conversation-subscription"
-  data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
-  <div class="messages" data-conversation-subscription-target="messages">
-  <% if @conversation.messages.empty? %>
-      <p>This is the beginning of your conversation!</p>
-  <% else %>
-    <% @conversation.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
-  <% end %>
+<div class="container-list-message">
+  <div class="left-contacts-list">
+    <%= render "conversation", conversation: @conversation %>
   </div>
-  <%= simple_form_for [@conversation, @message],
-    html: {
-      data: { action: 'turbo:submit-end->conversation-subscription#resetForm' },
-      class: "d-flex" } do |f| %>
-      <%= f.input :content,
-                  label: false,
-                  placeholder: "Shoot them a message!",
-                  wrapper_html: {class: "flex-grow-1"}
-                %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
-</div>
 
-<% if @conversation.participant_one_id == current_user.id %>
-  <% @user = User.find(@conversation.participant_two_id)%>
-<% else %>
-  <% @user = User.find(@conversation.participant_one_id) %>
-<% end %>
-<div>
-  <%= link_to "Go back to their profile", artist_path(@user) %>
+    <div class="box-message-right-container">
+
+      <% if @conversation.participant_one_id == current_user.id %>
+        <% @user = User.find(@conversation.participant_two_id)%>
+      <% else %>
+        <% @user = User.find(@conversation.participant_one_id) %>
+      <% end %>
+      <div class="box-back-to-profil">
+        <div class="img-contact-message-container">
+        <%= image_tag"avatar.svg", class:"img-contact-message" %>
+        </div>
+          <div class="box-name-link-back">
+            <div class="name-artist">
+            <% if @conversation.participant_one_id == current_user.id %>
+              <%= User.find(@conversation.participant_two_id).first_name %>
+            <% else %>
+              <%= User.find(@conversation.participant_one_id).first_name %>
+            <% end %>
+            </div>
+            <div class="back-to-profil-box">
+              <p class="back-to-profil-link">
+                <%= link_to "Go to profile", artist_path(@user) %>
+              </p>
+          </div>
+        </div>
+      </div>
+      <div class="conversation"
+        data-controller="conversation-subscription"
+        data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
+        data-conversation-subscription-current-user-id-value="<%= current_user.id %>">
+        <div class="messages">
+          <div class="messages-inner"  data-conversation-subscription-target="messages">
+            <% if @conversation.messages.empty? %>
+            <% else %>
+              <% @conversation.messages.each do |message| %>
+                  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+                    <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+                  <%= render "messages/message", message: message %>
+                    </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+          <%= simple_form_for [@conversation, @message],
+            html: {
+              data: { action: 'turbo:submit-end->conversation-subscription#resetForm' },
+              class: "d-flex gap-5" } do |f| %>
+              <%= f.input :content,
+                          label: false,
+                          placeholder: "Shoot them a message!",
+                          wrapper_html: {class: "flex-grow-1"},
+                          input_html: { class: "w-100" }
+                        %>
+            <%= f.submit "Send", class: "button-send-message" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
 </div>

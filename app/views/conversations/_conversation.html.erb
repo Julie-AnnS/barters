@@ -1,0 +1,20 @@
+<div data-controller="search-contacts" class="search-contacts"> <!-- search bar + contact cards - style this -->
+  <div> <!-- search bar - style this -->
+    <div> 
+      <%= form_with url: conversations_path, method: :get, html: {class:
+          "mb-4", data: {search_contacts_target: "form"}} do |f| %>
+          <%= f.text_field :query,
+              class: "w-75",
+              placeholder: "Search contacts...",
+              value: params[:query],
+              data: {
+                search_contacts_target: "input",
+                action: "keyup->search-contacts#update"
+              } %>
+
+        <% end %>
+    </div>
+  </div>
+
+ <%= render "list", conversation: @conversation %>
+</div>
