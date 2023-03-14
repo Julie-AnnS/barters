@@ -5,3 +5,5 @@ class Conversation < ApplicationRecord
       .or(where(participant_one_id: participant_two.id, participant_two_id: participant_one.id))
   }
 end
+
+
