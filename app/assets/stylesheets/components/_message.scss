@@ -24,5 +24,20 @@
 }
 
 .messages {
-  border: 1px solid blue;
+  flex-grow: 1;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.messages-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.conversation{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }

@@ -1,17 +1,101 @@
-.message-conversation-container{
-  background-color: red;
+.container-list-message{
+  flex-grow: 1;
   width: 100%;
-  height: 700px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.contact{
-  background-color: yellow;
+.left-contacts-list{
   width: 300px;
-  height: 700px;
+  padding: 10px;
+  background-color: #FFF8DB;
+  border-radius: 20px;
+  box-shadow: 0px 4px 17px -9px #000000;
 }
-.container-message{
-  background-color: green;
-  width: 100%;
-  height: 700px;
+
+.box-message-right-container{
+  width: 1150px;
+  // height: 700px;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.box-back-to-profil{
+  display: flex;
+}
+
+.img-contact-message{
+  width: 60px;
+  height: 60px;
+}
+
+.form-control{
+  width: 200px;
+}
+
+.box-name-link-back{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 10px;
+}
+
+.back-to-profil-link{
+  margin-bottom: 0;
+}
+
+.container-contact{
+  height: 70px;
+  border-radius: 12px;
+  background-color: #FFE2B3;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.container-contact:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.img-container-avatar{
+  width: 60px;
+  height: 60px;
+  margin-left: 12px;
+}
+
+.name-container{
+  margin-left: 17px;
+}
+.name-contact{
+  margin-bottom: 0;
+}
+
+.contacts {
+  flex-grow: 1;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.contacts-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.search-contacts {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.button-send-message {
+  color: #ffffff;
+  background-color: #93cde1;
+  border-radius: 40px;
+  padding: 5px 10px 5px 10px;
+  letter-spacing: 1px;
+  margin-right: 20px;
 }
