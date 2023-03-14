@@ -41,14 +41,23 @@
 <%= link_to "Make an offer", offers_new_path(@user) %>
 
 <div>
-<% current_user.offers_as_collaborator.each do |offer| %>
-  <% if offer.requester == @user || @user.reviews.blank? %>
-
-    Be the first to leave a review for <%= @user.first_name %>
+  <% if @user.reviews.blank? && !@offer.nil? %>
+    <p>Be the first to leave a review for <%= @user.first_name %></p>
   <% else %>
     <% @user.reviews.each do |review| %>
       <p><%= review.content %></p>
       <p><%= review.rating %></p>
     <% end %>
   <% end %>
+
+  <% unless @offer.nil? %>
+    <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+      <div data-insert-in-list-target="items">
+        <!-- [...] -->
+      </div>
+        <%= render "reviews/form", user: @user, review: @review %>
+    </div>
+<% end %>
 </div>
+
+<%= link_to "Back to all artists", artists_path %>

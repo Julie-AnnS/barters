@@ -14,8 +14,7 @@ Rails.application.routes.draw do
   get 'artists/:id/offers/new', to: "offers#new", as: :offers_new
   post '/artists/:id/offers', to: "offers#create", as: :user_offers
   get 'offers/:id', to: 'offers#show', as: :offer
-  get 'offers/:offer_id/review', to: "reviews#new", as: :reviews
-
+  post 'artists/:id/reviews', to: "reviews#create", as: :user_reviews
   patch 'offers/:id/accept', to: 'offers#accept', as: :offer_accept
   patch 'offers/:id/decline', to: 'offers#decline', as: :offer_decline
 
