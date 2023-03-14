@@ -1,36 +1,45 @@
-  <h1>Conversation with
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <%= render "conversation", conversation: @conversation %>
+    </div>
+
+    <div class="col-6">
+      <h1>Conversation with
+          <% if @conversation.participant_one_id == current_user.id %>
+            <%= User.find(@conversation.participant_two_id).first_name %>
+          <% else %>
+            <%= User.find(@conversation.participant_one_id).first_name %>
+          <% end %></h1>
+
       <% if @conversation.participant_one_id == current_user.id %>
-        <%= User.find(@conversation.participant_two_id).first_name %>
+        <% @user = User.find(@conversation.participant_two_id)%>
       <% else %>
-        <%= User.find(@conversation.participant_one_id).first_name %>
-      <% end %></h1>
-<div class="container-message">
-
-  <div class="contact">
-    Test pour la liste d'amis.
-  </div>
-
-    <div class="message-conversation-container">
+        <% @user = User.find(@conversation.participant_one_id) %>
+      <% end %>
+      <div>
+        <p>
+          <%= link_to "Go to profile", artist_path(@user) %>
+        </p>
+      </div>
       <div class="conversation"
         data-controller="conversation-subscription"
         data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
         data-conversation-subscription-current-user-id-value="<%= current_user.id %>">
-          <div class="messages" data-conversation-subscription-target="messages">
-
-            <% if @conversation.messages.empty? %>
-                <p>This is the beginning of your conversation!</p>
-            <% else %>
-              <% @conversation.messages.each do |message| %>
-                <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-                  <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-                    <%= render "messages/message", message: message %>
-                  </div>
+        <div class="messages" data-conversation-subscription-target="messages">
+        <% if @conversation.messages.empty? %>
+            <p>This is the beginning of your conversation!</p>
+        <% else %>
+          <% @conversation.messages.each do |message| %>
+              <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+                <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+              <%= render "messages/message", message: message %>
                 </div>
-              <% end %>
-            <% end %>
-          </div>
-
-
+             </div>
+          <% end %>
+        <% end %>
+        </div>
+>>>>>>> master
         <%= simple_form_for [@conversation, @message],
           html: {
             data: { action: 'turbo:submit-end->conversation-subscription#resetForm' },
@@ -43,14 +52,6 @@
           <%= f.submit "Send", class: "btn btn-primary mb-3" %>
         <% end %>
       </div>
-
-      <% if @conversation.participant_one_id == current_user.id %>
-        <% @user = User.find(@conversation.participant_two_id)%>
-      <% else %>
-        <% @user = User.find(@conversation.participant_one_id) %>
-      <% end %>
-        <div>
-          <%= link_to "Go back to their profile", artist_path(@user) %>
-        </div>
-      </div>
     </div>
+  </div>
+</div>
