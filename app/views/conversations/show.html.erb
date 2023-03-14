@@ -21,7 +21,7 @@
                 <p>This is the beginning of your conversation!</p>
             <% else %>
               <% @conversation.messages.each do |message| %>
-                <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-start' : 'justify-content-end' %>">
+                <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
                   <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
                     <%= render "messages/message", message: message %>
                   </div>
