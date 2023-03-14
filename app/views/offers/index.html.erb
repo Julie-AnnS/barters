@@ -10,8 +10,8 @@
   </li>
 </ul>
 
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane show active" id="sent-tab-pane" role="tabpanel" aria-labelledby="sent-tab" tabindex="0">
+ <div class="tab-content" id="myTabContent">
+  <div class="tab-pane show active" id="sent-tab-pane" role="tabpanel" aria-labelledby="sent-tab" tabindex="0">  <%#sent %>
     <div id="offers">
       <% @offers.each do |offer| %>
         <li>Working with: <%= link_to offer.collaborator.first_name, offer_path(offer) %></li>
@@ -24,7 +24,7 @@
       <% end %>
     </div>
   </div>
-  <div class="tab-pane show active" id="received-tab-pane" role="tabpanel" aria-labelledby="received-tab" tabindex="0">
+  <div class="tab-pane show active" id="received-tab-pane" role="tabpanel" aria-labelledby="received-tab" tabindex="0"> <%#received %>
     <div id="offers">
         <% @offers.each do |offer| %>
           <% if offer.requester != current_user %>
