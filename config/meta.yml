@@ -1,4 +1,4 @@
 meta_product_name: "barters"
 meta_title: "barters - exchange for artists"
 meta_description: "find an artisan with whom you can borrow or exchange services without the exchange of money."
-meta_image: "cover.jpeg" # should exist in `app/assets/images/`
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
