@@ -71,23 +71,25 @@
                             <div class="card-img-container-show-artist">
                                 <%= image_tag"takumi.png", class:"img-card-show-artist"%>
                             </div>
+                          </div>
                 </div>
         </div>
       </div>
-  <div>
-    <% if @user.reviews.blank? && !@offer.nil? %>
-      <p>Be the first to leave a review for <%= @user.first_name %></p>
-    <% else %>
-      <% @user.reviews.each do |review| %>
-        <%# <p><%= review.content %></p>
-        <%# <p><%= review.rating %></p>
-      <% end %>
-    <% end %>
-
-  <% unless @offer.nil? %>
-      </div>
+          <div>
+            <% if @user.reviews.blank? && !@offer.nil? %>
+              <p>Be the first to leave a review for <%= @user.first_name %></p>
+            <% else %>
+              <% @user.reviews.each do |review| %>
+                <%# <p><%= review.content %></p>
+                <%# <p><%= review.rating %></p>
+              <% end %>
+            <% end %>
+          <% unless @offer.nil? %>
+          </div>
+          <div class="form-box">
+          <h2>Put a review !</h2>
         <%= render "reviews/form", user: @user, review: @review %>
-      </div>
+          </div>
         <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
           <div data-insert-in-list-target="items">
             <div class="container">
