@@ -16,5 +16,8 @@ application.register("insert-in-list", InsertInListController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import NotificationsController from "./notifications_controller"
+application.register("notifications", NotificationsController)
+
 import SearchContactsController from "./search_contacts_controller"
 application.register("search-contacts", SearchContactsController)
