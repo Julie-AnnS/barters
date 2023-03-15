@@ -1,88 +1,106 @@
-<div class="container">
-      <div class="profile-show-all row" >
+      <div class="profile-show-all" >
+        <div class="info-box-left">
+          <div class="profile-show-card" >
+            <div class="profil-picture-show-card">
+              <%= image_tag ("avatar.svg"), class:"avatar-show-page-picture" %>
+            </div>
 
 
-        <div class="profile-show-card col-5" >
-          <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+            <h2 class="name-show-card"><%= @user.first_name %> <%= @user.last_name %></h2>
+            <div class="profile-info">
+              <div class="button-position">
+                <% unless current_user == @user %>
+                  <% if @existing_conversation.nil? %>
+                    <%= button_to "Contact me", conversations_path, params: { artist_id: @user.id }, class: "btn btn-offer rounded-pill" %>
+                  <% else %>
+                    <%= link_to "Contact me", conversation_path(@existing_conversation), class: "btn btn-offer rounded-pill" %>
+                  <% end %>
+                <% end %>
+                <%= link_to "Make an offer", offers_new_path(@user), class: "btn btn-contact rounded-pill" %>
+              </div>
 
-         <div class="profile-buttons">
-          <% unless current_user == @user %>
-            <% if @existing_conversation.nil? %>
-              <%= button_to "Contact me", conversations_path, params: { artist_id: @user.id }, class: "btn btn-offer rounded-pill" %>
-            <% else %>
-              <%= link_to "Contact me", conversation_path(@existing_conversation), class: "btn btn-offer rounded-pill" %>
-            <% end %>
-          <% end %>
-          <%= link_to "Make an offer", offers_new_path(@user), class: "btn btn-contact rounded-pill" %>
-        </div>
+                <p><strong> Skills: </strong> <%= @user.services %></p>
 
-          <p> <strong> Skills: </strong> <%= @user.services %></p>
+                <p><strong> Bio: </strong> <%= @user.bio %></p>
 
-          <p> <strong> Bio: </strong> <%= @user.bio %></p>
+                <p><strong> Currently offering: </strong> <%= @user.currently_offering %></p>
 
-          <p> <strong> Skills: </strong> <%= @user.services %></p>
-
-          <p> <strong> Currently looking for: </strong> <%= @user.currently_looking %></p>
-
-          <p> <strong> Currently offering: </strong> <%= @user.currently_offering %></p>
-
-          <p> <strong> Location: </strong> <%= @user.location %> </p>
-        </div>
-
-        <div class="user-artworks-test col-7">
-          <div class="user-artworks-title">
-            <h1> <%= @user.first_name %> <%= @user.last_name %>'s artworks: </h1>
-          </div>
-
-        <div class="profile-artwork-cards">
-          <div class="card-img-container1">
-              <%= image_tag"takumi.png", class:"img-card"%>
-          </div>
-
-          <div class="card-img-container2">
-              <%= image_tag"takumi.png", class:"img-card"%>
-          </div>
-
-          <div class="card-img-container3">
-              <%= image_tag"takumi.png", class:"img-card"%>
-          </div>
-
-          <div class="card-img-container4">
-              <%= image_tag"takumi.png", class:"img-card"%>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-
-
-  <div>
-    <% if @user.reviews.blank? && !@offer.nil? %>
-      <p>Be the first to leave a review for <%= @user.first_name %></p>
-    <% else %>
-      <% @user.reviews.each do |review| %>
-        <%# <p><%= review.content %></p>
-        <%# <p><%= review.rating %></p>
-      <% end %>
-    <% end %>
-
-     </div>
-        <%= render "reviews/form", user: @user, review: @review %>
-      </div>
-
-<% unless @offer.nil? %>
-      <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
-        <div data-insert-in-list-target="items">
-          <div class="container">
-            <h1><%= @user.first_name %>'s review from collaborators:</h1>
-            <div class="d-flex flex-column gap-4 space-between">
-              <% @user.reviews.each do |review| %>
-                <%= render "shared/tube", review: review %>
-              <% end %>
+                <p><strong> Location: </strong> <%= @user.location %> </p>
             </div>
           </div>
-    <% end %>
-</div>
+        </div>
 
+
+
+            <div class="info-box-right">
+              <div class="user-artworks-title">
+                <h1 class="title-artwork-show"> <%= @user.first_name %> <%= @user.last_name %>'s artworks</h1>
+              </div>
+                <div class="grid-artworks-show-artist">
+                  <div class="card-user-show-artist">
+                    <div class="card-img-container-show-artist">
+                        <%= image_tag"takumi.png", class:"img-card-show-artist"%>
+                    </div>
+                  </div>
+
+                    <div class="card-user-show-artist">
+                      <div class="card-img-container-show-artist">
+                          <%= image_tag"takumi.png", class:"img-card-show-artist"%>
+                      </div>
+                    </div>
+
+                      <div class="card-user-show-artist">
+                        <div class="card-img-container-show-artist">
+                            <%= image_tag"takumi.png", class:"img-card-show-artist"%>
+                        </div>
+                      </div>
+
+                        <div class="card-user-show-artist">
+                          <div class="card-img-container-show-artist">
+                              <%= image_tag"takumi.png", class:"img-card-show-artist"%>
+                          </div>
+                        </div>
+
+                           <div class="card-user-show-artist">
+                            <div class="card-img-container-show-artist">
+                                <%= image_tag"takumi.png", class:"img-card-show-artist"%>
+                            </div>
+                          </div>
+
+                          <div class="card-user-show-artist">
+                            <div class="card-img-container-show-artist">
+                                <%= image_tag"takumi.png", class:"img-card-show-artist"%>
+                            </div>
+                          </div>
+                </div>
+        </div>
+      </div>
+          <div>
+            <% if @user.reviews.blank? && !@offer.nil? %>
+              <p>Be the first to leave a review for <%= @user.first_name %></p>
+            <% else %>
+              <% @user.reviews.each do |review| %>
+                <%# <p><%= review.content %></p>
+                <%# <p><%= review.rating %></p>
+              <% end %>
+            <% end %>
+          <% unless @offer.nil? %>
+          </div>
+          <div class="form-box">
+          <h2>Put a review !</h2>
+        <%= render "reviews/form", user: @user, review: @review %>
+          </div>
+        <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+          <div data-insert-in-list-target="items">
+            <div class="container">
+              <h1><%= @user.first_name %>'s review from collaborators:</h1>
+              <div class="d-flex flex-column gap-4 space-between">
+                <% @user.reviews.each do |review| %>
+                  <%= render "shared/tube", review: review %>
+                <% end %>
+              </div>
+            </div>
+      <% end %>
+  </div>
+</div>
   <%= link_to "Back to all artists", artists_path %>
