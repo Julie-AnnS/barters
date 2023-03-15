@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  notifications:
+  new_notification:
+      message: "You have a new notification"

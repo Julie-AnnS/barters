@@ -11,24 +11,24 @@ class NewNotification < Noticed::Base
   # deliver_by :slack
   # deliver_by :custom, class: "MyDeliveryMethod"
 
-#   def to_database
-#     {
-#       type: self.class.name,
-#       params: params,
-#       account: Current.account,
-#     }
-#   end
-#   # Add required params
-#   #
-#   param :post
+  # def to_database
+  #   {
+  #     type: self.class.name,
+  #     params: params,
+  #     account: Current.account,
+  #   }
+  # end
+  # Add required params
+  #
+  param :offer
 
-#   # Define helper methods to make rendering easier.
-#   #
-#   def message
-#     t(".message")
-#   end
+  # Define helper methods to make rendering easier.
+  #
+  def message
+    t(".message")
+  end
 
-#   def url
-#     post_path(params[:post])
-#   end
+  def url
+    post_path(params[:offer])
+  end
 end

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post 'artists/:id/reviews', to: "reviews#create", as: :user_reviews
   patch 'offers/:id/accept', to: 'offers#accept', as: :offer_accept
   patch 'offers/:id/decline', to: 'offers#decline', as: :offer_decline
+  get 'notifications', to: 'notifications#index'
 
   # resources :offers, only: [] do
   #   patch :accept

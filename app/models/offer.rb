@@ -1,6 +1,7 @@
 class Offer < ApplicationRecord
   belongs_to :requester, class_name: "User"
   belongs_to :collaborator, class_name: "User"
+  belongs_to :recipient, class_name: "User"
 
   has_noticed_notifications model_name: "Notification"
   has_many :notifications, through: :user, dependent: :destroy
@@ -20,11 +21,11 @@ class Offer < ApplicationRecord
 
   private
   def notify_recipient
-    NewNotification.with(comment: self, post: post).deliver_later(offer.collaborator) ||
-    NewNotification.with(comment: self, post: post).deliver_later(offer.requester)
+    NewNotification.with(offer: @offer).deliver(user) ||
+    NewNotification.with(offer: @offer).deliver(offer.requester)
   end
 
   def cleanup_notifications
     notifications_as_offer.destroy_all
-end
+  end
 end
