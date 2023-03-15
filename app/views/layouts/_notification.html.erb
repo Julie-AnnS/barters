@@ -1,3 +1,3 @@
 <li class="dropdown-item">
-  <%= link_to notification.params[:message].content, conversation_path(notification.params[:conversation]) %>
+  <%= link_to "New message from #{notification.recipient.first_name}", conversation_path(notification.params[:conversation]) %>
 </li>

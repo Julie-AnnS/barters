@@ -1,29 +1,32 @@
-<div data-controller="notifications" data-notifications-current-user-id-value="<%= current_user.id %>">
+<div data-controller="notifications"
+     data-notifications-current-user-id-value="<%= current_user.id %>"
+     data-notifications-conversation-id-value="<%= @conversation.id %>">
   <div data-notifications-target="pill">
     <% if current_user %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <span class="badge rounded-pill bg-danger">
-            <%= @unread.count >= 9 ? "9+" : @unread.count %> <i class="bi bi-bell-fill"></i>
+            <span data-notifications-target="number">
+              <%= @unread.count %>
+            </span>
+            <i class="bi bi-bell-fill"></i>
           </span>
         </a>
         <ul data-notifications-target="items" class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
           <% @unread.each do |notification| %>
             <%= render "layouts/notification", notification: notification %>
           <% end %>
-
-
-
-          <% if @read.count > 0 && @unread.count > 0 %>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-          <% elsif @read.count + @unread.count == 0 %>
-            <li class="dropdown-item">
-              No notifications yet.
-            </li>
-          <% end %>
-
+            <% if @read.count > 0 && @unread.count > 0 %>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+            <% elsif @read.count + @unread.count == 0 %>
+              <li class="dropdown-item">
+                <span data-notifications-target="removezero">
+                  No notifications yet.
+                </span>
+              </li>
+            <% end %>
           <% @read.each do |notification| %>
             <%= render "layouts/notification", notification: notification %>
           <% end %>
