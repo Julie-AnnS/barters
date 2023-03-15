@@ -1,4 +1,4 @@
-<h1><%= pluralize @users.length, "barter" %> found near you</h1>
+<h1 class="near-you"><%= pluralize @users.length, "barter" %> found near you</h1>
 <div class="main-index-container" id="artists">
   <div class="grid-index-container">
     <% @users.each do |user| %>
@@ -10,7 +10,7 @@
             <div class="card-info-container">
               <div class="card-info-name-skill">
                   <div class="name"> <%= link_to user.first_name, artist_path(user)%> <%= user.last_name %></div>
-                  <div class="skill">Painting</div>
+                  <div class="skill"><%= user.services %></div>
               </div>
               <div class="card-info-reviews-location">
                   <div class="review-container">
