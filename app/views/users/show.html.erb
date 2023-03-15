@@ -71,29 +71,9 @@
                             <div class="card-img-container-show-artist">
                                 <%= image_tag"takumi.png", class:"img-card-show-artist"%>
                             </div>
-                          </div>
-
-
-
                 </div>
-
-
-
-
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
   <div>
     <% if @user.reviews.blank? && !@offer.nil? %>
       <p>Be the first to leave a review for <%= @user.first_name %></p>
@@ -104,11 +84,10 @@
       <% end %>
     <% end %>
 
-     </div>
+  <% unless @offer.nil? %>
+      </div>
         <%= render "reviews/form", user: @user, review: @review %>
       </div>
-
-  <% unless @offer.nil? %>
         <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
           <div data-insert-in-list-target="items">
             <div class="container">
