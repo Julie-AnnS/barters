@@ -15,7 +15,6 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(message) {
-    console.log("what")
     // this.messagesTarget.insertAdjacentHTML('beforeend', message)
     // window.scrollTo(0, document.body.scrollHeight, {top: 0, behavior: 'smooth'})
     const currentUserIsSender = this.currentUserIdValue === message.sender_id
@@ -25,7 +24,7 @@ export default class extends Controller {
     // Inserting the `message` in the DOM
     // console.log(messageElement)
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    this.messagesTarget.parentElement.scrollTo(0, this.messagesTarget.scrollHeight)
     }
 
   #buildMessageElement(currentUserIsSender, message) {
