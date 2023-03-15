@@ -38,6 +38,7 @@ class NewNotification < Noticed::Base
   end
 
   def url
-    post_path(params[:post])
+    root_path
+    #post_path(params[:post])
   end
 end
