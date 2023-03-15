@@ -2,7 +2,8 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[show edit update destroy accept decline]
 
   def index
-    @offers = Offer.where(requester: current_user)
+    @sent_offers = Offer.where(requester: current_user)
+    @received_offers = Offer.where(collaborator: current_user)
   end
 
   def my_offers
