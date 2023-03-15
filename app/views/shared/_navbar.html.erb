@@ -25,6 +25,9 @@
           <li class="nav-item">
             <%= link_to "offers", "/offers/", class: "nav-link" %>
           </li>
+          <ul class="nav-item">
+            <%= render "layouts/notifications" %>
+          </ul>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.nickname %></a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
