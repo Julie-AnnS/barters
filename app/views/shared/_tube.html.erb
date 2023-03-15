@@ -1,8 +1,17 @@
+<style>
+/* h1 {text-align: center;} */
+h6 {text-align: center;}
+/* p {text-align: center;} */
+/* div {text-align: center;} */
+</style>
+
+
+
 <div class="tube" >
   <div class="row">
     <div class="col-3 col-md-1">
       <div class="tube-avatar" >
-        <img class="middle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2ChocolateChipCookies.jpg/800px-2ChocolateChipCookies.jpg" alt="user's avatar" width="32" height="32">
+        <img class="middle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2ChocolateChipCookies.jpg/800px-2ChocolateChipCookies.jpg" alt="user's avatar" width="60" height="60">
         <%# need to change img src to image tag %>
       </div>
     </div>
@@ -16,12 +25,14 @@
 
     <div class="col-3 col-md-2">
       <div class="tube-rating_stars" >
-        <h6> <p>Star Rating</p> <h6>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
+        <h6> <p> Rating<br><%= review.rating %> /5</p> <h6>
+          <% unless review.rating.nil? %>
+            <span class="fa fa-star <%= review.rating >= 1 ? "checked" : "" %>"></span>
+            <span class="fa fa-star <%= review.rating >= 2 ? "checked" : "" %>"></span>
+            <span class="fa fa-star <%= review.rating >= 3 ? "checked" : "" %>"></span>
+            <span class="fa fa-star <%= review.rating >= 4 ? "checked" : "" %>"></span>
+            <span class="fa fa-star <%= review.rating >= 5 ? "checked" : "" %>"></span>
+          <% end %>
       </div>
     </div>
 
