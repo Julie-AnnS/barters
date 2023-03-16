@@ -18,11 +18,11 @@ class UsersController < ApplicationController
     @review = Review.new
     @existing_conversation = Conversation.get_conversation(current_user, @user).first
 
-    if @user.first_name == "Annie"
+    if @user.first_name == "Lara"
       @images = ["Painter/pexels-photo-1045299.jpg","Painter/pexels-photo-1418595.jpg","Painter/pexels-photo-1550564.jpg","Painter/pexels-photo-1724888.jpg"]
-    elsif @user.first_name == "Lea"
+    elsif @user.first_name == "Quentin"
       @images = ["Ceramist/ceramist.jpg","Ceramist/IMG_4165_2_1024x1024.jpg","Ceramist/iStock-1460597547.jpg","Ceramist/potterybypriscilla.jpg"]
-    elsif @user.first_name == "Bobe"
+    elsif @user.first_name == "Julie-Ann"
       @images = ["Embroiderer/embroiderer-index.jpg","Embroiderer/iStock-115865739.jpg","Embroiderer/il_fullxfull.2070631763_2eoe.jpg","Embroiderer/embroidery-on-clothes-DJ-680fd9a.jpg"]
     else
       @images = []

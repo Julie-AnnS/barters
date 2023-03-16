@@ -5,7 +5,9 @@
       <% unless user == current_user %>
         <div class="card-user">
           <div class="card-img-container">
-              <%= link_to image_tag("takumi.png", class:"img-card"), artist_path(user) %>
+            <% if user.avatar.attached? %>
+              <%= link_to image_tag(url_for(user.avatar), class:"img-card"), artist_path(user) %>
+            <% end %>
           </div>
             <div class="card-info-container">
               <div class="card-info-name-skill">
