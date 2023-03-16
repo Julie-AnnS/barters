@@ -29,8 +29,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def article_params
-    params.require(:user).permit(:title, :body, :photo)
-    params.require(:user).permit(:title, :body, avatars: [])
-  end
+  # def user_params
+  #   params.require(:user).permit(:title, :body, :photo)
+  #   params.require(:user).permit(:title, :body, avatars: [])
+  # end
 end
