@@ -2,7 +2,7 @@
         <div class="info-box-left">
           <div class="profile-show-card" >
             <div class="profil-picture-show-card">
-              <%= image_tag ("avatar.svg"), class:"avatar-show-page-picture" %>
+              <%= cl_image_tag @user.avatar.key, class:"avatar-show-page-picture" %>
             </div>
 
 
@@ -37,6 +37,7 @@
                 <h1 class="title-artwork-show"> <%= @user.first_name %> <%= @user.last_name %>'s artworks</h1>
               </div>
                 <div class="grid-artworks-show-artist">
+
                   <% @images.each do |image| %>
                     <div class="card-user-show-artist">
                       <div class="card-img-container-show-artist">
@@ -44,6 +45,7 @@
                       </div>
                     </div>
                   <% end %>
+                  
                 </div>
         </div>
       </div>
@@ -68,7 +70,7 @@
               <h1><%= @user.first_name %>'s review from collaborators:</h1>
               <div class="d-flex flex-column gap-4 space-between">
                 <% @user.reviews.each do |review| %>
-                  <%= render "shared/tube", review: review %>
+                  <%= render "shared/tube", review: review, offer: @offer %>
                 <% end %>
               </div>
             </div>

@@ -28,4 +28,9 @@ class UsersController < ApplicationController
       @images = []
     end
   end
+
+  def article_params
+    params.require(:user).permit(:title, :body, :photo)
+    params.require(:user).permit(:title, :body, avatars: [])
+  end
 end

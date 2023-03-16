@@ -1,11 +1,10 @@
 .h1-offer-details {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .offer-details {
   width: 80%;
   margin: 0 auto;
-  border: 1px solid red;
 }
 
 .my-task {
@@ -13,6 +12,7 @@
   border-radius: 10px;
   min-height: 100px;
   margin-right: 20%;
+  padding: 20px
 }
 
 .username-task {
@@ -20,8 +20,14 @@
   border-radius: 10px;
   min-height: 100px;
   margin-left: 20%;
+  padding: 20px;
 }
 
+.my-task-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
 .exchange-time {
   background-color: #FFF8DB;
@@ -32,6 +38,7 @@
   gap: 16px;
   margin-left: 10%;
   margin-right: 10%;
+  margin-top: 50px;
 }
 
 .blue-box {
@@ -79,10 +86,6 @@
   display: flex;
 }
 
-.other-task-text {
-  text-align: right;
-}
-
 .both-deposits .deposit {
   display: flex;
   gap: 10px;
@@ -90,4 +93,29 @@
 
 .btn-exchanges {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.name-task {
+  padding-top: 15px;
+  padding-left: 10px;
+}
+
+.avatar-offer-details {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.other-task-text {
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.other-name-task {
+  padding-top: 15px;
+  padding-right: 10px;
 }
