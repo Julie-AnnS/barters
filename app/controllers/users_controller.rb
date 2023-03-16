@@ -19,11 +19,11 @@ class UsersController < ApplicationController
     @existing_conversation = Conversation.get_conversation(current_user, @user).first
 
     if @user.first_name == "Annie"
-      @images = ["Painter/pexels-photo-1045299.jpg","Painter/pexels-photo-1418595.jpg","Painter/pexels-photo-1550564.jpg","Painter/pexels-photo-1724888.jpg"]
+      @images = ["Painter/pexels-photo-1045299.jpg","Painter/pexels-photo-1418595.jpg","Painter/pexels-photo-1550564.jpg","Painter/pexels-photo-1724888.jpg", "Painter/extro2.jpg", "Painter/extro3.jpg"]
     elsif @user.first_name == "Lea"
-      @images = ["Ceramist/ceramist.jpg","Ceramist/IMG_4165_2_1024x1024.jpg","Ceramist/iStock-1460597547.jpg","Ceramist/potterybypriscilla.jpg"]
+      @images = ["Ceramist/ceramist.jpg","Ceramist/IMG_4165_2_1024x1024.jpg","Ceramist/iStock-1460597547.jpg","Ceramist/potterybypriscilla.jpg", "Ceramist/cera.jpg", "Ceramist/cero.jpg"]
     elsif @user.first_name == "Bobe"
-      @images = ["Embroiderer/embroiderer-index.jpg","Embroiderer/iStock-115865739.jpg","Embroiderer/il_fullxfull.2070631763_2eoe.jpg","Embroiderer/embroidery-on-clothes-DJ-680fd9a.jpg"]
+      @images = ["Embroiderer/embroiderer-index.jpg","Embroiderer/treck1.jpg","Embroiderer/treck2.jpg","Embroiderer/iStock-115865739.jpg","Embroiderer/il_fullxfull.2070631763_2eoe.jpg","Embroiderer/embroidery-on-clothes-DJ-680fd9a.jpg"]
     else
       @images = []
     end
