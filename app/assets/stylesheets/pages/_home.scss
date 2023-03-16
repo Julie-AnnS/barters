@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 body{
   background-image: asset-url("background-home.svg");
-  // background-size: contain;
+  background-size: cover;
   // background-repeat: no-repeat;
   // background-position: top;
   min-height: 100vh;
@@ -72,7 +72,7 @@ body{
   border-radius: 54% 46% 56% 44% / 48% 23% 77% 52% ;
   background: rgb(103,188,217);
   background: linear-gradient(184deg, rgba(255,248,219,1) 0%, rgba(255,255,255,0) 78%);
-  
+
   display: flex;
   justify-content: center;
 }
