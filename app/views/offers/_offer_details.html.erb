@@ -7,30 +7,30 @@
   <div class="my-task-text">
 
    <%= image_tag "takumi.png", class: "avatar-offer-details" %>
-
-    <% if offer.requester == current_user %>
-        <p class="name-task"><strong>My task</strong></p>
-      <% else %>
-        <p class="name-task"><strong><%= offer.requester.first_name %>'s task</strong></p>
-      <% end %>
+   
+    <% if offer.collaborator == current_user %>
+      <p><strong><%= offer.requester.first_name %>'s task: </strong></p>
+    <% else %>
+      <p><strong>My task:</strong></p>
+    <% end %>
 
   </div>
 
-        <div class="my-task">
-          <%= offer.my_tasks %>
-        </div>
+    <div class="my-task">
+      <%= offer.my_tasks %>
+    </div>
 
     <div class="other-task-text">
-
+    
+      <%= image_tag "takumi.png", class: "avatar-offer-details" %>
       <% if offer.requester == current_user %>
         <p class="other-name-task"><strong><%= offer.collaborator.first_name %>'s task</strong></p>
       <% else %>
         <p class="other-name-task"><strong>My task</strong></p>
       <% end %>
 
-      <%= image_tag "takumi.png", class: "avatar-offer-details"  %>
-
     </div>
+    
       <div class="username-task">
         <%= offer.others_tasks %>
       </div>
