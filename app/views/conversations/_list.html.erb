@@ -5,11 +5,11 @@
       <div class="img-container-avatar">
           <% if conversation.participant_one_id == current_user.id %>
             <% if conversation.participant_two.avatar.attached? %>
-              <%= link_to image_tag(url_for(conversation.participant_two.avatar), class:"img-card"), artist_path(conversation.participant_two_id) %>
+              <%= link_to cl_image_tag(conversation.participant_two.avatar.key, class:"img-card"), artist_path(conversation.participant_two_id) %>
             <% end  %>
           <% else %>
             <% if conversation.participant_one.avatar.attached? %>
-              <%= link_to image_tag(url_for(conversation.participant_one.avatar), class:"img-card"), artist_path(conversation.participant_one_id) %>
+              <%= link_to cl_image_tag(conversation.participant_one.avatar.key, class:"img-card"), artist_path(conversation.participant_one_id) %>
             <% end %>
           <% end %>
       </div>
