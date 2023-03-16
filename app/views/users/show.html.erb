@@ -37,50 +37,15 @@
                 <h1 class="title-artwork-show"> <%= @user.first_name %> <%= @user.last_name %>'s artworks</h1>
               </div>
                 <div class="grid-artworks-show-artist">
-                  <div class="card-user-show-artist">
-                    <div class="card-img-container-show-artist">
-                        <%= image_tag"takumi.png", class:"img-card-show-artist"%>
-                    </div>
-                  </div>
-<%#
+
+                  <% @images.each do |image| %>
                     <div class="card-user-show-artist">
                       <div class="card-img-container-show-artist">
-                        <% @user.photos.each do |photo| %>
-                          <%# <%= cl_image_tag photo.key, class:"img-card-show-artist" %>
-                        <%# <% end %>
-                      <%# </div> %>
-                    <%# </div> %>
-
-                      <div class="card-user-show-artist">
-                        <div class="card-img-container-show-artist">
-                            <%= image_tag"takumi.png", class:"img-card-show-artist"%>
-                        </div>
+                          <%= image_tag image, class:"img-card-show-artist"%>
                       </div>
-
-
-                      <div class="card-user-show-artist">
-                        <div class="card-img-container-show-artist">
-                            <%= image_tag"takumi.png", class:"img-card-show-artist"%>
-                        </div>
-                      </div>
-
-                        <div class="card-user-show-artist">
-                          <div class="card-img-container-show-artist">
-                              <%= image_tag"takumi.png", class:"img-card-show-artist"%>
-                          </div>
-                        </div>
-
-                           <div class="card-user-show-artist">
-                            <div class="card-img-container-show-artist">
-                                <%= image_tag"takumi.png", class:"img-card-show-artist"%>
-                            </div>
-                          </div>
-
-                          <div class="card-user-show-artist">
-                            <div class="card-img-container-show-artist">
-                                <%= image_tag"takumi.png", class:"img-card-show-artist"%>
-                            </div>
-                          </div>
+                    </div>
+                  <% end %>
+                  
                 </div>
         </div>
       </div>
