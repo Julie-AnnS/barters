@@ -56,9 +56,9 @@ user3 = User.create!(
   phone_number: "1234567893",
   location: "Montreal",
   language: "French, English",
-  bio: "I can play with one hand.",
-  services: "Playing guitar, Composer",
-  currently_offering: "Cool Guitar Solo",
+  bio: "I am a professional sculptor.",
+  services: "sculpting",
+  currently_offering: "sculpting",
   currently_looking: "Seamstress"
 )
 
@@ -224,7 +224,7 @@ user10 = User.create!(
   phone_number: "1234567892",
   location: "Turkey",
   language: "Turkish, French",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  bio: "I love my daughters, son, granddaughters and embroidering.",
   services: "Crocheting",
   currently_offering: "Painting",
   currently_looking: "Musician"
