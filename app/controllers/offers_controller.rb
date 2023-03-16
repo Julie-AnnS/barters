@@ -46,6 +46,11 @@ class OffersController < ApplicationController
   def accept
     if @offer.accepted!
       redirect_to offer_path(@offer), notice: 'Offer accepted'
+      OfferChannel.broadcast_to(
+        @offers,
+        render_to_string(partial: "offers", locals: {offer: @offer})
+      )
+      head :ok
     else
       redirect_to offer_path(@offer), notice: 'Offer could not be accepted - please try again'
     end
