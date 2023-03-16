@@ -53,8 +53,7 @@ class OffersController < ApplicationController
 
   def decline
     if @offer.declined!
-      redirect_to offers_path, notice: 'Offer rejected'
-      @offer.destroy
+      redirect_to offer_path(@offer), notice: 'Offer rejected'
     else
       redirect_to offers_path, notice: 'Offer could not be rejected - please try again'
     end
