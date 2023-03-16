@@ -4,6 +4,6 @@
                       action: "submit->insert-in-list#send"
                     }) do |f| %>
   <%= f.input :content, as: :text %>
-  <%= f.input :rating, as: :float %>
+  <%= f.input :rating, collection: 0..5 %>
   <%= f.button :submit %>
 <% end %>
