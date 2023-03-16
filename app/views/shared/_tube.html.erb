@@ -11,7 +11,8 @@ h6 {text-align: center;}
   <div class="row">
     <div class="col-3 col-md-1">
       <div class="tube-avatar" >
-        <img class="middle" cl_image_tag @user.photo.key alt="user's avatar" width="60" height="60">
+        <%# <img class="middle" cl_image_tag @user.avatar.key alt="user's avatar" width="60" height="60"> %>
+         <%= cl_image_tag @user.avatar.key, class: "middle", width: 60, height: 60 %>
         <%# need to change img src to image tag %>
       </div>
     </div>
