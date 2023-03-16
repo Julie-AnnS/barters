@@ -5,6 +5,7 @@
 <div class="offer-details" id="<%= dom_id offer %>">
 
   <div class="my-task-text">
+   <%= image_tag "takumi.png", class: "avatar" %>
     <p> <strong> My task: </strong> </p>
   </div>
       <div class="my-task">
@@ -14,7 +15,8 @@
 
 
     <div class="other-task-text">
-      <p> <strong> <%= offer.collaborator.first_name %>'s task: </strong> </p>
+      <%= image_tag "takumi.png", class: "avatar" %>
+        <p> <strong> <%= offer.collaborator.first_name %>'s task: </strong> </p>
     </div>
       <div class="username-task">
         <%= offer.others_tasks %>
@@ -69,7 +71,7 @@
         <%# <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch %>
         <%# <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch %>
       <%# <% end %>
-    <%# </p> %> 
+    <%# </p> %>
 
     <div class="exchanges-button">
       <%= link_to "Go back", offers_path, class: "btn btn-exchanges rounded-pill" %>
