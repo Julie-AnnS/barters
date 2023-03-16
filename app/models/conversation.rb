@@ -12,6 +12,12 @@ class Conversation < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+  has_noticed_notifications model_name: "Notification"
+  has_many :notifications, through: :participant_one, class_name: "User", dependent: :destroy
+  has_many :notifications, through: :participant_two, class_name: "User", dependent: :destroy
+
+  def self.btwn_users(first, second)
+    Conversation.find_by(participant_one: first, participant_two: second) ||
+      Conversation.find_by(participant_one: second, participant_two: first)
+  end
 end
-
-

@@ -3,27 +3,41 @@
     <div class="flex">
       <div class="exchange-time">
         <div class="times">
+
           <div class="artist-name-and-avatar">
             <%= image_tag "takumi.png", class: "avatar" %>
-            <div class="artist-name"><%= offer.collaborator.first_name %> <%= offer.collaborator.last_name %></div>
+              <% if offer.collaborator == current_user %>
+                <div class="artist-name"><%= offer.requester.first_name %> <%= offer.requester.last_name %></div>
+              <% else %>
+                <div class="artist-name"><%= offer.collaborator.first_name %> <%= offer.collaborator.last_name %></div>
+              <% end %>
           </div>
 
-          <div class="time-start">
-            <div> <strong> Start date </strong> </div>
-            <div class="actual-start">
-              <%= offer.start_date.strftime("%m-%e-%y %H:%M") %>
+          <% if !offer.pending? %>
+            <div class="time-start">
+              <div> <strong> Start Date </strong> </div>
+              <div class="actual-start">
+                <%= offer.start_date.strftime("%m-%e-%y %H:%M") %>
+              </div>
             </div>
-          </div>
 
-          <div class="progressbar">
-          </div>
-
-          <div class="time-end">
-            <div> <strong> End Date </strong> </div>
-            <div class="actual-end">
-              <%= offer.end_date.strftime("%m-%e-%y %H:%M") %>
+            <div class="progressbar">
             </div>
-          </div>
+
+            <div class="time-end">
+              <div> <strong> End Date </strong> </div>
+              <div class="actual-end">
+                <%= offer.end_date.strftime("%m-%e-%y %H:%M") %>
+              </div>
+            </div>
+
+          <% else %>
+            <% if offer.requester != current_user %>
+              <div><strong> Waiting for your answer... </strong></div>
+            <% else %>
+              <div><strong> Waiting for their answer... </strong></div>
+            <% end %>
+          <% end %>
 
           <div class="more-button">
             <%= link_to offer_path(offer) do %>

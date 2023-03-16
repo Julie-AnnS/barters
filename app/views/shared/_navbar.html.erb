@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag("screen_shot_2023-03-06_at_4.22.17_pm-removebg-preview.png")%>
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag"screen_shot_2023-03-06_at_4.22.17_pm-removebg-preview.png", class:"logo-barter"%>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,6 +25,9 @@
           <li class="nav-item">
             <%= link_to "offers", "/offers/", class: "nav-link" %>
           </li>
+          <ul class="nav-item">
+            <%= render "layouts/notifications" %>
+          </ul>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.nickname %></a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

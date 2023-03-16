@@ -1,32 +1,51 @@
-<%# <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Progress Bar</title>
     <meta charset="utf-8">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href=
-"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-    </script>
-    <script src=
-"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
-    </script>
-    <script src=
-"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
-    </script>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Progress bar </title>
+    <style>
+      .progress {
+        position: relative;
+        width: 200px;
+        height:30px;
+        background: orange;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .progress__fill {
+        height:100%;
+        background: blue;
+      }
+      .progress__text {
+        position: absolute;
+        top:50%;
+        right:5px;
+        transform: translateY(-50%)
+      }
+    </style>
+<head>
 <body>
-<h1 style="color:green;text-align:center;">
-        Progress
-    </h1>
-    <div class="container">
-        <div class="progress" style="height:30px;">
-            <div class="progress-bar"
-                style="width:80%;height:30px;">
-            </div>
+<div class="col-6 col-md-5">
+      <div class="progress_bar">
+        <div class="progress" >
+            <div class="progress-bar" style="width:50%;">
+          </div>
         </div>
+      </div>
     </div>
+  <% completion_percent = 90 %>
+  <div class="progress">
+    <div class="progress__fill" style="width: <%= completion_percent %>%;"></div>
+    <span class="progress__text"><%= completion_percent %>%</span>
+  </div>
+
+  <script>
+    function updateProgressBar(progressBar, value) {
+
+      progressBar.querySelector(".progress__fill").style.width =`${value}%`
+      progressBar.querySelector(".progress__text").text.Content =`${value}%`
+    }
+  </script>
 </body>
-</html> %>
+</html>
