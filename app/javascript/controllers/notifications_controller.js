@@ -16,7 +16,7 @@ export default class extends Controller {
 
   #insertMessageAndScrollDown(data) {
     console.log(data.notification)
-    console.log(data.notification.match(/(\d+)/))
+    console.log(data.notification.match(/\/(\d+)\//m))
     this.itemsTarget.insertAdjacentHTML("afterbegin", data.notification)
     this.numberTarget.innerText = Number(this.numberTarget.innerText) + 1
     this.removezeroTarget.innerText = ""
