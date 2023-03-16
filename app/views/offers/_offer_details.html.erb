@@ -7,8 +7,6 @@
   <div class="my-task-text">
 
    <%= image_tag "takumi.png", class: "avatar" %>
-    <p> <strong> My task: </strong> </p>
-
     <% if offer.collaborator == current_user %>
       <p><strong><%= offer.requester.first_name %>'s task: </strong></p>
     <% else %>
@@ -24,8 +22,6 @@
     <div class="other-task-text">
 
       <%= image_tag "takumi.png", class: "avatar" %>
-        <p> <strong> <%= offer.collaborator.first_name %>'s task: </strong> </p>
-
       <% if offer.requester == current_user %>
         <p><strong><%= offer.collaborator.first_name %>'s task: </strong></p>
       <% else %>
