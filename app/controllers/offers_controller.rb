@@ -45,18 +45,18 @@ class OffersController < ApplicationController
 
   def accept
     if @offer.accepted!
-      redirect_to my_offers_path, notice: 'Offer accepted'
+      redirect_to offer_path(@offer), notice: 'Offer accepted'
     else
-      redirect_to my_offers_path, notice: 'Offer could not be accepted - please try again'
+      redirect_to offer_path(@offer), notice: 'Offer could not be accepted - please try again'
     end
   end
 
   def decline
     if @offer.declined!
-      redirect_to my_offers_path, notice: 'Offer rejected'
+      redirect_to offers_path, notice: 'Offer rejected'
       @offer.destroy
     else
-      redirect_to my_offers_path, notice: 'Offer could not be rejected - please try again'
+      redirect_to offers_path, notice: 'Offer could not be rejected - please try again'
     end
   end
 

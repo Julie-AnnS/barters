@@ -36,7 +36,7 @@
       <%# </p> %>
       <div class="times">
         <div class="time-start">
-          <div> <strong> Start date </strong> </div>
+          <div> <strong> Start Date </strong> </div>
           <div class="actual-start">
             <%= offer.start_date.strftime("%m-%e-%y %H:%M") %>
           </div>
@@ -71,15 +71,20 @@
 
     </div>
 
-    <%# <p>
+    <p>
       <% if offer.requester != current_user && offer.pending? %>
-        <%# <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch %>
-        <%# <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch %>
-      <%# <% end %>
-    <%# </p> %>
-
-    <div class="exchanges-button">
-      <%= link_to "Go back", offers_path, class: "btn btn-exchanges rounded-pill" %>
+      <div class="d-flex justify-content-center">
+        <div>
+          <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch, class: "btn btn-exchanges rounded-pill" %>
+        </div>
+        <div>
+          <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch, class: "btn btn-exchanges rounded-pill" %>
+        </div>
+      <% end %>
+      <div class="exchanges-button">
+          <%= link_to "Go back", offers_path, class: "btn btn-exchanges rounded-pill" %>
+      </div>
     </div>
+    </p>
 </div>
 <br>
