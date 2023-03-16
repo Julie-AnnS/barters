@@ -6,9 +6,9 @@ class Offer < ApplicationRecord
     Offer.find_by(requester: first, collaborator: second) ||
       Offer.find_by(requester: second, collaborator: first)
   end
-  
+
   validates_presence_of :start_date, :end_date
-  
+
   enum status: {
     pending: 0,
     accepted: 1,

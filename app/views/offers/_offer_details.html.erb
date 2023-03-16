@@ -5,7 +5,6 @@
 <div class="offer-details" id="<%= dom_id offer %>">
 
   <div class="my-task-text">
-
    <%= image_tag "takumi.png", class: "avatar-offer-details" %>
 
     <% if offer.collaborator == current_user %>
@@ -16,20 +15,20 @@
 
   </div>
 
-    <div class="my-task">
-      <%= offer.my_tasks %>
-    </div>
+  <div class="my-task">
+    <%= offer.my_tasks %>
+  </div>
 
-    <div class="other-task-text">
+  <div class="other-task-text">
 
-      <%= image_tag "takumi.png", class: "avatar-offer-details" %>
-      <% if offer.requester == current_user %>
-        <p class="other-name-task"><strong><%= offer.collaborator.first_name %>'s task:</strong></p>
-      <% else %>
-        <p class="other-name-task"><strong>My task:</strong></p>
-      <% end %>
+    <%= image_tag "takumi.png", class: "avatar-offer-details" %>
+    <% if offer.requester == current_user %>
+      <p class="other-name-task"><strong><%= offer.collaborator.first_name %>'s task:</strong></p>
+    <% else %>
+      <p class="other-name-task"><strong>My task:</strong></p>
+    <% end %>
 
-    </div>
+  </div>
 
       <div class="username-task">
         <%= offer.others_tasks %>
@@ -50,15 +49,16 @@
           </div>
         </div>
 
-        <div class="progress_bar">
-            <div class="progress" >
-            <div class="progress-bar" style="width:50%;">
-          <%= offer.percent_time_left %>
+      <div class="progress_bar">
+        <div class="progress" >
+          <div class="progress-bar" style="width:<%= offer.percent_time_left %>%" %>
+            <%= offer.percent_time_left %>
+          </div>
         </div>
-
+      </div>
 
       <div class="time-end">
-          <div> <strong> End Date </strong> </div>
+        <div> <strong> End Date </strong> </div>
           <div class="actual-end">
             <%= offer.end_date.strftime("%m-%e-%y %H:%M") %>
           </div>
@@ -68,20 +68,22 @@
       <div class="both-deposits">
         <div class="deposit">
           <div> My deposit $ </div>
+            <div class="blue-box">
+            <%= offer.deposit || "$0.00" %>
+            </div>
+          </div>
+        <%# </div>
+      </div> %>
+
+      <div class="deposit">
+        <div> <%= offer.collaborator.first_name %>'s deposit $</div>
           <div class="blue-box">
             <%= offer.deposit || "$0.00" %>
           </div>
-        </div>
+        <%# </div>
+      </div> %>
 
-        <div class="deposit">
-          <div> <%= offer.collaborator.first_name %>'s deposit $</div>
-          <div class="blue-box">
-            <%= offer.deposit || "$0.00" %>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <%# </div> %>
 
     <p>
       <% if offer.requester != current_user && offer.pending? %>

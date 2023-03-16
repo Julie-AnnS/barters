@@ -48,7 +48,7 @@ class OffersController < ApplicationController
       redirect_to offer_path(@offer), notice: 'Offer accepted'
       OfferChannel.broadcast_to(
         @offers,
-        render_to_string(partial: "offers", locals: {offer: @offer})
+        render_to_string(partial: "offers", locals: {offer: @offer, offers: @offers})
       )
       head :ok
     else
