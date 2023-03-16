@@ -50,10 +50,14 @@
           </div>
         </div>
 
-        <div class="progressbar">
+        <div class="progress_bar">
+            <div class="progress" >
+            <div class="progress-bar" style="width:50%;">
+          <%= offer.percent_time_left %>
         </div>
 
-        <div class="time-end">
+
+      <div class="time-end">
           <div> <strong> End Date </strong> </div>
           <div class="actual-end">
             <%= offer.end_date.strftime("%m-%e-%y %H:%M") %>
