@@ -30,4 +30,8 @@ class User < ApplicationRecord
   def conversations
     Conversation.where("participant_one_id = ? OR participant_two_id = ?", id, id)
   end
+
+  def average_review_rating
+    reviews.size.positive? ? reviews.map(&:rating).sum / reviews.size : nil
+  end
 end
