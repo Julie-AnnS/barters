@@ -18,7 +18,11 @@ h6 {text-align: center;}
 
     <div class="col-6 col-md-3">
       <div class="tube-username" >
-        <h4> placeholder name </h4>
+        <% if review.user = offer.collaborator %>
+          <h4> <%= offer.requester.first_name %> </h4>
+        <% else %>
+          <h4> <%= offer.collaborator.first_name %> </h4>
+        <% end %>
         <%# need to put the name of the collaborator who made the review %>
       </div>
     </div>
