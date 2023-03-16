@@ -1,36 +1,42 @@
 <div id="offers">
   <% offers.each do |offer| %>
-    <div class="flex">
+    <div class="">
       <div class="exchange-time">
         <div class="times">
 
           <div class="artist-name-and-avatar">
             <%= image_tag "takumi.png", class: "avatar" %>
-              <% if offer.collaborator == current_user %>
-                <div class="artist-name"><%= offer.requester.first_name %> <%= offer.requester.last_name %></div>
-              <% else %>
-                <div class="artist-name"><%= offer.collaborator.first_name %> <%= offer.collaborator.last_name %></div>
-              <% end %>
+            <% if offer.collaborator == current_user %>
+              <div class="artist-name"><%= offer.requester.first_name %> <%= offer.requester.last_name %></div>
+            <% else %>
+              <div class="artist-name"><%= offer.collaborator.first_name %> <%= offer.collaborator.last_name %></div>
+            <% end %>
           </div>
 
           <% if !offer.pending? %>
             <div class="time-start">
-              <div> <strong> Start Date </strong> </div>
+              <div>
+                <strong> Start Date </strong>
+              </div>
               <div class="actual-start">
                 <%= offer.start_date.strftime("%m-%e-%y %H:%M") %>
               </div>
             </div>
-
-            <div class="progressbar">
+            <div class="progress_bar">
+              <div class="progress" >
+                <div class="progress-bar" style="width:<%= offer.percent_time_left %>%" %>
+                  <%= offer.percent_time_left %>
+                </div>
+              </div>
             </div>
-
             <div class="time-end">
-              <div> <strong> End Date </strong> </div>
+              <div>
+                <strong> End Date </strong>
+              </div>
               <div class="actual-end">
                 <%= offer.end_date.strftime("%m-%e-%y %H:%M") %>
               </div>
             </div>
-
           <% else %>
             <div class="flex-grow-1 d-flex align-items-center justify-content-center">
               <% if offer.requester != current_user %>
@@ -44,8 +50,8 @@
           <div class="more-button">
             <%= link_to offer_path(offer) do %>
               <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" fill="none" viewBox="0 0 41 41">
-                <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.75 21.475a.975.975 0 1 0 0-1.95.975.975 0 0 0 0 1.95Zm9.75 0a.975.975 0 1 0 0-1.95.975.975 0 0 0 0 1.95Zm9.75 0a.975.975 0 1 0 0-1.95.975.975 0 0 0 0 1.95Z"/>
-                <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.5 40C31.27 40 40 31.27 40 20.5S31.27 1 20.5 1 1 9.73 1 20.5 9.73 40 20.5 40Z"/>
+              <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.75 21.475a.975.975 0 1 0 0-1.95.975.975 0 0 0 0 1.95Zm9.75 0a.975.975 0 1 0 0-1.95.975.975 0 0 0 0 1.95Zm9.75 0a.975.975 0 1 0 0-1.95.975.975 0 0 0 0 1.95Z"/>
+              <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.5 40C31.27 40 40 31.27 40 20.5S31.27 1 20.5 1 1 9.73 1 20.5 9.73 40 20.5 40Z"/>
               </svg>
             <% end %>
           </div>

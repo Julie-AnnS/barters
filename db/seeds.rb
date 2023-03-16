@@ -4,169 +4,277 @@ Message.destroy_all
 Offer.destroy_all
 User.destroy_all
 
+# julie-ann's user
 user1 = User.create!(
   email: "a@a.a",
   password: "123456",
-  first_name: "Annie",
-  last_name: "Smith",
-  nickname: "Annie Smith Apple",
+  first_name: "Julie-Ann",
+  last_name: "Selman",
+  nickname: "julieann",
   phone_number: "1234567891",
   location: "Montreal",
-  language: "English",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "painting, sculpting",
-  currently_offering: "painting",
-  currently_looking: "musician"
+  language: "English, French",
+  bio: "hey girlll",
+  services: "Sewing, Embroidery, Knitting",
+  currently_offering: "Knitting, Sewing",
+  currently_looking: "Painter"
 )
 
+user1.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/julie.jpg')),
+  filename: 'julie.jpg'
+)
+
+#lara's user
 user2 = User.create!(
   email: "b@b.b",
   password: "123456",
-  first_name: "Vincent",
-  last_name: "Van Gogh",
-  nickname: "the one ear wonder",
+  first_name: "Lara",
+  last_name: "Andrade",
+  nickname: "larandrade",
   phone_number: "1234567892",
-  location: "Berlin",
-  language: "Dutch",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "hiking, sculpting",
-  currently_offering: "painting",
-  currently_looking: "musician"
+  location: "Montreal",
+  language: "Portuguese, French, German, English",
+  bio: "Earth without 'art' is just 'eh'!!!!!",
+  services: "Painting, DJ",
+  currently_offering: "Painting",
+  currently_looking: "Seamstress"
 )
 
+user2.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/lara.jpg')),
+  filename: 'lara.jpg'
+)
+
+#quentin's user
 user3 = User.create!(
   email: "c@c.c",
   password: "123456",
-  first_name: "Bob",
-  last_name: "Ross",
-  nickname: "bob.ross",
-  phone_number: "1234567893",
-  location: "Dubaï",
-  language: "English",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "hiking, sculpting",
-  currently_offering: "painting",
-  currently_looking: "musician"
-)
-
-user4 = User.create!(
-  email: "u@u.u",
-  password: "123456",
-  first_name: "Theo",
-  last_name: "Truc",
-  nickname: "the",
-  phone_number: "1234567892",
-  location: "Nice",
-  language: "Dutch",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "hiking, sculpting",
-  currently_offering: "painting",
-  currently_looking: "musician"
-)
-
-user5 = User.create!(
-  email: "i@i.i",
-  password: "123456",
-  first_name: "Leo",
-  last_name: "Rosse",
-  nickname: "bob",
-  phone_number: "1234567893",
-  location: "Toronto",
-  language: "English",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "hiking, sculpting",
-  currently_offering: "painting",
-  currently_looking: "musician"
-)
-
-user6 = User.create!(
-  email: "o@o.o",
-  password: "123456",
-  first_name: "Vincente",
-  last_name: "Van",
-  nickname: "the one",
-  phone_number: "1234567892",
-  location: "France",
-  language: "Dutch",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "hiking, sculpting",
-  currently_offering: "painting",
-  currently_looking: "musician"
-)
-
-user7 = User.create!(
-  email: "p@p.p",
-  password: "123456",
-  first_name: "Vincentimes",
-  last_name: "Gogh",
-  nickname: "wonder",
-  phone_number: "1234567892",
-  location: "Brest",
-  language: "Dutch",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "hiking, sculpting",
-  currently_offering: "painting",
-  currently_looking: "musician"
-)
-
-user8 = User.create!(
-  email: "m@m.m",
-  password: "123456",
-  first_name: "Bobe",
-  last_name: "Rossez",
-  nickname: "bob.rossez",
+  first_name: "Quentin",
+  last_name: "Doulcet",
+  nickname: "onehandman",
   phone_number: "1234567893",
   location: "Montreal",
-  language: "English",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "painting, sculpting",
-  currently_offering: "painting",
-  currently_looking: "musician"
+  language: "French, English",
+  bio: "I can play with one hand.",
+  services: "Playing guitar, Composer",
+  currently_offering: "Cool Guitar Solo",
+  currently_looking: "Seamstress"
 )
 
+user3.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/kantun.jpg')),
+  filename: 'kantun.jpg'
+)
+
+#nilsu's user
 user4 = User.create!(
   email: "d@d.d",
   password: "123456",
-  first_name: "Edward",
-  last_name: "Munch",
-  nickname: "scream",
+  first_name: "Nilsu",
+  last_name: "Duran",
+  nickname: "duranilsu",
+  phone_number: "1234567892",
+  location: "Rochester",
+  language: "Turkish, English, French",
+  bio: "My mother always used to say: The older you get, the better you get, unless you're a banana.",
+  services: "Drawing, Writing",
+  currently_offering: "Writing",
+  currently_looking: "Painter"
+)
+
+user4.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/nilsu.jpg')),
+  filename: 'nilsu.jpg'
+)
+
+#denis belanger
+user5 = User.create!(
+  email: "e@e.e",
+  password: "123456",
+  first_name: "Denis",
+  last_name: "Belanger",
+  nickname: "denisbelanger",
   phone_number: "1234567893",
   location: "Montreal",
   language: "English",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "writer",
-  currently_offering: "writer",
-  currently_looking: "musician"
+  services: "Light Effects",
+  currently_offering: "Light Effects",
+  currently_looking: "Musician"
 )
 
+user5.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/denis.jpg')),
+  filename: 'denis.jpg'
+)
+
+#cynthia cockburn
+user6 = User.create!(
+  email: "f@f.f",
+  password: "123456",
+  first_name: "Cynthia",
+  last_name: "Cockburn",
+  nickname: "cynthia",
+  phone_number: "1234567892",
+  location: "Montreal",
+  language: "English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "Sculpting",
+  currently_offering: "Scultping",
+  currently_looking: "Painter"
+)
+
+user6.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/cynthia.jpg')),
+  filename: 'cynthia.jpg'
+)
+
+#Valerie Roger
+user7 = User.create!(
+  email: "g@g.g",
+  password: "123456",
+  first_name: "Valerie",
+  last_name: "Roger",
+  nickname: "valerie",
+  phone_number: "1234567892",
+  location: "France",
+  language: "French",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "Painter",
+  currently_offering: "Painting",
+  currently_looking: "Musician"
+)
+
+user7.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/valerie.jpg')),
+  filename: 'valerie.jpg'
+)
+
+#lilaeloise costa
+user8 = User.create!(
+  email: "h@h.h",
+  password: "123456",
+  first_name: "Liliana",
+  last_name: "Costa",
+  nickname: "lila",
+  phone_number: "1234567893",
+  location: "Brazil",
+  language: "Portuguese",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "Painting, Sculpting",
+  currently_offering: "Painting",
+  currently_looking: "Musician"
+)
+
+user8.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/mae1.jpg')),
+  filename: 'mae1.jpg'
+)
+
+#norberto freitas
+user9 = User.create!(
+  email: "i@i.i",
+  password: "123456",
+  first_name: "Norberto",
+  last_name: "Freitas",
+  nickname: "norberto",
+  phone_number: "1234567893",
+  location: "Berlin",
+  language: "German",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "Writer",
+  currently_offering: "Writer",
+  currently_looking: "Musician"
+)
+
+user9.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/paii.jpg')),
+  filename: 'paii.jpg'
+)
+
+#nilufer aykar
 user9 = User.create!(
   email: "l@l.l",
   password: "123456",
-  first_name: "Lea",
-  last_name: "Lite",
-  nickname: "Lol",
+  first_name: "Nilüfer",
+  last_name: "Aykar",
+  nickname: "niluferaykar",
   phone_number: "1234567892",
-  location: "France",
-  language: "Dutch",
+  location: "Istanbul",
+  language: "Turkish, English",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "hiking, sculpting",
-  currently_offering: "painting",
-  currently_looking: "musician"
+  services: "Ice-skating",
+  currently_offering: "Dancing",
+  currently_looking: "Sculptor"
 )
 
+user9.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/nilufer.jpg')),
+  filename: 'nilufer.jpg'
+)
+
+#nukhet aykar
 user10 = User.create!(
   email: "n@n.n",
   password: "123456",
-  first_name: "Leaa",
-  last_name: "Litee",
-  nickname: "Lole",
+  first_name: "Nükhet",
+  last_name: "Aykar",
+  nickname: "nukhet",
   phone_number: "1234567892",
-  location: "France",
-  language: "Dutch",
+  location: "Turkey",
+  language: "Turkish, French",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "hiking, sculpting",
-  currently_offering: "painting",
-  currently_looking: "musician"
+  services: "Crocheting",
+  currently_offering: "Painting",
+  currently_looking: "Musician"
+)
+
+user10.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/anneanne.jpg')),
+  filename: 'anneanne.jpg'
+)
+
+#erkan aykar
+user11 = User.create!(
+  email: "y@y.y",
+  password: "123456",
+  first_name: "Erkan",
+  last_name: "Aykar",
+  nickname: "erkan",
+  phone_number: "1234567892",
+  location: "Turkey",
+  language: "Turkish, English",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "Directing movies",
+  currently_offering: "Director",
+  currently_looking: "Musician"
+)
+
+user11.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/dede.jpg')),
+  filename: 'dede.jpg'
+)
+
+#BRIAN!
+user12 = User.create!(
+  email: "z@z.z",
+  password: "123456",
+  first_name: "Brian",
+  last_name: "Pigeonson",
+  nickname: "pigeonrip",
+  phone_number: "1234567892",
+  location: "Montreal",
+  language: "pain",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  services: "Save him",
+  currently_offering: "Nothing",
+  currently_looking: "Help"
+)
+
+user12.avatar.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/brianhaha.jpg')),
+  filename: 'brianhaha.jpg'
 )
 
 offer = Offer.create!(
