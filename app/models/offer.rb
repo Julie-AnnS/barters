@@ -6,7 +6,9 @@ class Offer < ApplicationRecord
     Offer.find_by(requester: first, collaborator: second) ||
       Offer.find_by(requester: second, collaborator: first)
   end
+  
   validates_presence_of :start_date, :end_date
+  
   enum status: {
     pending: 0,
     accepted: 1,
@@ -20,5 +22,17 @@ class Offer < ApplicationRecord
     elapsed_time = Time.now - start_date
     time_left = (elapsed_time * 100) / total_time
     return time_left.round
+  end
+
+  has_noticed_notifications model_name: "Notification"
+  has_many :notifications, through: :user, dependent: :destroy
+  before_destroy :cleanup_notifications
+
+  def notify_recipient
+    OfferNotification.with(offer: @offer).deliver_later(@offer.collaborator)
+  end
+
+  def cleanup_notifications
+    notifications_as_offer.destroy.all
   end
 end

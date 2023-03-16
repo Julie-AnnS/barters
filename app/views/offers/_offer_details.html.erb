@@ -1,0 +1,90 @@
+<div class="h1-offer-details">
+  <h1> Offer details: </h1>
+</div>
+
+<div class="offer-details" id="<%= dom_id offer %>">
+
+  <div class="my-task-text">
+    <% if offer.collaborator == current_user %>
+      <p><strong><%= offer.requester.first_name %>'s task: </strong></p>
+    <% else %>
+      <p><strong>My task:</strong></p>
+    <% end %>
+  </div>
+
+        <div class="my-task">
+          <%= offer.my_tasks %>
+        </div>
+
+    <div class="other-task-text">
+      <% if offer.requester == current_user %>
+        <p><strong><%= offer.collaborator.first_name %>'s task: </strong></p>
+      <% else %>
+        <p><strong>My task:</strong></p>
+      <% end %>
+    </div>
+      <div class="username-task">
+        <%= offer.others_tasks %>
+      </div>
+
+
+    <div class="exchange-time">
+
+      <%# <p>
+        Status:
+        <%= offer.status %>
+      <%# </p> %>
+      <div class="times">
+        <div class="time-start">
+          <div> <strong> Start Date </strong> </div>
+          <div class="actual-start">
+            <%= offer.start_date.strftime("%m-%e-%y %H:%M") %>
+          </div>
+        </div>
+
+        <div class="progressbar">
+        </div>
+
+        <div class="time-end">
+          <div> <strong> End Date </strong> </div>
+          <div class="actual-end">
+            <%= offer.end_date.strftime("%m-%e-%y %H:%M") %>
+          </div>
+        </div>
+      </div>
+
+      <div class="both-deposits">
+        <div class="deposit">
+          <div> My deposit: </div>
+          <div class="blue-box">
+            <%= offer.deposit || "$0.00" %>
+          </div>
+        </div>
+
+        <div class="deposit">
+          <div> <%= offer.collaborator.first_name %>'s deposit:</div>
+          <div class="blue-box">
+            <%= offer.deposit || "$0.00" %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p>
+      <% if offer.requester != current_user && offer.pending? %>
+      <div class="d-flex justify-content-center">
+        <div>
+          <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch, class: "btn btn-exchanges rounded-pill" %>
+        </div>
+        <div>
+          <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch, class: "btn btn-exchanges rounded-pill" %>
+        </div>
+      <% end %>
+      <div class="exchanges-button">
+          <%= link_to "Go back", offers_path, class: "btn btn-exchanges rounded-pill" %>
+      </div>
+    </div>
+    </p>
+</div>
+<br>

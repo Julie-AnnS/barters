@@ -10,36 +10,12 @@
   </li>
 </ul>
 
- <div class="tab-content" id="myTabContent">
+ <div class="tab-content pt-5" id="myTabContent">
   <div class="tab-pane show active" id="sent-tab-pane" role="tabpanel" aria-labelledby="sent-tab" tabindex="0">  <%#sent %>
-    <div id="offers">
-      <% @offers.each do |offer| %>
-        <li>Working with: <%= link_to offer.collaborator.first_name, offer_path(offer) %></li>
-        <li>from: <%= offer.start_date %></li>
-        <li>to: <%= offer.end_date %></li>
-        <li>My tasks: <%= offer.my_tasks %></li>
-        <li><%= offer.collaborator.first_name %>'s tasks: <%= offer.others_tasks %></li>
-        <li>Deposit: $<%= offer.deposit %></li>
-        <li>Status: <%= offer.status %></li>
-      <% end %>
-    </div>
+    <%= render "offers", offers: @sent_offers %>
   </div>
-  <div class="tab-pane show active" id="received-tab-pane" role="tabpanel" aria-labelledby="received-tab" tabindex="0"> <%#received %>
-    <div id="offers">
-        <% @offers.each do |offer| %>
-          <% if offer.requester != current_user %>
-            <li>Working with: <%= link_to offer.collaborator.first_name, offer_path(offer) %></li>
-            <li>from: <%= offer.start_date %></li>
-            <li>to: <%= offer.end_date %></li>
-            <li>My tasks: <%= offer.my_tasks %></li>
-            <li><%= offer.collaborator.first_name %>'s tasks: <%= offer.others_tasks %></li>
-            <li>Deposit: $<%= offer.deposit %></li>
-            <li>Status: <%= offer.status %></li>
-            <% if offer.pending? %>
-              <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch %>
-              <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch %>
-            <% end %>
-          <% end %>
-        <% end %>
-    </div>
+
+  <div class="tab-pane show" id="received-tab-pane" role="tabpanel" aria-labelledby="received-tab" tabindex="0"> <%#received %>
+    <%= render "offers", offers: @received_offers %>
   </div>
+</div>
