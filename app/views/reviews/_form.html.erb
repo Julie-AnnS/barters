@@ -5,5 +5,5 @@
                     }) do |f| %>
   <%= f.input :content, as: :text %>
   <%= f.input :rating, collection: 0..5 %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class:"btn btn-primary" %>
 <% end %>

@@ -38,11 +38,13 @@
               </div>
             </div>
           <% else %>
-            <% if offer.requester != current_user %>
-              <div><strong> Waiting for your answer... </strong></div>
-            <% else %>
-            <div><strong> Waiting for their answer... </strong></div>
-            <% end %>
+            <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+              <% if offer.requester != current_user %>
+                <strong> Waiting for your answer... </strong>
+              <% else %>
+                <strong> Waiting for their answer... </strong>
+              <% end %>
+            </div>
           <% end %>
 
           <div class="more-button">
