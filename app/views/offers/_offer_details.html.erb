@@ -5,16 +5,23 @@
 <div class="offer-details" id="<%= dom_id offer %>">
 
   <div class="my-task-text">
-    <p> <strong> My task: </strong> </p>
+    <% if offer.collaborator == current_user %>
+      <p><strong><%= offer.requester.first_name %>'s task: </strong></p>
+    <% else %>
+      <p><strong>My task:</strong></p>
+    <% end %>
   </div>
-      <div class="my-task">
-        <%= offer.my_tasks %>
-      </div>
 
-
+        <div class="my-task">
+          <%= offer.my_tasks %>
+        </div>
 
     <div class="other-task-text">
-      <p> <strong> <%= offer.collaborator.first_name %>'s task: </strong> </p>
+      <% if offer.requester == current_user %>
+        <p><strong><%= offer.collaborator.first_name %>'s task: </strong></p>
+      <% else %>
+        <p><strong>My task:</strong></p>
+      <% end %>
     </div>
       <div class="username-task">
         <%= offer.others_tasks %>
@@ -69,7 +76,7 @@
         <%# <%= button_to "Accept", offer_accept_path(offer), class: 'btn1', method: :patch %>
         <%# <%= button_to "Decline", offer_decline_path(offer), class: 'btn1', method: :patch %>
       <%# <% end %>
-    <%# </p> %> 
+    <%# </p> %>
 
     <div class="exchanges-button">
       <%= link_to "Go back", offers_path, class: "btn btn-exchanges rounded-pill" %>

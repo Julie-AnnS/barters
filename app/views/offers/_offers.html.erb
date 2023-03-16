@@ -5,7 +5,11 @@
         <div class="times">
           <div class="artist-name-and-avatar">
             <%= image_tag "takumi.png", class: "avatar" %>
-            <div class="artist-name"><%= offer.collaborator.first_name %> <%= offer.collaborator.last_name %></div>
+            <% if offer.collaborator == current_user %>
+              <div class="artist-name"><%= offer.requester.first_name %> <%= offer.requester.last_name %></div>
+            <% else %>
+              <div class="artist-name"><%= offer.collaborator.first_name %> <%= offer.collaborator.last_name %></div>
+            <% end %>
           </div>
 
           <div class="time-start">

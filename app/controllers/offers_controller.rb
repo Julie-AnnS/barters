@@ -69,4 +69,15 @@ class OffersController < ApplicationController
   def set_offer
     @offer = Offer.find(params[:id])
   end
+
+  # def notify_recipient
+  #   notification = OfferNotification.with(offer: @offer)
+  #   user = @offer.collaborator
+
+  #   notification.deliver_later(user)
+  #   NotificationChannel.broadcast_to(
+  #     user,
+  #     notification: render_to_string(partial: "layouts/notification", locals: { notification: notification }),
+  #   )
+  # end
 end

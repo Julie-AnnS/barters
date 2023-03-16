@@ -12,4 +12,16 @@ class Offer < ApplicationRecord
     accepted: 1,
     declined: 2
   }
+
+  has_noticed_notifications model_name: "Notification"
+  has_many :notifications, through: :user, dependent: :destroy
+  before_destroy :cleanup_notifications
+
+  def notify_recipient
+    OfferNotification.with(offer: @offer).deliver_later(@offer.collaborator)
+  end
+
+  def cleanup_notifications
+    notifications_as_offer.destroy.all
+  end
 end
