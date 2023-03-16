@@ -11,12 +11,16 @@
           </div>
             <div class="card-info-container">
               <div class="card-info-name-skill">
-                  <div class="name"><%= user.first_name %> <%= user.last_name %></div>
+                  <div class="name-index-artist"><%= user.first_name %> <%= user.last_name %></div>
                   <div class="skill"><%= user.services %></div>
               </div>
               <div class="card-info-reviews-location">
                   <div class="review-container">
-                    <div class="review">5/5</div>
+                    <% if user.average_review_rating %>
+                      <div class="review"><%= user.average_review_rating %>/5</div>
+                    <% else %>
+                      <div class="review">No rating yet</div>
+                    <% end %>
                     <div class="review-location-icon">
                       <i class="fa-solid fa-star"></i>
                     </div>
