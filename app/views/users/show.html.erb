@@ -45,7 +45,7 @@
                       </div>
                     </div>
                   <% end %>
-                  
+
                 </div>
         </div>
       </div>
@@ -59,22 +59,23 @@
               <% end %>
             <% end %>
           <% unless @offer.nil? %>
-          </div>
-          <div class="form-box">
-          <h2>Put a review !</h2>
-        <%= render "reviews/form", user: @user, review: @review %>
-          </div>
-        <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
-          <div data-insert-in-list-target="items">
-            <div class="container">
-              <h1><%= @user.first_name %>'s review from collaborators:</h1>
-              <div class="d-flex flex-column gap-4 space-between">
-                <% @user.reviews.each do |review| %>
-                  <%= render "shared/tube", review: review, offer: @offer %>
-                <% end %>
+            <div class="form-box">
+              <h2>Put a review !</h2>
+                <%= render "reviews/form", user: @user, review: @review %>
+            </div>
+            <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+              <div data-insert-in-list-target="items">
+                <div class="container">
+                  <h1><%= @user.first_name %>'s review from collaborators:</h1>
+                  <div class="d-flex flex-column gap-4 space-between">
+                    <% @user.reviews.each do |review| %>
+                      <%= render "shared/tube", review: review, offer: @offer %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
-      <% end %>
-  </div>
+          <% end %>
+          </div>
+           <%= link_to "Back to all artists", artists_path %>
 </div>
-  <%= link_to "Back to all artists", artists_path %>
