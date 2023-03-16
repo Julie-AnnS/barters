@@ -60,9 +60,8 @@
             <% end %>
           <% unless @offer.nil? %>
             <div class="form-box">
-              <h2>Put a review !</h2>
+              <div class="review-box">
                 <%= render "reviews/form", user: @user, review: @review %>
-            </div>
             <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
               <div data-insert-in-list-target="items">
                 <div class="container">
@@ -76,6 +75,10 @@
               </div>
             </div>
           <% end %>
+            </div>
           </div>
-           <%= link_to "Back to all artists", artists_path %>
+        </div>
+        <div>
+           <%= link_to "Back to all artists", artists_path, class:"btn btn-primary" %>
+        </div>
 </div>
