@@ -1,4 +1,4 @@
-<h1 class="near-you"><%= pluralize @users.excluding(current_user).length, “barter” %> found near you</h1>
+<h1 class="near-you"><%= pluralize @users.excluding(current_user).length, "barter" %> found near you</h1>
 <div class="main-index-container" id="artists">
   <div class="grid-index-container">
     <% @users.each do |user| %>
