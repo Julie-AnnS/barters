@@ -19,5 +19,8 @@ application.register("map", MapController)
 import NotificationsController from "./notifications_controller"
 application.register("notifications", NotificationsController)
 
+import OfferSubscriptionController from "./offer_subscription_controller"
+application.register("offer-subscription", OfferSubscriptionController)
+
 import SearchContactsController from "./search_contacts_controller"
 application.register("search-contacts", SearchContactsController)

@@ -5,11 +5,16 @@
 <div class="offer-details" id="<%= dom_id offer %>">
 
   <div class="my-task-text">
+
+   <%= image_tag "takumi.png", class: "avatar" %>
+    <p> <strong> My task: </strong> </p>
+
     <% if offer.collaborator == current_user %>
       <p><strong><%= offer.requester.first_name %>'s task: </strong></p>
     <% else %>
       <p><strong>My task:</strong></p>
     <% end %>
+
   </div>
 
         <div class="my-task">
@@ -17,11 +22,16 @@
         </div>
 
     <div class="other-task-text">
+
+      <%= image_tag "takumi.png", class: "avatar" %>
+        <p> <strong> <%= offer.collaborator.first_name %>'s task: </strong> </p>
+
       <% if offer.requester == current_user %>
         <p><strong><%= offer.collaborator.first_name %>'s task: </strong></p>
       <% else %>
         <p><strong>My task:</strong></p>
       <% end %>
+
     </div>
       <div class="username-task">
         <%= offer.others_tasks %>
