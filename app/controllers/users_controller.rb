@@ -24,6 +24,7 @@ class UsersController < ApplicationController
       @images = ["Ceramist/ceramist.jpg","Ceramist/IMG_4165_2_1024x1024.jpg","Ceramist/iStock-1460597547.jpg","Ceramist/potterybypriscilla.jpg"]
     elsif @user.first_name == "Julie-Ann"
       @images = ["Embroiderer/embroiderer-index.jpg","Embroiderer/iStock-115865739.jpg","Embroiderer/il_fullxfull.2070631763_2eoe.jpg","Embroiderer/embroidery-on-clothes-DJ-680fd9a.jpg"]
+
     else
       @images = []
     end
