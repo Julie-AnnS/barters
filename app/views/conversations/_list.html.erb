@@ -3,7 +3,15 @@
     <% @conversations.each do |conversation| %>
     <div class="container-contact">
       <div class="img-container-avatar">
-          <%= image_tag "avatar.svg", class:"img-avatar-contact" %>
+          <% if conversation.participant_one_id == current_user.id %>
+            <% if conversation.participant_two.avatar.attached? %>
+              <%= link_to cl_image_tag(conversation.participant_two.avatar.key, class:"img-card"), artist_path(conversation.participant_two_id) %>
+            <% end  %>
+          <% else %>
+            <% if conversation.participant_one.avatar.attached? %>
+              <%= link_to cl_image_tag(conversation.participant_one.avatar.key, class:"img-card"), artist_path(conversation.participant_one_id) %>
+            <% end %>
+          <% end %>
       </div>
       <div class="name-container">
         <div class="name-contact">

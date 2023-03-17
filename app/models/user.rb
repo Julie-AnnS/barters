@@ -9,8 +9,10 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy, foreign_key: :recipient_id
-  validates :first_name, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
-  validates :last_name, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
+  has_one_attached :avatar
+  has_many_attached :photos
+  validates :first_name, presence: true, length: { minimum: 3 }
+  validates :last_name, presence: true, length: { minimum: 3 }
   validates :nickname, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
   validates :phone_number, presence: true, length: { minimum: 10 }
   validates :location, presence: true
@@ -27,5 +29,9 @@ class User < ApplicationRecord
 
   def conversations
     Conversation.where("participant_one_id = ? OR participant_two_id = ?", id, id)
+  end
+
+  def average_review_rating
+    reviews.size.positive? ? reviews.map(&:rating).sum / reviews.size : nil
   end
 end

@@ -12,7 +12,15 @@
       <% end %>
       <div class="box-back-to-profil">
         <div class="img-contact-message-container">
-        <%= image_tag"avatar.svg", class:"img-contact-message" %>
+          <% if @conversation.participant_one_id == current_user.id %>
+              <% if @conversation.participant_two.avatar.attached? %>
+                <%= link_to cl_image_tag(@conversation.participant_two.avatar.key, class:"img-card chatroom-image"), artist_path(@conversation.participant_two_id) %>
+              <% end  %>
+            <% else %>
+              <% if @conversation.participant_one.avatar.attached? %>
+                <%= link_to cl_image_tag(@conversation.participant_one.avatar.key, class:"img-card chatroom-image"), artist_path(@conversation.participant_one_id) %>
+              <% end %>
+            <% end %>
         </div>
           <div class="box-name-link-back">
             <div class="name-artist">
