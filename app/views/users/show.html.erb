@@ -52,31 +52,28 @@
         </div>
       </div>
           <div>
-            <% if @user.reviews.blank? && !@offer.nil? %>
-              <p>Be the first to leave a review for <%= @user.first_name %></p>
-            <% else %>
-              <% @user.reviews.each do |review| %>
-                <%# <p><%= review.content %></p>
-                <%# <p><%= review.rating %></p>
-              <% end %>
-            <% end %>
-          <% unless @offer.nil? %>
-            <div class="form-box">
-              <div class="review-box">
-                <%= render "reviews/form", user: @user, review: @review %>
-            <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
-              <div data-insert-in-list-target="items">
-                <div class="container">
-                  <h1><%= @user.first_name %>'s review from collaborators:</h1>
-                  <div class="d-flex flex-column gap-4 space-between">
-                    <% @user.reviews.each do |review| %>
-                      <%= render "shared/tube", review: review, offer: @offer %>
+            <% unless @offer.nil? %>
+              <div class="mt-5 mb-5">
+                <div class="review-box">
+                  <div class="review-form">
+                    <% if @user.reviews.blank? && !@offer.nil? %>
+                      <p>Be the first to leave a review for <%= @user.first_name %></p>
                     <% end %>
+                    <%= render "reviews/form", user: @user, review: @review %>
                   </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
+                  <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+                    <div data-insert-in-list-target="items">
+                      <div class="container">
+                        <h1><%= @user.first_name %>'s review from collaborators:</h1>
+                        <div class="d-flex flex-column gap-4 space-between">
+                          <% @user.reviews.each do |review| %>
+                            <%= render "shared/tube", review: review, offer: @offer %>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <% end %>
             </div>
           </div>
         </div>
