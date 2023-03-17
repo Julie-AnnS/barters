@@ -65,7 +65,7 @@
                     <div data-insert-in-list-target="items">
                       <div class="container">
                         <h1><%= @user.first_name %>'s review from collaborators:</h1>
-                        <div class="d-flex flex-column gap-4 space-between">
+                        <div class="d-flex flex-column gap-6 space-between">
                           <% @user.reviews.each do |review| %>
                             <%= render "shared/tube", review: review, offer: @offer %>
                           <% end %>
