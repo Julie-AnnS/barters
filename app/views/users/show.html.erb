@@ -54,6 +54,7 @@
           <div>
             <% unless @offer.nil? %>
               <div class="mt-5 mb-5">
+              <h1 class="mmm"><%= @user.first_name %>'s reviews</h1>
                 <div class="review-box">
                   <div class="review-form">
                     <% if @user.reviews.blank? && !@offer.nil? %>
@@ -64,7 +65,6 @@
                   <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
                     <div data-insert-in-list-target="items">
                       <div class="container">
-                        <h1><%= @user.first_name %>'s reviews</h1>
                         <div class="d-flex flex-column gap-6 space-between">
                           <% @user.reviews.each do |review| %>
                             <%= render "shared/tube", review: review, offer: @offer %>
