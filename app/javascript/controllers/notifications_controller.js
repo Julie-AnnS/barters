@@ -7,7 +7,6 @@ export default class extends Controller {
   static values = { currentUserId: Number, conversationId: Number }
 
   connect() {
-    console.log(whwhwhhw)
     this.channel = createConsumer().subscriptions.create(
       { channel: 'NotificationChannel', id: this.currentUserIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }

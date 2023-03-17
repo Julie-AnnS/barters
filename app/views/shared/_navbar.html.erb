@@ -11,35 +11,37 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <%= render "shared/search_bar" %>
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "HOME", "/", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "LISTINGS", "/artists", class: "nav-link" %>
-          </li>
-          <%# <li class="nav-item">
-            <%= link_to "/users/show", "/artists/", class: "nav-link" %>
-          <%# </li> %>
-          <li class="nav-item">
-            <%= link_to "OFFERS", "/offers/", class: "nav-link" %>
-          </li>
-          <ul class="nav-item">
-            <%= render "layouts/notifications" %>
-          </ul>
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.nickname %></a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+      <div class="navbar-links-avatar">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to "HOME", "/", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "LISTINGS", "/artists", class: "nav-link" %>
+            </li>
+            <%# <li class="nav-item">
+              <%= link_to "/users/show", "/artists/", class: "nav-link" %>
+            <%# </li> %>
+            <li class="nav-item">
+              <%= link_to "OFFERS", "/offers/", class: "nav-link" %>
+            </li>
+            <ul class="nav-item">
+              <%= render "layouts/notifications" %>
+            </ul>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= cl_image_tag current_user.avatar.key, class:"avatar-navbar-picture" %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

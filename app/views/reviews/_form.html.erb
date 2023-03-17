@@ -3,7 +3,7 @@
                       insert_in_list_target: "form",
                       action: "submit->insert-in-list#send"
                     }) do |f| %>
-  <%= f.input :content, as: :text %>
-  <%= f.input :rating, collection: 0..5 %>
-  <%= f.button :submit, class:"btn btn-primary" %>
+  <%= f.input :content, as: :text, input_html: { style: "width: 100%" } %>
+  <%= f.input :rating, collection: 0..5, input_html: { style: "width: 100px" } %>
+  <%= f.button :submit, class:"btn btn-back rounded-pill" %>
 <% end %>

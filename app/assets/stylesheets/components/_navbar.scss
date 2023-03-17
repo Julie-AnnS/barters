@@ -17,6 +17,27 @@
   height: 100px;
 }
 
+.nav-item{
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+.avatar-navbar-picture{
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+}
+
+
+.navbar-links-avatar{
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav.me-auto{
+  align-items: center;
+}
 // .logo-barter{
 //   width: 100px;
 //   height: 80px;

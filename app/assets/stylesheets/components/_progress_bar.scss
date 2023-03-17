@@ -1,16 +1,17 @@
 .progress {
-  // background: black;
+  background: white;
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
   width: 260px;
-  // height: 70px;
+  height: 30px;
   // position:-webkit-sticky;
-  // border-radius: 50px;
+  border-radius: 50px;
   // vertical-align: middle;
 }
 
-// .progress-bar {
-//   background: red;
-//   position:-webkit-sticky;
-// }
+.progress-bar {
+  background: #93b7c7;
+  // position:-webkit-sticky;
+}
 
 // .todetailslink {
 //   // background: green;

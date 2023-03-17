@@ -4,18 +4,46 @@
     <%= simple_form_for([@collaborator, @offer]) do |f| %>
 
     <div class="offers_form">
-      <%= f.input :my_tasks, label: "My task:", placeholder: "Describe your task..."%>
-      <%= f.input :others_tasks, label: "#{@collaborator.first_name}'s task:", placeholder: "Describe #{@collaborator.first_name}'s task..." %>
+      <%= f.input :my_tasks, label: "My task:", label_html: {  :style => "display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;" }, input_html: { :style => "display: inline-block;
+  float: left;" }, placeholder: "Describe your task..."%>
+  
+      <%= f.input :others_tasks, label: "#{@collaborator.first_name}'s task:", label_html: {  :style => "display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;" }, input_html: { :style => "display: inline-block;
+  float: left;"}, placeholder: "Describe #{@collaborator.first_name}'s task..." %>
 
-      <%= f.input :start_date, label: "Start date:" %>
-      <%= f.input :end_date, label: "End date:" %>
+      <%= f.input :start_date, html5: true, label: "Start date:", label_html: { :style => "display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;" }, input_html: { :style => "display: inline-block;
+  float: left;"}%>
+
+      <%= f.input :end_date, html5: true, label: "End date:", label_html: { :style => "display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;" }, input_html: { :style => "display: inline-block;
+  float: left;"} %>
+
       <%# <p> Add a deposit? </p> %>
-      <%= f.input :deposit, label: "Add a deposit:", placeholder: "$0.00" %>
+      <%= f.input :deposit, label: "Add a deposit:", label_html: { :style => "display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;" }, input_html: { :style => "display: inline-block;
+  float: left;"}, placeholder: "$0.00" %>
       <div class="form-text">Keep empty if you don't need a deposit.</div>
 
       <div class="offer-buttons">
         <%= link_to "Cancel", root_path, class: "btn btn-decline rounded-pill" %>
-        <%= f.button :submit, class: "btn btn-accept rounded-pill" %>
+        <%= f.button :submit, "Submit", class: "btn btn-accept rounded-pill"%>
       </div>
     </div>
   <% end %>
