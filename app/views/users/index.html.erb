@@ -5,8 +5,8 @@
       <% unless user == current_user %>
         <div class="card-user">
           <div class="card-img-container">
-            <% if user.avatar.attached? %>
-              <%= link_to cl_image_tag(user.avatar.key, class:"img-card"), artist_path(user) %>
+            <% if user.photo.attached? %>
+              <%= link_to cl_image_tag(user.photo.key, class:"img-card"), artist_path(user) %>
             <% end %>
           </div>
             <div class="card-info-container">

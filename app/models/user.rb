@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy, foreign_key: :recipient_id
   has_one_attached :avatar
-  has_many_attached :photos
+  has_one_attached :photo
   validates :first_name, presence: true, length: { minimum: 3 }
   validates :last_name, presence: true, length: { minimum: 3 }
   validates :nickname, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
