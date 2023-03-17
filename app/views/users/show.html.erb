@@ -6,7 +6,7 @@
             </div>
 
 
-            <h2 class="name-show-card"><%= @user.first_name %> <%= @user.last_name %></h2>
+            <h2 class="name-show-card"><strong><%= @user.first_name %> <%= @user.last_name %></strong></h2>
             <div class="profile-info">
               <div class="button-position">
                 <% unless current_user == @user %>
@@ -25,7 +25,7 @@
 
                 <p><strong> Currently offering: </strong> <%= @user.currently_offering %></p>
 
-                <p><strong> Currently looking: </strong> <%= @user.currently_looking %></p>
+                <p><strong> Searching for: </strong> <%= @user.currently_looking %></p>
 
                 <p><strong> Location: </strong> <%= @user.location %> </p>
             </div>

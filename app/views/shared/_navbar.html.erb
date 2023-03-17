@@ -14,11 +14,8 @@
       <div class="navbar-links-avatar">
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "HOME", "/", class: "nav-link" %>
-            </li>
             <li class="nav-item">
-              <%= link_to "LISTINGS", "/artists", class: "nav-link" %>
+              <%= link_to "ARTISANS", "/artists", class: "nav-link" %>
             </li>
             <%# <li class="nav-item">
               <%= link_to "/users/show", "/artists/", class: "nav-link" %>
