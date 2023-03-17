@@ -260,7 +260,7 @@ user10.avatar.attach(
 )
 
 user10.photo.attach(
-  io: File.open(File.join(Rails.root,'app/assets/images/embroidery.jpg')),
+  io: File.open(File.join(Rails.root,'app/assets/images/embroidery2.jpg')),
   filename: 'embroidery.jpg'
 )
 
