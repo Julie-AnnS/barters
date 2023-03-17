@@ -35,10 +35,10 @@ user2 = User.create!(
   phone_number: "1234567892",
   location: "Montreal",
   language: "Portuguese, French, German, English",
-  bio: "Earth without 'art' is just 'eh'!!!!!",
+  bio: "Painting allows me to express emotions and ideas through bold strokes and vivid colors. It is really fun!",
   services: "Painting, DJ",
-  currently_offering: "Painting",
-  currently_looking: "Seamstress"
+  currently_offering: "I’ll paint something for you!",
+  currently_looking: "Vintage fabric"
 )
 
 user2.avatar.attach(
@@ -56,10 +56,10 @@ user3 = User.create!(
   phone_number: "1234567893",
   location: "Montreal",
   language: "French, English",
-  bio: "I am a professional sculptor.",
-  services: "sculpting",
-  currently_offering: "sculpting",
-  currently_looking: "Seamstress"
+  bio: "Bringing life to clay through expert techniques and a love of the art.",
+  services: "Ceramics",
+  currently_offering: "Ceramic lessons.",
+  currently_looking: "Someone to make a nice drawing of my dog."
 )
 
 user3.avatar.attach(
@@ -224,10 +224,10 @@ user10 = User.create!(
   phone_number: "1234567892",
   location: "Turkey",
   language: "Turkish, French",
-  bio: "I love my daughters, son, granddaughters and embroidering.",
-  services: "Crocheting",
-  currently_offering: "Painting",
-  currently_looking: "Musician"
+  bio: "Passionate embroiderer with a needle in one hand and a thread in the other. I have never stopped since my mother and aunts first taught me when I was 10 years old.",
+  services: "Embroidering, Crocheting",
+  currently_offering: "I can embroider designs on your tea towels, pillowcases, etc.",
+  currently_looking: "A sewing machine."
 )
 
 user10.avatar.attach(

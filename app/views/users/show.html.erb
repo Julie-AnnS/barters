@@ -19,11 +19,13 @@
                 <%= link_to "Make an offer", offers_new_path(@user), class: "btn btn-contact rounded-pill" %>
               </div>
 
+                <p><%= @user.bio %></p>
+
                 <p><strong> Skills: </strong> <%= @user.services %></p>
 
-                <p><strong> Bio: </strong> <%= @user.bio %></p>
-
                 <p><strong> Currently offering: </strong> <%= @user.currently_offering %></p>
+
+                <p><strong> Currently looking: </strong> <%= @user.currently_looking %></p>
 
                 <p><strong> Location: </strong> <%= @user.location %> </p>
             </div>
