@@ -5,10 +5,11 @@
         <div class="times">
 
           <div class="artist-name-and-avatar">
-            <%= image_tag "takumi.png", class: "avatar" %>
             <% if offer.collaborator == current_user %>
+              <%= cl_image_tag(offer.requester.avatar.key, width: 60, height: 60, style: "border-radius: 30px" ) %>
               <div class="artist-name"><%= offer.requester.first_name %> <%= offer.requester.last_name %></div>
             <% else %>
+              <%= cl_image_tag(offer.collaborator.avatar.key, width: 60, height: 60, style: "border-radius: 30px" ) %>
               <div class="artist-name"><%= offer.collaborator.first_name %> <%= offer.collaborator.last_name %></div>
             <% end %>
           </div>
