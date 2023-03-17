@@ -2,7 +2,7 @@
   <% if params[:query_services] == nil && params[:query_location] == nil %>
 <%= "All artisans" %>
   <% else %>
-<%= pluralize @users.excluding(current_user).length, "barter" %> found
+<%= pluralize @users.excluding(current_user).length, "artisan" %> found
   <% end %></h1>
 <div class="main-index-container" id="artists">
   <div class="grid-index-container">

@@ -82,3 +82,8 @@
 .nav-item:last-child::before {
   display: none;
 }
+
+.dropdown-item > a {
+  text-decoration: none;
+  color: black
+}
