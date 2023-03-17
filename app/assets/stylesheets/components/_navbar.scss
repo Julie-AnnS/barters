@@ -21,3 +21,43 @@
 //   width: 100px;
 //   height: 80px;
 // }
+
+
+.nav-link {
+  color: black;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.nav-item.active .nav-link {
+  font-weight: bold;
+  color: black;
+}
+
+
+
+.nav-item {
+  position: relative;
+  margin-right: 10px;
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-item:hover::before {
+  transform: scaleX(1);
+}
+
+.nav-item:last-child::before {
+  display: none;
+}
