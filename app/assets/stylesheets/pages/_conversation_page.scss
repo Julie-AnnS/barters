@@ -75,7 +75,15 @@
 }
 .name-contact{
   margin-bottom: 0;
+  a {
+    text-decoration: none; // Remove underline
+    color: inherit; // Use the same color as regular text
+    &:hover {
+      text-decoration: underline; // Add underline on hover
+    }
+  }
 }
+
 
 .contacts {
   flex-grow: 1;

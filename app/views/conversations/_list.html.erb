@@ -6,13 +6,13 @@
           <%= image_tag "avatar.svg", class:"img-avatar-contact" %>
       </div>
       <div class="name-container">
-        <p class="name-contact">
+        <div class="name-contact">
           <% if conversation.participant_one_id == current_user.id %>
-            <%= link_to conversation.participant_two.first_name, conversation_path(conversation) %>
+            <%= link_to "#{conversation.participant_two.first_name} #{conversation.participant_two.last_name}", conversation_path(conversation) %>
           <% else %>
-            <%= link_to conversation.participant_one.first_name, conversation_path(conversation) %>
+            <%= link_to "#{conversation.participant_one.first_name} #{conversation.participant_one.last_name}", conversation_path(conversation) %>
           <% end %>
-        </p>
+        </div>
       </div>
     </div>
     <% end %>
