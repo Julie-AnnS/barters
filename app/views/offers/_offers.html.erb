@@ -23,13 +23,13 @@
                 <%= offer.start_date.strftime("%m-%e-%y %H:%M") %>
               </div>
             </div>
-            <div class="progress_bar">
+            <%# <div class="progress_bar"> %>
               <div class="progress" >
                 <div class="progress-bar" style="width:<%= offer.percent_time_left %>%" %>
                   <%= offer.percent_time_left %>
                 </div>
               </div>
-            </div>
+            <%# </div> %>
             <div class="time-end">
               <div>
                 <strong> End Date </strong>
