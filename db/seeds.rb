@@ -248,9 +248,9 @@ user10 = User.create!(
   phone_number: "1234567892",
   location: "Istanbul",
   language: "Turkish, English",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "Carver",
-  currently_offering: "Carving",
+  bio: "this is an easter egg",
+  services: "Embroiderer",
+  currently_offering: "Embroidering",
   currently_looking: "A Sculptor"
 )
 
@@ -260,8 +260,8 @@ user10.avatar.attach(
 )
 
 user10.photo.attach(
-  io: File.open(File.join(Rails.root,'app/assets/images/index-carver.jpg')),
-  filename: 'index-carver.jpg'
+  io: File.open(File.join(Rails.root,'app/assets/images/embroidery.jpg')),
+  filename: 'embroidery.jpg'
 )
 
 #nukhet aykar
@@ -272,7 +272,7 @@ user11 = User.create!(
   last_name: "Aykar",
   nickname: "nukhet",
   phone_number: "1234567892",
-  location: "Turkey",
+  location: "Montreal",
   language: "Turkish, French",
   bio: "Passionate embroiderer with a needle in one hand and a thread in the other. I have never stopped since my mother and aunts first taught me when I was 10 years old.",
   services: "Embroiderer",
