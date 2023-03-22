@@ -11,17 +11,23 @@ h6 {text-align: center;}
   <div class="row">
     <div class="col-3 col-md-1">
       <div class="tube-avatar" >
-        <img class="middle" cl_image_tag @user.photo.key alt="user's avatar" width="60" height="60">
+      <% if review.user = offer.collaborator %>
+          <%= cl_image_tag(offer.requester.avatar.key, width: 60, height: 60, style: "border-radius: 30px" ) %>
+        <% else %>
+          <%= cl_image_tag(offer.collaborator.avatar.key, width: 60, height: 60, style: "border-radius: 30px" ) %>
+        <% end %>
         <%# need to change img src to image tag %>
       </div>
     </div>
 
+
+
     <div class="col-6 col-md-3">
       <div class="tube-username" >
         <% if review.user = offer.collaborator %>
-          <h4> <%= offer.requester.first_name %> </h4>
+          <h4> <%= offer.requester.nickname %> </h4>
         <% else %>
-          <h4> <%= offer.collaborator.first_name %> </h4>
+          <h4> <%= offer.collaborator.nickname %> </h4>
         <% end %>
         <%# need to put the name of the collaborator who made the review %>
       </div>

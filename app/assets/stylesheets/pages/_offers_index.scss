@@ -29,7 +29,7 @@
   gap: 10px;
 }
 .artist-name {
-  width: 150px;
+  width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -41,4 +41,20 @@
 .more-button svg {
   width: 35px;
   height: 35px;
+}
+
+.nav.nav-pills .pill .nav-link:not(.active){
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: #FFE2B3;
+  color:black
+}
+
+.nav.nav-pills .pill .nav-link {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: #FF8C0C;
+  color:black
 }

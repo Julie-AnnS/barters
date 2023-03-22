@@ -1,12 +1,17 @@
-<h1 class="near-you"><%= pluralize @users.excluding(current_user).length, "barter" %> found near you</h1>
+<h1 class="near-you">
+  <% if params[:query_services] == nil && params[:query_location] == nil %>
+<%= "All artisans" %>
+  <% else %>
+<%= pluralize @users.excluding(current_user).length, "artisan" %> found
+  <% end %></h1>
 <div class="main-index-container" id="artists">
   <div class="grid-index-container">
     <% @users.each do |user| %>
       <% unless user == current_user %>
         <div class="card-user">
           <div class="card-img-container">
-            <% if user.avatar.attached? %>
-              <%= link_to cl_image_tag(user.avatar.key, class:"img-card"), artist_path(user) %>
+            <% if user.photo.attached? %>
+              <%= link_to cl_image_tag(user.photo.key, class:"img-card"), artist_path(user) %>
             <% end %>
           </div>
             <div class="card-info-container">

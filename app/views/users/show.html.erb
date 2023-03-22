@@ -6,7 +6,7 @@
             </div>
 
 
-            <h2 class="name-show-card"><%= @user.first_name %> <%= @user.last_name %></h2>
+            <h2 class="name-show-card"><strong><%= @user.first_name %> <%= @user.last_name %></strong></h2>
             <div class="profile-info">
               <div class="button-position">
                 <% unless current_user == @user %>
@@ -19,11 +19,13 @@
                 <%= link_to "Make an offer", offers_new_path(@user), class: "btn btn-contact rounded-pill" %>
               </div>
 
+                <p><%= @user.bio %></p>
+
                 <p><strong> Skills: </strong> <%= @user.services %></p>
 
-                <p><strong> Bio: </strong> <%= @user.bio %></p>
-
                 <p><strong> Currently offering: </strong> <%= @user.currently_offering %></p>
+
+                <p><strong> Searching for: </strong> <%= @user.currently_looking %></p>
 
                 <p><strong> Location: </strong> <%= @user.location %> </p>
             </div>
@@ -50,35 +52,32 @@
         </div>
       </div>
           <div>
-            <% if @user.reviews.blank? && !@offer.nil? %>
-              <p>Be the first to leave a review for <%= @user.first_name %></p>
-            <% else %>
-              <% @user.reviews.each do |review| %>
-                <%# <p><%= review.content %></p>
-                <%# <p><%= review.rating %></p>
-              <% end %>
-            <% end %>
-          <% unless @offer.nil? %>
-            <div class="form-box">
-              <div class="review-box">
-                <%= render "reviews/form", user: @user, review: @review %>
-            <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
-              <div data-insert-in-list-target="items">
-                <div class="container">
-                  <h1><%= @user.first_name %>'s review from collaborators:</h1>
-                  <div class="d-flex flex-column gap-4 space-between">
-                    <% @user.reviews.each do |review| %>
-                      <%= render "shared/tube", review: review, offer: @offer %>
+            <% unless @offer.nil? %>
+              <div class="mt-5 mb-5">
+              <h1 class="mmm"><%= @user.first_name %>'s reviews</h1>
+                <div class="review-box">
+                  <div class="review-form">
+                    <% if @user.reviews.blank? && !@offer.nil? %>
+                      <p>Be the first to leave a review for <%= @user.first_name %></p>
                     <% end %>
+                    <%= render "reviews/form", user: @user, review: @review %>
                   </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
+                  <div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+                    <div data-insert-in-list-target="items">
+                      <div class="container">
+                        <div class="d-flex flex-column gap-6 space-between">
+                          <% @user.reviews.each do |review| %>
+                            <%= render "shared/tube", review: review, offer: @offer %>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <% end %>
             </div>
           </div>
         </div>
-        <div>
-           <%= link_to "Back to all artists", artists_path, class:"btn btn-primary" %>
+        <div class="back-to-listings">
+          <%= link_to "Back to listings", artists_path, class: "btn btn-back rounded-pill" %>
         </div>
 </div>

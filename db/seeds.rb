@@ -14,10 +14,15 @@ user1 = User.create!(
   phone_number: "1234567891",
   location: "Montreal",
   language: "English, French",
-  bio: "hey girlll",
-  services: "Sewing, Embroidery, Knitting",
-  currently_offering: "Knitting, Sewing",
-  currently_looking: "Painter"
+  bio: "this is an easter egg.",
+  services: "Crocheter",
+  currently_offering: "A sewing machine",
+  currently_looking: "A painter"
+)
+
+user1.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/index-crocheter.jpg')),
+  filename: 'index-crocheter.jpg'
 )
 
 user1.avatar.attach(
@@ -35,10 +40,15 @@ user2 = User.create!(
   phone_number: "1234567892",
   location: "Montreal",
   language: "Portuguese, French, German, English",
-  bio: "Earth without 'art' is just 'eh'!!!!!",
-  services: "Painting, DJ",
-  currently_offering: "Painting",
-  currently_looking: "Seamstress"
+  bio: "Painting allows me to express emotions and ideas through bold strokes and vivid colors. It is really fun!",
+  services: "Painter",
+  currently_offering: "I’ll paint something for you!",
+  currently_looking: "Vintage fabric"
+)
+
+user2.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/larapaint.jpg')),
+  filename: 'larapaint.jpg'
 )
 
 user2.avatar.attach(
@@ -56,10 +66,15 @@ user3 = User.create!(
   phone_number: "1234567893",
   location: "Montreal",
   language: "French, English",
-  bio: "I can play with one hand.",
-  services: "Playing guitar, Composer",
-  currently_offering: "Cool Guitar Solo",
-  currently_looking: "Seamstress"
+  bio: "Bringing life to clay through expert techniques and a love of the art.",
+  services: "Ceramic Artist",
+  currently_offering: "Ceramic lessons.",
+  currently_looking: "Someone to make a nice drawing of my dog."
+)
+
+user3.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/quentinceramic.jpg')),
+  filename: 'quentinceramic.jpg'
 )
 
 user3.avatar.attach(
@@ -78,9 +93,14 @@ user4 = User.create!(
   location: "Rochester",
   language: "Turkish, English, French",
   bio: "My mother always used to say: The older you get, the better you get, unless you're a banana.",
-  services: "Drawing, Writing",
-  currently_offering: "Writing",
-  currently_looking: "Painter"
+  services: "Illustrator",
+  currently_offering: "Illustration lessons",
+  currently_looking: "A painter"
+)
+
+user4.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/index-illustrator.jpg')),
+  filename: 'index-illustrator.jpg'
 )
 
 user4.avatar.attach(
@@ -99,9 +119,14 @@ user5 = User.create!(
   location: "Montreal",
   language: "English",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "Light Effects",
-  currently_offering: "Light Effects",
-  currently_looking: "Musician"
+  services: "Jeweler",
+  currently_offering: "Jeweler services",
+  currently_looking: "A Musician"
+)
+
+user5.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/index-jeweler.jpg')),
+  filename: 'index-jeweler.jpg'
 )
 
 user5.avatar.attach(
@@ -120,9 +145,14 @@ user6 = User.create!(
   location: "Montreal",
   language: "English",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "Sculpting",
+  services: "Sculptor",
   currently_offering: "Scultping",
-  currently_looking: "Painter"
+  currently_looking: "A painter"
+)
+
+user6.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/index-sculpt.jpg')),
+  filename: 'index-sculpt.jpg'
 )
 
 user6.avatar.attach(
@@ -141,14 +171,19 @@ user7 = User.create!(
   location: "France",
   language: "French",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "Painter",
-  currently_offering: "Painting",
-  currently_looking: "Musician"
+  services: "Collager",
+  currently_offering: "Collages",
+  currently_looking: "A Musician"
 )
 
 user7.avatar.attach(
   io: File.open(File.join(Rails.root,'app/assets/images/valerie.jpg')),
   filename: 'valerie.jpg'
+)
+
+user7.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/index-collager.jpg')),
+  filename: 'index-collager.jpg'
 )
 
 #lilaeloise costa
@@ -162,14 +197,19 @@ user8 = User.create!(
   location: "Brazil",
   language: "Portuguese",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "Painting, Sculpting",
-  currently_offering: "Painting",
-  currently_looking: "Musician"
+  services: "Bagmaker",
+  currently_offering: "Bagmaker",
+  currently_looking: "A Musician"
 )
 
 user8.avatar.attach(
   io: File.open(File.join(Rails.root,'app/assets/images/mae1.jpg')),
   filename: 'mae1.jpg'
+)
+
+user8.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/index-bagmaker.jpg')),
+  filename: 'index-bagmaker.jpg'
 )
 
 #norberto freitas
@@ -185,7 +225,7 @@ user9 = User.create!(
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   services: "Writer",
   currently_offering: "Writer",
-  currently_looking: "Musician"
+  currently_looking: "A Musician"
 )
 
 user9.avatar.attach(
@@ -193,8 +233,13 @@ user9.avatar.attach(
   filename: 'paii.jpg'
 )
 
+user9.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/writer.jpg')),
+  filename: 'writer.jpg'
+)
+
 #nilufer aykar
-user9 = User.create!(
+user10 = User.create!(
   email: "l@l.l",
   password: "123456",
   first_name: "Nilüfer",
@@ -203,40 +248,50 @@ user9 = User.create!(
   phone_number: "1234567892",
   location: "Istanbul",
   language: "Turkish, English",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "Ice-skating",
-  currently_offering: "Dancing",
-  currently_looking: "Sculptor"
+  bio: "this is an easter egg",
+  services: "Embroiderer",
+  currently_offering: "Embroidering",
+  currently_looking: "A Sculptor"
 )
 
-user9.avatar.attach(
+user10.avatar.attach(
   io: File.open(File.join(Rails.root,'app/assets/images/nilufer.jpg')),
   filename: 'nilufer.jpg'
 )
 
+user10.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/embroidery2.jpg')),
+  filename: 'embroidery.jpg'
+)
+
 #nukhet aykar
-user10 = User.create!(
+user11 = User.create!(
   email: "n@n.n",
   password: "123456",
   first_name: "Nükhet",
   last_name: "Aykar",
   nickname: "nukhet",
   phone_number: "1234567892",
-  location: "Turkey",
+  location: "Montreal",
   language: "Turkish, French",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "Crocheting",
-  currently_offering: "Painting",
-  currently_looking: "Musician"
+  bio: "Passionate embroiderer with a needle in one hand and a thread in the other. I have never stopped since my mother and aunts first taught me when I was 10 years old.",
+  services: "Embroiderer",
+  currently_offering: "I can embroider designs on your tea towels, pillowcases, etc.",
+  currently_looking: "A sewing machine."
 )
 
-user10.avatar.attach(
+user11.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/embroiderer.jpg')),
+  filename: 'embroiderer.jpg'
+)
+
+user11.avatar.attach(
   io: File.open(File.join(Rails.root,'app/assets/images/anneanne.jpg')),
-  filename: 'anneanne.jpg'
+  filename: 'nukhet.jpg'
 )
 
 #erkan aykar
-user11 = User.create!(
+user12 = User.create!(
   email: "y@y.y",
   password: "123456",
   first_name: "Erkan",
@@ -246,18 +301,23 @@ user11 = User.create!(
   location: "Turkey",
   language: "Turkish, English",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "Directing movies",
+  services: "TV Director",
   currently_offering: "Director",
-  currently_looking: "Musician"
+  currently_looking: "A Musician"
 )
 
-user11.avatar.attach(
+user12.avatar.attach(
   io: File.open(File.join(Rails.root,'app/assets/images/dede.jpg')),
   filename: 'dede.jpg'
 )
 
+user12.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/dir.jpg')),
+  filename: 'dir.jpg'
+)
+
 #BRIAN!
-user12 = User.create!(
+user13 = User.create!(
   email: "z@z.z",
   password: "123456",
   first_name: "Brian",
@@ -267,85 +327,133 @@ user12 = User.create!(
   location: "Montreal",
   language: "pain",
   bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  services: "Save him",
+  services: "Actor",
   currently_offering: "Nothing",
   currently_looking: "Help"
 )
 
-user12.avatar.attach(
+user13.avatar.attach(
   io: File.open(File.join(Rails.root,'app/assets/images/brianhaha.jpg')),
   filename: 'brianhaha.jpg'
 )
 
+user13.photo.attach(
+  io: File.open(File.join(Rails.root,'app/assets/images/actor.jpg')),
+  filename: 'actor.jpg'
+)
+
 offer = Offer.create!(
   start_date: DateTime.new(2023, 3, 8, 4, 5, 6),
-  end_date: DateTime.new(2023, 3, 10, 4, 5, 6),
+  end_date: DateTime.new(2023, 3, 17, 4, 5, 6),
   my_tasks: "I will paint",
   others_tasks: "You will play music",
-  deposit: 250,
-  status: "pending",
+  deposit: 200,
+  status: "accepted",
   requester_id: user1.id,
   collaborator_id: user2.id
 )
 
+offer2 = Offer.create!(
+  start_date: DateTime.new(2023, 3, 10, 4, 5, 6),
+  end_date: DateTime.new(2023, 3, 24, 4, 5, 6),
+  my_tasks: "I will paint",
+  others_tasks: "You will play music",
+  deposit: 300,
+  status: "accepted",
+  requester_id: user1.id,
+  collaborator_id: user4.id
+)
+
+offer3 = Offer.create!(
+  start_date: DateTime.new(2023, 3, 15, 4, 5, 6),
+  end_date: DateTime.new(2023, 3, 18, 4, 5, 6),
+  my_tasks: "I will paint",
+  others_tasks: "You will play music",
+  deposit: 0,
+  status: "accepted",
+  requester_id: user1.id,
+  collaborator_id: user6.id
+)
+
+offer4 = Offer.create!(
+  start_date: DateTime.new(2023, 3, 16, 4, 5, 6),
+  end_date: DateTime.new(2023, 3, 28, 4, 5, 6),
+  my_tasks: "I will paint",
+  others_tasks: "You will play music",
+  deposit: 250,
+  status: "accepted",
+  requester_id: user9.id,
+  collaborator_id: user1.id
+)
+
+offer5 = Offer.create!(
+  start_date: DateTime.new(2023, 3, 6, 4, 5, 6),
+  end_date: DateTime.new(2023, 3, 11, 4, 5, 6),
+  my_tasks: "I will paint",
+  others_tasks: "You will play music",
+  deposit: 0,
+  status: "accepted",
+  requester_id: user8.id,
+  collaborator_id: user1.id
+)
+
 review = Review.create!(
   offer: offer,
-  content: "amazing",
+  content: "Amazing artist, really creative!",
   rating: 5.0,
-  user: user1
+  user: user4
 )
+
+review2 = Review.create!(
+  offer: offer2,
+  content: "Amazing artist, really creative!",
+  rating: 5.0,
+  user: user4
+)
+
+review3 = Review.create!(
+  offer: offer3,
+  content: "Amazing artist, really creative!",
+  rating: 5.0,
+  user: user6
+)
+
+review4 = Review.create!(
+  offer: offer4,
+  content: "Amazing artist, really creative!",
+  rating: 5.0,
+  user: user5
+)
+
 
 convo1 = Conversation.create(participant_one_id: user1.id, participant_two_id: user2.id)
 
 msg = Message.create!(
-  content: "hey",
+  content: "Hi Lara, how's it going?",
   conversation: convo1,
   user: user1
 )
 
 msg2 = Message.create!(
-  content: "hi",
+  content: "Great, you?",
   conversation: convo1,
   user: user2
 )
-#require "open-uri"
-#require "faker"
 
-#puts "cleaning database"
-#User.destroy_all
+msg3 = Message.create!(
+  content: "How's your part of the offer going?",
+  conversation: convo1,
+  user: user1
+)
 
+msg4 = Message.create!(
+  content: "Great, I am almost done!",
+  conversation: convo1,
+  user: user2
+)
 
-
-#user1 = User.create!(
- # first_name: Faker::Name.first_name,
- # last_name: Faker::Name.last_name,
- # nickname: Faker::Superhero.name,
- # phone_number: Faker::PhoneNumber.cell_phone,
-  # phone_number: "5149991231",
- # location: Faker::Address.country,
- # language: Faker::Nation.language,
- # email: "a@a.a",
- # password: "123456"
-#)
-
-#user2 = User.create!(
- # first_name: Faker::Name.first_name,
- # last_name: Faker::Name.last_name,
- # nickname: Faker::Superhero.name,
- # phone_number: Faker::PhoneNumber.cell_phone,
- # location: Faker::Address.country,
- # language: Faker::Nation.language,
- # email: "b@b.b",
- # password: "123456"
-#)
-
-#user3 = User.create!(
- # first_name: Faker::Name.first_name,
- # last_name: Faker::Name.last_name,
- # nickname: Faker::Superhero.name,
- # phone_number: Faker::PhoneNumber.cell_phone,
- # location: Faker::Address.country,
- # language: Faker::Nation.language,
- # email: "c@c.c",
- # password: "123456"
-#)
+msg5 = Message.create!(
+  content: "Cool, I'll catch you later!",
+  conversation: convo1,
+  user: user1
+)

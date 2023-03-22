@@ -23,16 +23,16 @@
             <% end %>
         </div>
           <div class="box-name-link-back">
-            <div class="name-artist">
+            <div class="name-artist"><strong>
             <% if @conversation.participant_one_id == current_user.id %>
-              <%= User.find(@conversation.participant_two_id).first_name %>
+              <%= User.find(@conversation.participant_two_id).first_name %> <%= User.find(@conversation.participant_two_id).last_name %>
             <% else %>
-              <%= User.find(@conversation.participant_one_id).first_name %>
+              <%= User.find(@conversation.participant_one_id).first_name %> <%= User.find(@conversation.participant_one_id).last_name %>
             <% end %>
-            </div>
+            </strong></div>
             <div class="back-to-profil-box">
               <p class="back-to-profil-link">
-                <%= link_to "Go to profile", artist_path(@user) %>
+                <%= link_to "Go to profile", artist_path(@user), class: "btn btn-goto rounded-pill" %>
               </p>
           </div>
         </div>
